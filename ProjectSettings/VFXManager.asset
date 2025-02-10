@@ -10,3 +10,8 @@ VFXManager:
   m_RenderPipeSettingsPath: 
   m_FixedTimeStep: 0.016666668
   m_MaxDeltaTime: 0.05
+<<<<<<< HEAD
+=======
+  m_CompiledVersion: 0
+  m_RuntimeVersion: 0
+>>>>>>> 4e5a728b7883da2cffc92007331873a5f13b97c7
