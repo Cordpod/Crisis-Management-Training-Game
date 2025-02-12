@@ -1,0 +1,37 @@
+{
+  "dialogue": [
+    {
+      "id": "heart_attack_intro",
+      "speaker": "Heart_Attack_Girl",
+      "lines": [
+        { "text": "You notice there is someone panting with shallow breaths.<br>They look like they are sweating excessively but were not rushing anywhere. They also look like they are feeling dizzy. These are signs of a heart attack.", "nextId": "heart_attack_qn1"}
+      ]
+    },
+    {
+      "id": "heart_attack_qn1",
+      "speaker": "Heart_Attack_Girl",
+      "lines": [
+        { "text": "After verifying that they are having a heart attack, you decide to seek help.<br>Do you:", 
+            "options": [
+            { "text": "Just exploring.", "nextId": "explore" },
+            { "text": "None of your business.", "nextId": "rude_reply" }
+        ]}
+      ]
+    },
+    {
+      "id": "explore",
+      "speaker": "Heart_Attack_Girl",
+      "lines": [{ "text": "Ah, a curious soul! Be careful around here." }]
+    },
+    {
+      "id": "explore",
+      "speaker": "NPC_John",
+      "lines": [{ "text": "Ah, a curious soul! Be careful around here." }]
+    },
+    {
+      "id": "rude_reply",
+      "speaker": "NPC_John",
+      "lines": [{ "text": "Well, no need to be rude about it!" }]
+    }
+  ]
+}
