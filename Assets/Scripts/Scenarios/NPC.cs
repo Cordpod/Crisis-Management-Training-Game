@@ -4,43 +4,26 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    public string dialogueId; // Set this in the Inspector for each NPC
+    public string scenarioName; // Set this in the Inspector for each NPC
 
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // Handle Mouse Click (PC Testing)
-        if (Input.GetMouseButtonDown(0))
+
+        if (other.CompareTag("Player"))
         {
-            CheckInteraction(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        }
+            StartCoroutine(HighlightNPC());
+            ScenarioCoordinator.instance.StartScenario(scenarioName);
+            Debug.Log("calling the scenario coordinator from NPC.cs");
 
-        // Handle Touch Input (Mobile)
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            CheckInteraction(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position));
-        }
-    }
-
-    void CheckInteraction(Vector2 clickPosition)
-    {
-        RaycastHit2D hit = Physics2D.Raycast(clickPosition, Vector2.zero);
-
-        if (hit.collider != null && hit.collider.gameObject == gameObject)
-        {
-            Debug.Log("NPC clicked: " + gameObject.name);
-            TriggerDialogue();
-        }
-    }
-
-    void TriggerDialogue()
-    {
-        // Highlight the NPC briefly
-        StartCoroutine(HighlightNPC());
-
-        DialogueEntry dialogue = DialogueManager.instance.GetDialogueById(dialogueId);
-        if (dialogue != null)
-        {
-            DialogueUI.instance.DisplayDialogue(dialogue);
+            //DialogueEntry dialogue = DialogueManager.instance.GetDialogueById(dialogueId);
+            //if (dialogue != null)
+            //{
+            //    Debug.Log("dialogue found");
+            //    DialogueUI.instance.DisplayDialogue(dialogue);
+            //}
+            //else {
+            //    Debug.Log("dialogue not found");  
+            //}
         }
     }
 

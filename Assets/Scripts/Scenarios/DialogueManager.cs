@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [System.Serializable]
@@ -14,6 +15,7 @@ public class DialogueLine
 {
     public string text;
     public List<DialogueOption> options;
+    public string nextId;
 }
 
 [System.Serializable]
@@ -38,12 +40,20 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else { 
+            Destroy(gameObject); 
+        }
     }
 
     public void LoadDialogueForScenario(string scenarioName)
     {
-        TextAsset jsonFile = Resources.Load<TextAsset>($"Dialogue/{scenarioName}/dialogue");
+        Debug.Log("dialogueManager called");
+        // TextAsset jsonFile = Resources.Load<TextAsset>($"Dialogue/{scenarioName}/dialogue");
+        TextAsset jsonFile = Resources.Load<TextAsset>("Dialogue");
         if (jsonFile != null)
         {
             dialogueData = JsonUtility.FromJson<DialogueData>(jsonFile.text);
@@ -57,6 +67,7 @@ public class DialogueManager : MonoBehaviour
 
     public DialogueEntry GetDialogueById(string id)
     {
+        Debug.Log($"DialogueManager.GetDialogueByID: {dialogueData?.dialogue.Find(d => d.id == id)}");
         return dialogueData?.dialogue.Find(d => d.id == id);
     }
 }

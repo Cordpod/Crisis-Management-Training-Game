@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cab96c78f61184ab490cda637f2818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: GameSceneLeft3
+  targetScene: GameSceneLeft2
   entryDirection: Right
 --- !u!61 &859621345
 BoxCollider2D:

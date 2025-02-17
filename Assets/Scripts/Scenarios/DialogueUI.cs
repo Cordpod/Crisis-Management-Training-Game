@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +9,16 @@ public class DialogueUI : MonoBehaviour
     // Singleton instance
     public static DialogueUI instance;
 
-    public Text dialogueText;
+    public TMP_Text dialogueText;
     public GameObject optionsContainer;
     public Button optionButtonPrefab;
+
+    private DialogueEntry currentDialogue; //For current ref dialogue
+
+    private void Start()
+    {
+        gameObject.SetActive(false); // Hide dialogue box on start
+    }
 
     private void Awake()
     {
@@ -27,33 +35,95 @@ public class DialogueUI : MonoBehaviour
 
     public void DisplayDialogue(DialogueEntry dialogue)
     {
+
+        gameObject.SetActive(true); // Dialogue box appear
+        currentDialogue = dialogue; // Storing the current dialogue here
+
         dialogueText.text = dialogue.lines[0].text;
+        Debug.Log($"Displaying current dialogue: {dialogueText.text}");
+        //dialogueText.gameObject.SetActive(true); // Force-enable TMP text object
 
-        // Clear previous options
-        foreach (Transform child in optionsContainer.transform)
-            Destroy(child.gameObject);
-
-        // Create buttons for options
-        foreach (var option in dialogue.lines[0].options)
+        if (dialogueText == null) // Checking that text was got successfully
         {
-            Button btn = Instantiate(optionButtonPrefab, optionsContainer.transform);
-            btn.GetComponentInChildren<Text>().text = option.text;
-            btn.onClick.AddListener(() => OnOptionSelected(option.nextId));
+            Debug.LogError("dialogueText is NULL! Check if it's assigned.");
+            return;
+        }
+
+        if (dialogue.lines[0].options.Count > 0)
+        {
+            optionsContainer.SetActive(true);
+            foreach (var option in dialogue.lines[0].options)
+            {
+                Button btn = Instantiate(optionButtonPrefab, optionsContainer.transform);
+                btn.GetComponentInChildren<TMP_Text>().text = option.text;
+                Debug.Log($"option text for button: {option.text}, option nextId for button {option.nextId} " );
+                btn.onClick.AddListener(() => ContinueDialogue(option.nextId));
+            }
+        }
+        else
+        {
+            optionsContainer.SetActive(false); // Hide buttons when no choices exist
+        } 
+    }
+    //    // Clear previous options
+    //    foreach (Transform child in optionsContainer.transform)
+    //        Destroy(child.gameObject);
+
+    //    // Create buttons for options
+    //    foreach (var option in dialogue.lines[0].options)
+    //    {
+    //        Button btn = Instantiate(optionButtonPrefab, optionsContainer.transform);
+    //        btn.GetComponentInChildren<Text>().text = option.text;
+    //        btn.onClick.AddListener(() => OnOptionSelected(option.nextId));
+    //    }
+    //}
+
+    //void OnOptionSelected(string nextId)
+    //{
+    //    var nextDialogue = DialogueManager.instance.GetDialogueById(nextId);
+    //    if (nextDialogue != null)
+    //    {
+    //        DisplayDialogue(nextDialogue);
+    //    }
+    //    else
+    //    {
+    //        // Hide dialogue UI if there's no next dialogue
+    //        dialogueText.text = "";
+    //        optionsContainer.SetActive(false);
+    //    }
+
+    private void Update() // Handles screen clicks to move on dialogue
+    {
+        if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+        {
+            Debug.Log("Screen Clicked");
+            //ContinueDialogue();
+
+            if (optionsContainer.activeSelf == false) // Only advance if no choices exist
+            {
+                if (currentDialogue != null && currentDialogue.lines[0].options.Count == 0)
+                {
+                    ContinueDialogue(currentDialogue.lines[0].nextId); // Retrieve nextId from the current dialogue
+                }
+            }
         }
     }
-
-    void OnOptionSelected(string nextId)
+    void ContinueDialogue(string nextId)
     {
-        var nextDialogue = DialogueManager.instance.GetDialogueById(nextId);
+        Debug.Log($"Calling ContinueDialogue, Moving to Next Dialogue Line Id:{nextId}");
+
+        var nextDialogue = DialogueManager.instance.GetDialogueById(nextId); 
+        Debug.Log($"Getting nextDialogue: {nextDialogue}" );
+
         if (nextDialogue != null)
         {
             DisplayDialogue(nextDialogue);
         }
         else
         {
-            // Hide dialogue UI if there's no next dialogue
-            dialogueText.text = "";
-            optionsContainer.SetActive(false);
+            Debug.Log("Dialogue Ended");
+            gameObject.SetActive(false); // Hide dialogue box when finished
         }
     }
+
 }
