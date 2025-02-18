@@ -44,7 +44,6 @@ public class DialogueUI : MonoBehaviour
 
         dialogueText.text = dialogue.lines[0].text;
         Debug.Log($"Displaying current dialogue: {dialogueText.text}");
-        //dialogueText.gameObject.SetActive(true); // Force-enable TMP text object
 
         if (dialogueText == null) // Checking that text was got successfully
         {
@@ -54,21 +53,21 @@ public class DialogueUI : MonoBehaviour
 
         if (dialogue.lines[0].options.Count > 0)
         {
-            optionsContainer.SetActive(true);
 
-            //StartCoroutine(ClearOptionsAndGenerateNew(dialogue));
-            //foreach (Transform child in optionsContainer.transform)
-            //{
-            //    Destroy(child.gameObject);
-            //}
+            foreach (Transform child in optionsContainer.transform)
+            {
+                Destroy(child.gameObject);
+                Debug.Log($"destroyed: {child.name}");
+            }
+
+            optionsContainer.SetActive(true);
 
             foreach (var option in dialogue.lines[0].options)
             {
                 Button btn = Instantiate(optionButtonPrefab, optionsContainer.transform);
                 TMP_Text btnText = btn.GetComponentInChildren<TMP_Text>();
                 if (btnText != null) { btnText.text = option.text; }
-                else { Debug.LogError("TMP text to found in button prefab"); }
-                //btn.GetComponentInChildren<TMP_Text>().text = option.text;
+                else { Debug.LogError("TMP text not found in button prefab"); }
                 Debug.Log($"option text for button: {option.text}, option nextId for button {option.nextId} " );
                 btn.onClick.AddListener(() => ContinueDialogue(option.nextId));
             }
@@ -78,32 +77,6 @@ public class DialogueUI : MonoBehaviour
             optionsContainer.SetActive(false); // Hide buttons when no choices exist
         } 
     }
-    //    // Clear previous options
-    //    foreach (Transform child in optionsContainer.transform)
-    //        Destroy(child.gameObject);
-
-    //    // Create buttons for options
-    //    foreach (var option in dialogue.lines[0].options)
-    //    {
-    //        Button btn = Instantiate(optionButtonPrefab, optionsContainer.transform);
-    //        btn.GetComponentInChildren<Text>().text = option.text;
-    //        btn.onClick.AddListener(() => OnOptionSelected(option.nextId));
-    //    }
-    //}
-
-    //void OnOptionSelected(string nextId)
-    //{
-    //    var nextDialogue = DialogueManager.instance.GetDialogueById(nextId);
-    //    if (nextDialogue != null)
-    //    {
-    //        DisplayDialogue(nextDialogue);
-    //    }
-    //    else
-    //    {
-    //        // Hide dialogue UI if there's no next dialogue
-    //        dialogueText.text = "";
-    //        optionsContainer.SetActive(false);
-    //    }
 
     private void Update() // Handles screen clicks to move on dialogue
     {
@@ -126,7 +99,7 @@ public class DialogueUI : MonoBehaviour
         Debug.Log($"Calling ContinueDialogue, Moving to Next Dialogue Line Id:{nextId}");
 
         var nextDialogue = DialogueManager.instance.GetDialogueById(nextId); 
-        Debug.Log($"Getting nextDialogue: {nextDialogue}" );
+        //Debug.Log($"Getting nextDialogue: {nextDialogue}" );
 
         if (nextDialogue != null)
         {
@@ -139,30 +112,4 @@ public class DialogueUI : MonoBehaviour
             isDialogueActive = false;
         }
     }
-
-    IEnumerator ClearOptionsAndGenerateNew(DialogueEntry dialogue)
-    {
-        // Wait until next frame to prevent UI glitch
-        yield return null;
-
-        // Remove old buttons
-        foreach (Transform child in optionsContainer.transform)
-        {
-            Destroy(child.gameObject);
-        }
-
-        // Now generate new buttons
-        foreach (var option in dialogue.lines[0].options)
-        {
-            Button btn = Instantiate(optionButtonPrefab, optionsContainer.transform);
-            TMP_Text btnText = btn.GetComponentInChildren<TMP_Text>();
-
-            if (btnText != null) { btnText.text = option.text; }
-            else { Debug.LogError("TMP text not found in button prefab"); }
-
-            Debug.Log($"Option: {option.text} -> NextId: {option.nextId}");
-            btn.onClick.AddListener(() => ContinueDialogue(option.nextId));
-        }
-    }
-
 }

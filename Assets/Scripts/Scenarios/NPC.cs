@@ -13,7 +13,7 @@ public class NPC : MonoBehaviour
         {
             StartCoroutine(HighlightNPC());
             ScenarioCoordinator.instance.StartScenario(scenarioName);
-            Debug.Log("calling the scenario coordinator from NPC.cs");
+            //Debug.Log("calling the scenario coordinator from NPC.cs");
 
             //DialogueEntry dialogue = DialogueManager.instance.GetDialogueById(dialogueId);
             //if (dialogue != null)
