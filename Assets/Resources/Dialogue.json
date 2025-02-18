@@ -11,32 +11,43 @@
       "id": "TestScene1",
       "speaker": "Heart_Attack_Girl",
       "lines": [
-        { "text": " testscene dialogue 2", "nextId": "heart_attack_qn1"}
+        { "text": " testscene dialogue 2", "nextId": "TestScene2"}
       ]
     },
     {
-      "id": "heart_attack_qn1",
+      "id": "TestScene2",
       "speaker": "Heart_Attack_Girl",
       "lines": [
         { "text": "After verifying that they are having a heart attack, you decide to seek help.<br>Do you:", 
             "options": [
-            { "text": "Just exploring.", "nextId": "explore" },
-            { "text": "None of your business.", "nextId": "rude_reply" }
+            { "text": "Just exploring.", "nextId": "TestScene3" },
+            { "text": "None of your business.", "nextId": "TestScene3" }
         ]}
       ]
     },
     {
-      "id": "explore",
+      "id": "TestScene3",
       "speaker": "Heart_Attack_Girl",
-      "lines": [{ "text": "Ah, a curious soul! Be careful around here." }]
+      "lines": [
+        { "text": "options two:", 
+            "options": [
+            { "text": "rrtrtrg.", "nextId": "TestScene6" },
+            { "text": "None ofefss.", "nextId": "TestScene6" }
+        ]}
+      ]
     },
     {
-      "id": "explore",
+      "id": "TestScene6",
+      "speaker": "Heart_Attack_Girl",
+      "lines": [{ "text": "Ah, a curious soul! Be careful around here." , "nextId": "TestScene5"}]
+    },
+    {
+      "id": "TestScene4",
       "speaker": "NPC_John",
-      "lines": [{ "text": "Ah, a curious soul! Be careful around here." }]
+      "lines": [{ "text": "Ah, a curious soul! Be careful around here." , "nextId": "TestScene5"}]
     },
     {
-      "id": "rude_reply",
+      "id": "TestScene5",
       "speaker": "NPC_John",
       "lines": [{ "text": "Well, no need to be rude about it!" }]
     }

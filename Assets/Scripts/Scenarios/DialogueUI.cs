@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ public class DialogueUI : MonoBehaviour
     public Button optionButtonPrefab;
 
     private DialogueEntry currentDialogue; //For current ref dialogue
+    public static bool isDialogueActive = false; // Global flag
 
     private void Start()
     {
@@ -37,6 +39,7 @@ public class DialogueUI : MonoBehaviour
     {
 
         gameObject.SetActive(true); // Dialogue box appear
+        isDialogueActive=true;
         currentDialogue = dialogue; // Storing the current dialogue here
 
         dialogueText.text = dialogue.lines[0].text;
@@ -52,10 +55,20 @@ public class DialogueUI : MonoBehaviour
         if (dialogue.lines[0].options.Count > 0)
         {
             optionsContainer.SetActive(true);
+
+            //StartCoroutine(ClearOptionsAndGenerateNew(dialogue));
+            //foreach (Transform child in optionsContainer.transform)
+            //{
+            //    Destroy(child.gameObject);
+            //}
+
             foreach (var option in dialogue.lines[0].options)
             {
                 Button btn = Instantiate(optionButtonPrefab, optionsContainer.transform);
-                btn.GetComponentInChildren<TMP_Text>().text = option.text;
+                TMP_Text btnText = btn.GetComponentInChildren<TMP_Text>();
+                if (btnText != null) { btnText.text = option.text; }
+                else { Debug.LogError("TMP text to found in button prefab"); }
+                //btn.GetComponentInChildren<TMP_Text>().text = option.text;
                 Debug.Log($"option text for button: {option.text}, option nextId for button {option.nextId} " );
                 btn.onClick.AddListener(() => ContinueDialogue(option.nextId));
             }
@@ -123,6 +136,32 @@ public class DialogueUI : MonoBehaviour
         {
             Debug.Log("Dialogue Ended");
             gameObject.SetActive(false); // Hide dialogue box when finished
+            isDialogueActive = false;
+        }
+    }
+
+    IEnumerator ClearOptionsAndGenerateNew(DialogueEntry dialogue)
+    {
+        // Wait until next frame to prevent UI glitch
+        yield return null;
+
+        // Remove old buttons
+        foreach (Transform child in optionsContainer.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Now generate new buttons
+        foreach (var option in dialogue.lines[0].options)
+        {
+            Button btn = Instantiate(optionButtonPrefab, optionsContainer.transform);
+            TMP_Text btnText = btn.GetComponentInChildren<TMP_Text>();
+
+            if (btnText != null) { btnText.text = option.text; }
+            else { Debug.LogError("TMP text not found in button prefab"); }
+
+            Debug.Log($"Option: {option.text} -> NextId: {option.nextId}");
+            btn.onClick.AddListener(() => ContinueDialogue(option.nextId));
         }
     }
 
