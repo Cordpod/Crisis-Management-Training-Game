@@ -1,0 +1,55 @@
+{
+  "dialogue": [
+    {
+      "id": "TestScene",
+      "speaker": "Heart_Attack_Girl",
+      "lines": [
+        { "text": "You notice there is someone panting with shallow breaths.<br>They look like they are sweating excessively but were not rushing anywhere. They also look like they are feeling dizzy. These are signs of a heart attack.", "nextId": "TestScene1"}
+      ]
+    },
+    {
+      "id": "TestScene1",
+      "speaker": "Heart_Attack_Girl",
+      "lines": [
+        { "text": " testscene dialogue 2", "nextId": "TestScene2"}
+      ]
+    },
+    {
+      "id": "TestScene2",
+      "speaker": "Heart_Attack_Girl",
+      "lines": [
+        { "text": "After verifying that they are having a heart attack, you decide to seek help.<br>Do you:", 
+            "options": [
+            { "text": "Just exploring.", "nextId": "TestScene3" },
+            { "text": "None of your business.", "nextId": "TestScene3" }
+        ]}
+      ]
+    },
+    {
+      "id": "TestScene3",
+      "speaker": "Heart_Attack_Girl",
+      "lines": [
+        { "text": "options two:", 
+            "options": [
+            { "text": "rrtrtrg.", "nextId": "TestScene6" },
+            { "text": "None ofefss.", "nextId": "TestScene6" }
+        ]}
+      ]
+    },
+    {
+      "id": "TestScene6",
+      "speaker": "Heart_Attack_Girl",
+      "lines": [{ "text": "Ah, a curious soul! Be careful around here." , "nextId": "TestScene5"}]
+    },
+    {
+      "id": "TestScene4",
+      "speaker": "NPC_John",
+      "lines": [{ "text": "Ah, a curious soul! Be careful around here." , "nextId": "TestScene5"}]
+    },
+    {
+      "id": "TestScene5",
+      "speaker": "NPC_John",
+      "lines": [{ "text": "Well, no need to be rude about it!" }]
+    }
+  ]
+}

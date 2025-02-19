@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (DialogueUI.isDialogueActive) return; // Stop movement when dialogue is active
         HandleInput();
         MoveCharacter();
     }
