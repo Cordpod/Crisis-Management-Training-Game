@@ -901,6 +901,7 @@ GameObject:
   - component: {fileID: 399070156}
   - component: {fileID: 399070155}
   - component: {fileID: 399070154}
+  - component: {fileID: 399070158}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -991,6 +992,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &399070158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399070153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9a82dcc6469bf42b44f664a8f14e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 132070207}
+  optionsContainer: {fileID: 1353835305}
+  optionButtonPrefab: {fileID: 1475211551}
 --- !u!1 &581723335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,7 +1809,7 @@ Transform:
   m_GameObject: {fileID: 1326222331}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1996857, y: -1.3220034, z: 0}
+  m_LocalPosition: {x: 5.68, y: -1.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2201,7 +2217,6 @@ GameObject:
   - component: {fileID: 1579844230}
   - component: {fileID: 1579844232}
   - component: {fileID: 1579844231}
-  - component: {fileID: 1579844233}
   m_Layer: 5
   m_Name: DialoguePanel
   m_TagString: Untagged
@@ -2269,21 +2284,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579844229}
   m_CullTransparentMesh: 1
---- !u!114 &1579844233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1579844229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa9a82dcc6469bf42b44f664a8f14e9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 132070207}
-  optionsContainer: {fileID: 1353835305}
-  optionButtonPrefab: {fileID: 1475211551}
 --- !u!1 &1596356004
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,7 +2416,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 2006543260, guid: d2144f25f5acec243810357817a27406, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2467,6 +2467,7 @@ GameObject:
   - component: {fileID: 1606745637}
   - component: {fileID: 1606745636}
   - component: {fileID: 1606745635}
+  - component: {fileID: 1606745638}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2524,6 +2525,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1606745638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606745634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51be8ad6760c614e9104a2a1b957b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1629654833
 GameObject:
   m_ObjectHideFlags: 0

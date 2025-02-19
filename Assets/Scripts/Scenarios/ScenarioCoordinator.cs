@@ -23,7 +23,7 @@ public class ScenarioCoordinator : MonoBehaviour
     {
         Debug.Log($"Starting scenario: {scenarioName}");
         DialogueManager.instance.LoadDialogueForScenario(scenarioName);
-        StartFirstDialogue();
+        StartFirstDialogue(scenarioName);
         TriggerScenarioSpecificAssets(scenarioName);
     }
 
@@ -40,14 +40,14 @@ public class ScenarioCoordinator : MonoBehaviour
         }
     }
 
-    private void StartFirstDialogue()
+    private void StartFirstDialogue(string scenarioName)
     {
-        // Assuming the first dialogue ID is "intro" for every scenario
-        DialogueEntry firstDialogue = DialogueManager.instance.GetDialogueById("TestScene");
+
+        DialogueEntry firstDialogue = DialogueManager.instance.GetDialogueById(scenarioName);
 
         if (firstDialogue != null)
         {
-            Debug.Log("Starting First Dialogue: intro");
+            Debug.Log($"Starting First Dialogue for: {scenarioName}");
             DialogueUI.instance.DisplayDialogue(firstDialogue);
         }
         else
