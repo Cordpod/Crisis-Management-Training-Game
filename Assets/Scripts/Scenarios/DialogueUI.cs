@@ -113,4 +113,11 @@ public class DialogueUI : MonoBehaviour
             isDialogueActive = false;
         }
     }
+    public void CloseDialogue()
+    {
+        Debug.Log("Dialogue closed.");
+        isDialogueActive = false; // Allow player to move again
+        gameObject.SetActive(false); // Hide dialogue box
+    }
+
 }
