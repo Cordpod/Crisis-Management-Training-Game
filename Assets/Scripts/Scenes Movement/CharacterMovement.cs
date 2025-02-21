@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     void HandleInput()
     {
         // For Mouse (PC Testing)
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             DetermineDirection(clickPosition);
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
+            if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
             {
                 Vector2 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
                 DetermineDirection(touchPosition);
