@@ -1,5 +1,8 @@
 {
   "dialogue": [
+
+
+
     {
       "id": "TestScene",
       "speaker": "Heart_Attack_Girl",
@@ -7,50 +10,50 @@
         { "text": "You notice there is someone panting with shallow breaths.<br>They look like they are sweating excessively but were not rushing anywhere. They also look like they are feeling dizzy. These are signs of a heart attack.", "nextId": "TestScene1"}
       ]
     },
-            {
-              "id": "TestScene1",
-              "speaker": "Heart_Attack_Girl",
-              "lines": [
-                { "text": " testscene dialogue 2", "nextId": "TestScene2"}
-              ]
-            },
-            {
-              "id": "TestScene2",
-              "speaker": "Heart_Attack_Girl",
-              "lines": [
-                { "text": "After verifying that they are having a heart attack, you decide to seek help.<br>Do you:", 
-                    "options": [
-                    { "text": "Just exploring.", "nextId": "TestScene3" },
-                    { "text": "None of your business.", "nextId": "TestScene3" }
-                ]}
-              ]
-            },
-            {
-              "id": "TestScene3",
-              "speaker": "Heart_Attack_Girl",
-              "lines": [
-                { "text": "options two:", 
-                    "options": [
-                    { "text": "rrtrtrg.", "nextId": "TestScene6" },
-                    { "text": "None ofefss.", "nextId": "TestScene6" }
-                ]}
-              ]
-            },
-            {
-              "id": "TestScene6",
-              "speaker": "Heart_Attack_Girl",
-              "lines": [{ "text": "Ah, a curious soul! Be careful around here." , "nextId": "TestScene5"}]
-            },
-            {
-              "id": "TestScene4",
-              "speaker": "NPC_John",
-              "lines": [{ "text": "Ah, a curious soul! Be careful around here." , "nextId": "TestScene5"}]
-            },
-            {
-              "id": "TestScene5",
-              "speaker": "NPC_John",
-              "lines": [{ "text": "Well, no need to be rude about it!" }]
-            },
+                {
+                  "id": "TestScene1",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": " testscene dialogue 2", "nextId": "TestScene2"}
+                  ]
+                },
+                {
+                  "id": "TestScene2",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "After verifying that they are having a heart attack, you decide to seek help.<br>Do you:", 
+                        "options": [
+                        { "text": "Just exploring.", "nextId": "TestScene3" },
+                        { "text": "None of your business.", "nextId": "TestScene3" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "TestScene3",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "options two:", 
+                        "options": [
+                        { "text": "rrtrtrg.", "nextId": "TestScene6" },
+                        { "text": "None ofefss.", "nextId": "TestScene6" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "TestScene6",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [{ "text": "Ah, a curious soul! Be careful around here." , "nextId": "TestScene5"}]
+                },
+                {
+                  "id": "TestScene4",
+                  "speaker": "NPC_John",
+                  "lines": [{ "text": "Ah, a curious soul! Be careful around here." , "nextId": "TestScene5"}]
+                },
+                {
+                  "id": "TestScene5",
+                  "speaker": "NPC_John",
+                  "lines": [{ "text": "Well, no need to be rude about it!" }]
+                },
 
 
 
@@ -63,85 +66,85 @@
         { "text": "You notice there is someone panting with shallow breaths.<br>They look like they are sweating excessively but were not rushing anywhere. They also look like they are feeling dizzy. <br><br> These are signs of a heart attack.", "nextId": "HeartAttack2"}
       ]
     },
-    {
-      "id": "HeartAttack2",
-      "speaker": "Heart_Attack_Girl",
-      "lines": [
-        { "text": "After verifying that they are having a heart attack, you decide to seek help.<br>Do you:<br>> Radio a medical professional to come and help <br>> Run to the nearest medical tent and inform them of the emergency <br>> Signal another volunteer to inform a professional while you stay", 
-            "options": [
-            { "text": "Radio for help", "nextId": "HeartAttack3" },
-            { "text": "Run to tent", "nextId": "HeartAttack3" },
-            { "text": "Signal volunteer", "nextId": "HeartAttack3" }
-        ]}
-      ]
-    },
-    {
-      "id": "HeartAttack3",
-      "speaker": "Heart_Attack_Girl",
-      "lines": [
-        { "text": "The medical professionals are on their way and a crowd starts to gather. <br><br> Do you: <br> > Form a barrier with other volunteers to keep bystanders at a safe distance <br> > Ask nearby spectators/runners to clear the space nearby <br> > Move nearby obstacles that might obstruct the medical professionals arrival", 
-            "options": [
-            { "text": "Form barrier", "nextId": "HeartAttack4" },
-            { "text": "Ask runners to clear space", "nextId": "HeartAttack4" },
-            { "text": "Move obstacles", "nextId": "HeartAttack4" }
-        ]}
-      ]
-    },
-    {
-      "id": "HeartAttack4",
-      "speaker": "Heart_Attack_Girl",
-      "lines": [
-        { "text": "The medical staff have not arrived, so you should attend to the patient.<br><br>Do you:<br>> Start CPR immediately, since you are certified<br>> Call for someone in the crowd who is medically trained to assist with CPR<br>> Locate the nearest AED and bring it over", 
-            "options": [
-            { "text": "Start CPR", "nextId": "HeartAttack5" },
-            { "text": "Call passerby", "nextId": "HeartAttack5" },
-            { "text": "Get AED", "nextId": "HeartAttack5" }
-        ]}
-      ]
-    },
-    {
-      "id": "HeartAttack5",
-      "speaker": "Heart_Attack_Girl",
-      "lines": [
-        { "text": "The medical staff arrived and taken over, so you focus on the crowd.<br><br>Do you:<br>> Calmly inform the crowd that the medical professionals are taking care of the situation<br>> Politely ask them to avoid taking pictures or crowd the area<br>> Direct worried bystanders toward officials to answer their questions", 
-            "options": [
-            { "text": "Inform crowd", "nextId": "HeartAttack6" },
-            { "text": "Stop phototaking", "nextId": "HeartAttack6" },
-            { "text": "Redirect to officials", "nextId": "HeartAttack6" }
-        ]}
-      ]
-    },
-    {
-      "id": "HeartAttack6",
-      "speaker": "Heart_Attack_Girl",
-      "lines": [
-        { "text": "After addressing the crowd, you decide to inform the marathon officials.<br><br>Do you:<br>> Provide location details through the communication channels<br>> Assign another volunteer to guide the ambulance through the crowd<br>> Inform the race director about the situation and provide the paramedics with details", 
-            "options": [
-            { "text": "Just exploring.", "nextId": "HeartAttack7" },
-            { "text": "None of your business.", "nextId": "HeartAttack7" },
-            { "text": "Just exploring.", "nextId": "HeartAttack7" }
-        ]}
-      ]
-    },
-    {
-      "id": "HeartAttack7",
-      "speaker": "Heart_Attack_Girl",
-      "lines": [
-        { "text": "You are now closing the matter before moving on to other checkpoints in the marathon.<br><br>Do you:<br>> Offer reassurance to nearby distressed bystanders<br>> Follow up with the race directors if the emergency contacts have been notified<br>> Assist in resuming normal marathon operations", 
-            "options": [
-            { "text": "Offer reassurance", "nextId": "HeartAttackEnd" },
-            { "text": "Follow up with race directors", "nextId": "HeartAttackEnd" },
-            { "text": "Assist resuming race", "nextId": "HeartAttackEnd" }
-        ]}
-      ]
-    },
-    {
-      "id": "HeartAttackEnd",
-      "speaker": "Heart_Attack_Girl",
-      "lines": [
-        { "text": " The patient is being transferred to receive appropriate medical care and the crowd has dispersed.<br><br>The marathon officials have been notified and updated about the incident.<br><br>You can now move on to check on other volunteers and checkpoints along the marathon route.2"}
-      ]
-    },
+                {
+                  "id": "HeartAttack2",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "After verifying that they are having a heart attack, you decide to seek help.<br>Do you:<br>1. Radio a medical professional to come and help <br>2. Run to the nearest medical tent and inform them of the emergency <br>3. Signal another volunteer to inform a professional while you stay", 
+                        "options": [
+                        { "text": "1", "nextId": "HeartAttack3" },
+                        { "text": "2", "nextId": "HeartAttack3" },
+                        { "text": "3", "nextId": "HeartAttack3" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "HeartAttack3",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "The medical professionals are on their way and a crowd starts to gather. <br><br> Do you: <br>1. Form a barrier with other volunteers to keep bystanders at a safe distance <br>2. Ask nearby spectators/runners to clear the space nearby <br>3. Move nearby obstacles that might obstruct the medical professionals arrival", 
+                        "options": [
+                        { "text": "1", "nextId": "HeartAttack4" },
+                        { "text": "2", "nextId": "HeartAttack4" },
+                        { "text": "3", "nextId": "HeartAttack4" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "HeartAttack4",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "The medical staff have not arrived, so you should attend to the patient.<br><br>Do you:<br>1. Start CPR immediately, since you are certified<br>2. Call for someone in the crowd who is medically trained to assist with CPR<br>3. Locate the nearest AED and bring it over", 
+                        "options": [
+                        { "text": "1", "nextId": "HeartAttack5" },
+                        { "text": "2", "nextId": "HeartAttack5" },
+                        { "text": "3", "nextId": "HeartAttack5" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "HeartAttack5",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "The medical staff arrived and taken over, so you focus on the crowd.<br><br>Do you:<br>1. Calmly inform the crowd that the medical professionals are taking care of the situation<br>2. Politely ask them to avoid taking pictures or crowd the area<br>3. Direct worried bystanders toward officials to answer their questions", 
+                        "options": [
+                        { "text": "1", "nextId": "HeartAttack6" },
+                        { "text": "2", "nextId": "HeartAttack6" },
+                        { "text": "3", "nextId": "HeartAttack6" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "HeartAttack6",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "After addressing the crowd, you decide to inform the marathon officials.<br><br>Do you:<br>1. Provide location details through the communication channels<br>2. Assign another volunteer to guide the ambulance through the crowd<br>3. Inform the race director about the situation and provide the paramedics with details", 
+                        "options": [
+                        { "text": "1", "nextId": "HeartAttack7" },
+                        { "text": "2", "nextId": "HeartAttack7" },
+                        { "text": "3", "nextId": "HeartAttack7" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "HeartAttack7",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "You are now closing the matter before moving on to other checkpoints in the marathon.<br><br>Do you:<br>1. Offer reassurance to nearby distressed bystanders<br>2. Follow up with the race directors if the emergency contacts have been notified<br>3. Assist in resuming normal marathon operations", 
+                        "options": [
+                        { "text": "1", "nextId": "HeartAttackEnd" },
+                        { "text": "2", "nextId": "HeartAttackEnd" },
+                        { "text": "3", "nextId": "HeartAttackEnd" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "HeartAttackEnd",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": " The patient is being transferred to receive appropriate medical care and the crowd has dispersed.<br><br>The marathon officials have been notified and updated about the incident.<br><br>You can now move on to check on other volunteers and checkpoints along the marathon route.2"}
+                  ]
+                },
 
 
 
@@ -151,87 +154,251 @@
       "id": "MissingFamilyStart",
       "speaker": "Heart_Attack_Girl",
       "lines": [
-        { "text": "You notice there is someone panting with shallow breaths.<br>They look like they are sweating excessively but were not rushing anywhere. They also look like they are feeling dizzy. <br><br> These are signs of a heart attack.", "nextId": "HeartAttack2"}
+        { "text": "A volunteer reports to you that a runner’s family claims that their family member is missing. <br><br>You are to verify and determine if this report requires further action.", "nextId": "MissingFamily2"}
       ]
     },
+                {
+                  "id": "MissingFamily2",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "You now decide how to go about verifying the report.<br><br>Do you:<br>1. Check the runner database<br>2. Ask volunteers at key checkpoints<br>3. Immediately escalate to security ", 
+                        "options": [
+                        { "text": "1", "nextId": "MissingFamily3" },
+                        { "text": "2", "nextId": "MissingFamily3" },
+                        { "text": "3", "nextId": "MissingFamily3" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "MissingFamily3",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "The missing runner report is confirmed. You must now organize a search using available resources.<br><br>Do you:<br>1. Deploy nearby volunteers<br>2. Check race tracking data & CCTV<br>3. Request emergency personnel", 
+                        "options": [
+                        { "text": "1", "nextId": "MissingFamily4" },
+                        { "text": "2", "nextId": "MissingFamily4" },
+                        { "text": "3", "nextId": "MissingFamily4" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "MissingFamily4",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "Multiple reports come in about the missing runner, but some are contradictory.<br><br>Do you:<br>1. Immediately act on the most frequent report<br>2. Verify reports by cross-checking with more sources<br>3. Ignore reports and continue a general search", 
+                        "options": [
+                        { "text": "1", "nextId": "MissingFamily5" },
+                        { "text": "2", "nextId": "MissingFamily5" },
+                        { "text": "3", "nextId": "MissingFamily5" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "MissingFamily5",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "The initial search has not yet yielded results. You must now decide how to proceed.<br><br>Do you:<br>1. Reallocate search teams based on last known sighting<br>2. Expand search perimeter in all directions<br>3. Continue the existing search strategy ", 
+                        "options": [
+                        { "text": "1", "nextId": "MissingFamily6" },
+                        { "text": "2", "nextId": "MissingFamily6" },
+                        { "text": "3", "nextId": "MissingFamily6" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "MissingFamily6",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "The missing runner is finally found but is disoriented. <br><br>Do you:<br>1. Escort them immediately to safety<br>2. Call medical personnel first <br>3. Allow them time to recover before moving", 
+                        "options": [
+                        { "text": "1", "nextId": "MissingFamily7" },
+                        { "text": "2", "nextId": "MissingFamily7" },
+                        { "text": "3", "nextId": "MissingFamily7" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "MissingFamily7",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "You are now closing the report before moving on to other checkpoints in the marathon.<br><br>Do you:<br>1. Confirm the runner’s identity and document key details for records<br>2. Coordinate with medical staff to assess condition and arrange transport if needed<br>3. Report the resolution to race officials and volunteers", 
+                        "options": [
+                        { "text": "1", "nextId": "MissingFamilyEnd" },
+                        { "text": "2", "nextId": "MissingFamilyEnd" },
+                        { "text": "3", "nextId": "MissingFamilyEnd" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "MissingFamilyEnd",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": " The missing runner has been located and is now receiving appropriate medical care.<br><br>The marathon officials, as well as the runner’s family, have been notified and updated about the incident.<br><br>You can now move on to check on other volunteers and checkpoints along the marathon route."}   
+                  ]
+                },
+      
+      
+      
+      
+      
     {
-      "id": "MissingFamily2",
+      "id": "AnkleSprainStart",
       "speaker": "Heart_Attack_Girl",
       "lines": [
-        { "text": "After verifying that they are having a heart attack, you decide to seek help.<br>Do you:<br>> Radio a medical professional to come and help <br>> Run to the nearest medical tent and inform them of the emergency <br>> Signal another volunteer to inform a professional while you stay", 
+        { "text": "You noticed a lady sitting on the side.<br>She tells you that she has an ankle sprain.<br><br>Do you:<br>1. Stretch her ankle<br>2. Ask the severity of her condition<br>3. Encourage her to call an ambulance and go to the hospital", 
             "options": [
-            { "text": "Radio for help", "nextId": "HeartAttack3" },
-            { "text": "Run to tent", "nextId": "HeartAttack3" },
-            { "text": "Signal volunteer", "nextId": "HeartAttack3" }
+            { "text": "1", "nextId": "AnkleSprain1" },
+            { "text": "2", "nextId": "AnkleSprain1" },
+            { "text": "3", "nextId": "AnkleSprain1" }
         ]}
       ]
     },
+                {
+                  "id": "AnkleSprain1",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "She seems like her ankle is feeling better and she wants to continue running.<br><br>Do you:<br>1. encourage her to rest and pass her to the medic to monitor her condition<br>2. insist on visiting the hospital and call the ambulance<br>3. Ensure the runner is alright and allow her to continue running", 
+                        "options": [
+                        { "text": "1", "nextId": "AnkleSprain2" },
+                        { "text": "2", "nextId": "AnkleSprain2" },
+                        { "text": "3", "nextId": "AnkleSprain2" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "AnkleSprain2",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "Choose each step in order", 
+                        "options": [
+                        { "text": "Rest", "nextId": "AnkleSprain3" },
+                        { "text": "Ice", "nextId": "AnkleSprain3" },
+                        { "text": "Compression", "nextId": "AnkleSprain3" },
+                        { "text": "Elevation", "nextId": "AnkleSprain3" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "AnkleSprain not used",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "---", 
+                        "options": [
+                        { "text": "-", "nextId": "-" },
+                        { "text": "-", "nextId": "-" },
+                        { "text": "-", "nextId": "-" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "AnkleSprain3",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": " Fill the rest ltr"}
+                  ]
+                },
+
+
+
+
+
     {
-      "id": "MissingFamily3",
+      "id": "MuscleCrampStart",
       "speaker": "Heart_Attack_Girl",
       "lines": [
-        { "text": "The medical professionals are on their way and a crowd starts to gather. <br><br> Do you: <br> > Form a barrier with other volunteers to keep bystanders at a safe distance <br> > Ask nearby spectators/runners to clear the space nearby <br> > Move nearby obstacles that might obstruct the medical professionals arrival", 
+        { "text": "You noticed that a runner running slowly and in pain. You asked him what is wrong. He mentioned that he has a muscle cramp.<br><br>Do you:<br>1. Tell the runner to stop and rest<br>2. Encourage him to carry on", 
             "options": [
-            { "text": "Form barrier", "nextId": "HeartAttack4" },
-            { "text": "Ask runners to clear space", "nextId": "HeartAttack4" },
-            { "text": "Move obstacles", "nextId": "HeartAttack4" }
+            { "text": "1", "nextId": "MuscleCramp2" },
+            { "text": "2", "nextId": "MuscleCramp2" }
         ]}
       ]
     },
-    {
-      "id": "MissingFamily4",
+                {
+                  "id": "MuscleCramp1",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "The runner sits on the pavement and reaches for his legs.<br><br>Do you want to:<br>1. Ask where the pain is<br>2. Stretch the calf<br>3. Stretch the hamstring<br>4. stretch the quadriceps", 
+                        "options": [
+                        { "text": "1", "nextId": "MuscleCramp2" },
+                        { "text": "2", "nextId": "MuscleCramp2" },
+                        { "text": "3", "nextId": "MuscleCramp2" },
+                        { "text": "4", "nextId": "MuscleCramp2" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "MuscleCramp2",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "He mentions that his ______ is cramping.<br><br>Do you want to:<br>1. Stretch the ______<br>2. Ice the ______<br>3. Bandage the ______", 
+                        "options": [
+                        { "text": "1", "nextId": "AnkleSprain3" },
+                        { "text": "2", "nextId": "AnkleSprain3" },
+                        { "text": "3", "nextId": "AnkleSprain3" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "MuscleCramp3",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "He feels better and thanks you. <br><br>Do you:<br>1. encourage him to rest and pass him to the medic to monitor his condition<br>2. insist on visiting the hospital and call the ambulance<br>3. Ensure the runner is alright and allow him to continue running", 
+                        "options": [
+                        { "text": "1" , "nextId": "UniversalEnd"},
+                        { "text": "2" , "nextId": "UniversalEnd"},
+                        { "text": "3" , "nextId": "UniversalEnd"}
+                    ]}
+                  ]
+                }, 
+
+
+{
+      "id": "HeatstrokeStart",
       "speaker": "Heart_Attack_Girl",
       "lines": [
-        { "text": "The medical staff have not arrived, so you should attend to the patient.<br><br>Do you:<br>> Start CPR immediately, since you are certified<br>> Call for someone in the crowd who is medically trained to assist with CPR<br>> Locate the nearest AED and bring it over", 
+        { "text": "You noticed that a runner’s face is flushed and he appears dizzy. You stop him and he mumbles something, his words slurred and unclear.<br><br>Do you:<br>1. Call the medic<br>2. Call the ambulance<br>2. Ensure the runner is alright and allow him to continue running", 
             "options": [
-            { "text": "Start CPR", "nextId": "HeartAttack5" },
-            { "text": "Call passerby", "nextId": "HeartAttack5" },
-            { "text": "Get AED", "nextId": "HeartAttack5" }
+            { "text": "1", "nextId": "Heatstroke2" },
+            { "text": "2", "nextId": "Heatstroke2" },
+            { "text": "3", "nextId": "Heatstroke2" }
         ]}
       ]
     },
+                {
+                  "id": "Heatstroke2",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "The medic arrives and quickly assesses that the runner is experiencing a heat stroke.<br><br>Do you:<br>1. Move the runner under a shady tree<br>2. Fan the runner<br>3. Leave the runner to the care of the medic", 
+                        "options": [
+                        { "text": "1", "nextId": "Heatstroke3" },
+                        { "text": "2", "nextId": "Heatstroke3" },
+                        { "text": "3", "nextId": "Heatstroke3" }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "Heatstroke3",
+                  "speaker": "Heart_Attack_Girl",
+                  "lines": [
+                    { "text": "You got him to drink water. However the runner’s body continues to overheat.<br><br>Do you:<br>1. Cool the runner’s body with ice<br>2. Call the ambulance<br>3. Tell the medic to fan the runner as well", 
+                        "options": [
+                        { "text": "1" , "nextId": "UniversalEnd"},
+                        { "text": "2" , "nextId": "UniversalEnd"},
+                        { "text": "3" , "nextId": "UniversalEnd"}
+                    ]}
+                  ]
+                },
+
     {
-      "id": "MissingFamily5",
-      "speaker": "Heart_Attack_Girl",
-      "lines": [
-        { "text": "The medical staff arrived and taken over, so you focus on the crowd.<br><br>Do you:<br>> Calmly inform the crowd that the medical professionals are taking care of the situation<br>> Politely ask them to avoid taking pictures or crowd the area<br>> Direct worried bystanders toward officials to answer their questions", 
-            "options": [
-            { "text": "Inform crowd", "nextId": "HeartAttack6" },
-            { "text": "Stop phototaking", "nextId": "HeartAttack6" },
-            { "text": "Redirect to officials", "nextId": "HeartAttack6" }
-        ]}
-      ]
-    },
-    {
-      "id": "MissingFamily6",
-      "speaker": "Heart_Attack_Girl",
-      "lines": [
-        { "text": "After addressing the crowd, you decide to inform the marathon officials.<br><br>Do you:<br>> Provide location details through the communication channels<br>> Assign another volunteer to guide the ambulance through the crowd<br>> Inform the race director about the situation and provide the paramedics with details", 
-            "options": [
-            { "text": "Just exploring.", "nextId": "HeartAttack7" },
-            { "text": "None of your business.", "nextId": "HeartAttack7" },
-            { "text": "Just exploring.", "nextId": "HeartAttack7" }
-        ]}
-      ]
-    },
-    {
-      "id": "MissingFamily7",
-      "speaker": "Heart_Attack_Girl",
-      "lines": [
-        { "text": "You are now closing the matter before moving on to other checkpoints in the marathon.<br><br>Do you:<br>> Offer reassurance to nearby distressed bystanders<br>> Follow up with the race directors if the emergency contacts have been notified<br>> Assist in resuming normal marathon operations", 
-            "options": [
-            { "text": "Offer reassurance", "nextId": "HeartAttackEnd" },
-            { "text": "Follow up with race directors", "nextId": "HeartAttackEnd" },
-            { "text": "Assist resuming race", "nextId": "HeartAttackEnd" }
-        ]}
-      ]
-    },
-    {
-      "id": "MissingFamilyEnd",
-      "speaker": "Heart_Attack_Girl",
-      "lines": [
-        { "text": " The patient is being transferred to receive appropriate medical care and the crowd has dispersed.<br><br>The marathon officials have been notified and updated about the incident.<br><br>You can now move on to check on other volunteers and checkpoints along the marathon route.2"}
-      ]
+        "id": "UniversalEnd",
+        "speaker": "-",
+        "lines": [{ "text": " Temporary End"}]
     }
+                
+
+
+
+
   ]
 }
+
