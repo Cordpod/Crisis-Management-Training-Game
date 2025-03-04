@@ -14,12 +14,22 @@ public class DialogueUI : MonoBehaviour
     public GameObject optionsContainer;
     public Button optionButtonPrefab;
 
-    private DialogueEntry currentDialogue; //For current ref dialogue
+    private DialogueEntry currentDialogue; // For current ref dialogue
     public static bool isDialogueActive = false; // Global flag
+
+    // Holds references to your "C, H, I, M, E" TextMeshPro objects in order
+    public List<TMP_Text> factorLetters;
+
+    // Start at -1 so that no letter is highlighted initially
+    private int trainingDialogueIndex = -1;
+
+    // Flag to indicate training mode
+    public bool isTrainingMode = false;
 
     private void Start()
     {
-        gameObject.SetActive(false); // Hide dialogue box on start
+        // Hide dialogue box on start
+        gameObject.SetActive(false);
     }
 
     private void Awake()
@@ -32,75 +42,100 @@ public class DialogueUI : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); // Prevent duplicates if multiple DialogueUI instances exist
+            Destroy(gameObject); // Prevent duplicates
         }
     }
 
     public void DisplayDialogue(DialogueEntry dialogue)
     {
+        gameObject.SetActive(true); // Show dialogue box
+        isDialogueActive = true;
+        currentDialogue = dialogue; // Store the current dialogue
 
-        gameObject.SetActive(true); // Dialogue box appear
-        isDialogueActive=true;
-        currentDialogue = dialogue; // Storing the current dialogue here
-
-        dialogueText.text = dialogue.lines[0].text;
-        Debug.Log($"Displaying current dialogue: {dialogueText.text}");
-
-        if (dialogueText == null) // Checking that text was got successfully
+        if (dialogueText == null)
         {
             Debug.LogError("dialogueText is NULL! Check if it's assigned.");
             return;
         }
 
-        if (dialogue.lines[0].options.Count > 0)
+        // Display the first line of this dialogue entry
+        dialogueText.text = dialogue.lines[0].text;
+        Debug.Log($"Displaying current dialogue: {dialogueText.text}");
+
+        // In training mode, always disable option buttons
+        if (isTrainingMode)
         {
-
-            foreach (Transform child in optionsContainer.transform)
-            {
-                Destroy(child.gameObject);
-                Debug.Log($"destroyed: {child.name}");
-            }
-
-            optionsContainer.SetActive(true);
-
-            foreach (var option in dialogue.lines[0].options)
-            {
-                Button btn = Instantiate(optionButtonPrefab, optionsContainer.transform);
-                TMP_Text btnText = btn.GetComponentInChildren<TMP_Text>();
-                if (btnText != null) { btnText.text = option.text; }
-                else { Debug.LogError("TMP text not found in button prefab"); }
-                Debug.Log($"option text for button: {option.text}, option nextId for button {option.nextId} " );
-                btn.onClick.AddListener(() => ContinueDialogue(option.nextId));
-            }
+            optionsContainer.SetActive(false);
         }
         else
         {
-            optionsContainer.SetActive(false); // Hide buttons when no choices exist
-        } 
+            // Only create option buttons if they exist
+            if (dialogue.lines[0].options.Count > 0)
+            {
+                // Clear previous buttons
+                foreach (Transform child in optionsContainer.transform)
+                {
+                    Destroy(child.gameObject);
+                    Debug.Log($"destroyed: {child.name}");
+                }
+
+                optionsContainer.SetActive(true);
+                foreach (var option in dialogue.lines[0].options)
+                {
+                    Button btn = Instantiate(optionButtonPrefab, optionsContainer.transform);
+                    TMP_Text btnText = btn.GetComponentInChildren<TMP_Text>();
+                    if (btnText != null)
+                    {
+                        btnText.text = option.text;
+                    }
+                    else
+                    {
+                        Debug.LogError("TMP text not found in button prefab");
+                    }
+                    Debug.Log($"option text for button: {option.text}, option nextId for button {option.nextId}");
+                    btn.onClick.AddListener(() => ContinueDialogue(option.nextId));
+                }
+            }
+            else
+            {
+                optionsContainer.SetActive(false);
+            }
+        }
     }
 
-    private void Update() // Handles screen clicks to move on dialogue
+    private void Update()
     {
-        if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+        // Handles screen taps/clicks to move on dialogue
+        if (Input.GetMouseButtonDown(0) ||
+           (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
             Debug.Log("Screen Clicked");
-            //ContinueDialogue();
 
-            if (optionsContainer.activeSelf == false) // Only advance if no choices exist
+            // Only advance if no choices are active (or if training mode has no choices)
+            if (optionsContainer.activeSelf == false)
             {
+                // If there's a current dialogue with no branching
                 if (currentDialogue != null && currentDialogue.lines[0].options.Count == 0)
                 {
-                    ContinueDialogue(currentDialogue.lines[0].nextId); // Retrieve nextId from the current dialogue
+                    // If training mode, increment the highlight index before continuing
+                    if (isTrainingMode)
+                    {
+                        trainingDialogueIndex++;
+                        UpdateLetterHighlight();
+                    }
+
+                    // Advance to the next dialogue line
+                    ContinueDialogue(currentDialogue.lines[0].nextId);
                 }
             }
         }
     }
+
     void ContinueDialogue(string nextId)
     {
         Debug.Log($"Calling ContinueDialogue, Moving to Next Dialogue Line Id:{nextId}");
 
-        var nextDialogue = DialogueManager.instance.GetDialogueById(nextId); 
-        //Debug.Log($"Getting nextDialogue: {nextDialogue}" );
+        var nextDialogue = DialogueManager.instance.GetDialogueById(nextId);
 
         if (nextDialogue != null)
         {
@@ -113,6 +148,7 @@ public class DialogueUI : MonoBehaviour
             isDialogueActive = false;
         }
     }
+
     public void CloseDialogue()
     {
         Debug.Log("Dialogue closed.");
@@ -120,4 +156,21 @@ public class DialogueUI : MonoBehaviour
         gameObject.SetActive(false); // Hide dialogue box
     }
 
+    /// <summary>
+    /// Resets all letters to black, then highlights the current index red if valid.
+    /// </summary>
+    private void UpdateLetterHighlight()
+    {
+        // Reset all letters to black
+        foreach (var letter in factorLetters)
+        {
+            letter.color = Color.black;
+        }
+
+        // Highlight the current letter if it's in range
+        if (trainingDialogueIndex >= 0 && trainingDialogueIndex < factorLetters.Count)
+        {
+            factorLetters[trainingDialogueIndex].color = Color.red;
+        }
+    }
 }

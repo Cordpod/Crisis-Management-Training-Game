@@ -232,6 +232,72 @@
       "lines": [
         { "text": " The patient is being transferred to receive appropriate medical care and the crowd has dispersed.<br><br>The marathon officials have been notified and updated about the incident.<br><br>You can now move on to check on other volunteers and checkpoints along the marathon route.2"}
       ]
+    },
+
+
+
+
+
+    {
+      "id": "TrainingScene",
+      "speaker": "TrainerNPC",
+      "lines": [
+        {
+          "text": "Welcome to training mode! This is line 1. Tap to continue.",
+          "nextId": "TrainingScene2"
+        }
+      ]
+    },
+    {
+      "id": "TrainingScene2",
+      "speaker": "TrainerNPC",
+      "lines": [
+        {
+          "text": "Line 2. Notice that 'C' is now highlighted. Tap again to continue.",
+          "nextId": "TrainingScene3"
+        }
+      ]
+    },
+    {
+      "id": "TrainingScene3",
+      "speaker": "TrainerNPC",
+      "lines": [
+        {
+          "text": "Line 3. 'H' should be highlighted now. Keep tapping to see the next letters.",
+          "nextId": "TrainingScene4"
+        }
+      ]
+    },
+    {
+      "id": "TrainingScene4",
+      "speaker": "TrainerNPC",
+      "lines": [
+        {
+          "text": "Line 4. 'I' will highlight next. Then 'M' and 'E' after that.",
+          "nextId": "TrainingScene5"
+        }
+      ]
+    },
+    {
+      "id": "TrainingScene5",
+      "speaker": "TrainerNPC",
+      "lines": [
+        {
+          "text": "Line 5. Keep tapping. Each tap highlights the next letter in CHIME!",
+          "nextId": "TrainingSceneEnd"
+        }
+      ]
+    },
+    {
+      "id": "TrainingSceneEnd",
+      "speaker": "TrainerNPC",
+      "lines": [
+        {
+          "text": "Line 6. This is the final line. 'E' should be highlighted now. End of training!",
+          "nextId": ""
+        }
+      ]
     }
+
   ]
 }
