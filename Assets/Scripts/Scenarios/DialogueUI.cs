@@ -26,6 +26,10 @@ public class DialogueUI : MonoBehaviour
     // Flag to indicate training mode
     public bool isTrainingMode = false;
 
+    
+    public UI_StatsRadarChart radarChart;
+    private Stats stats;
+
     private void Start()
     {
         // Hide dialogue box on start
@@ -92,8 +96,21 @@ public class DialogueUI : MonoBehaviour
                     {
                         Debug.LogError("TMP text not found in button prefab");
                     }
+                    // Check if stats is null
+                    if (option.stats == null)
+                    {
+                        Debug.Log($"Option '{option.text}' has NULL stats dictionary!");
+                    }
+                    else
+                    {
+                        Debug.Log($"Option '{option.text}' has {option.stats.Count} stats entries:");
+                        foreach (var stat in option.stats)
+                        {
+                            Debug.Log($"  -- Stat Key: '{stat.GetParsedKey()}', Value: {stat.value}");
+                        }
+                    }
                     Debug.Log($"option text for button: {option.text}, option nextId for button {option.nextId}");
-                    btn.onClick.AddListener(() => ContinueDialogue(option.nextId));
+                    btn.onClick.AddListener(() => OnOptionSelected(btnText.text, option.nextId, option.stats));
                 }
             }
             else
@@ -129,6 +146,66 @@ public class DialogueUI : MonoBehaviour
                 }
             }
         }
+    }
+
+    void OnOptionSelected(string optionText, string nextId, List<StatPair> optionStats)
+    {
+        Debug.Log("Player selected: " + optionText);
+
+        if (stats == null)
+        {
+            stats = new Stats(); // Create if null
+        }
+
+        Debug.Log("Stats Before Update:");
+        foreach (var statType in System.Enum.GetValues(typeof(Stats.Type)))
+        {
+            Debug.Log($"{statType}: {stats.GetStatAmount((Stats.Type)statType)}");
+        }
+
+        // Update stats based on the stats passed in from the dialogue option
+        if (optionStats != null && optionStats.Count > 0)
+        {
+            Debug.Log("Current Stats from option:");
+
+            foreach (var stat in optionStats)
+            {
+                stats.AddToStatAmount(stat.GetParsedKey(), stat.value);
+                Debug.Log($"Parsed Stat: {stat.GetParsedKey()}, Value: {stat.value}");
+
+            }
+        }
+        else
+        {
+            Debug.Log($"Option '{optionText}' has no stats to add.");
+        }
+
+        Debug.Log("Stats After Update:");
+        foreach (var statType in System.Enum.GetValues(typeof(Stats.Type)))
+        {
+            Debug.Log($"{statType}: {stats.GetStatAmount((Stats.Type)statType)}");
+        }
+
+        if (StatsManager.instance == null)
+        {
+            Debug.LogError("StatsManager instance is null!");
+        }
+        else{
+            // Store stats persistently using PlayerPrefs or a Singleton
+            StatsManager.instance.SaveStats(stats);
+            // Retrieve the saved stats to verify
+            Stats loadedStats = StatsManager.instance.GetStats();  
+            
+            Debug.Log("Stats After Saving:");
+            foreach (var statType in System.Enum.GetValues(typeof(Stats.Type)))
+            {
+                Debug.Log($"{statType}: {loadedStats.GetStatAmount((Stats.Type)statType)}");
+            }
+
+        }
+        
+        // Continue to next dialogue
+        ContinueDialogue(nextId);
     }
 
     void ContinueDialogue(string nextId)
