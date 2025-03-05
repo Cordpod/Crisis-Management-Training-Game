@@ -1007,6 +1007,7 @@ MonoBehaviour:
   dialogueText: {fileID: 132070207}
   optionsContainer: {fileID: 1353835305}
   optionButtonPrefab: {fileID: 1475211551}
+  isTrainingMode: 0
 --- !u!1 &517709939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,6 +3206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1832087439}
   - component: {fileID: 1832087438}
+  - component: {fileID: 1832087440}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -3239,6 +3241,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1832087440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832087437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b06ff14f2222e44c91bf076f0cf1042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1885368246
 GameObject:
   m_ObjectHideFlags: 0
