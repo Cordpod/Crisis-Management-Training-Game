@@ -4,147 +4,143 @@
 
 
     {
-      "id": "TestScene",
+      "id": "L1HeartAttackStart",
       "speaker": "Heart_Attack_Girl",
       "lines": [
-        { "text": "You notice there is someone panting with shallow breaths.<br>They look like they are sweating excessively but were not rushing anywhere. They also look like they are feeling dizzy. These are signs of a heart attack.", "nextId": "TestScene1"}
+        { "text": "You notice a man sitting on the curb clutching his chest. He has a pained look on his face, and he seems to be panting.<br><br>Do you: <br>1. Ask the man if he's feeling alright<br>2. Continue on your way<br>3. Wait to see if anyone approaches him", 
+            "options": [
+            { "text": "1", "nextId": "L1HeartAttack1", "stats": [{"key":"Infoclarity", "value":3}, {"key":"Mentalmodels", "value":0 }]},
+            { "text": "2", "nextId": "L1HeartAttack2", "stats": [{"key":"Heuristics", "value":1}, {"key":"Mentalmodels", "value":0 }]},
+            { "text": "3", "nextId": "L1HeartAttack3", "stats": [{"key":"Heuristics", "value":1}, {"key":"Mentalmodels", "value":0 }]}
+        ]}
       ]
     },
                 {
-                  "id": "TestScene1",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1HeartAttack1",
+                  "speaker": "-",
                   "lines": [
-                    { "text": " testscene dialogue 2", "nextId": "TestScene2"}
-                  ]
-                },
-                {
-                  "id": "TestScene2",
-                  "speaker": "Heart_Attack_Girl",
-                  "lines": [
-                    { "text": "After verifying that they are having a heart attack, you decide to seek help.<br>Do you:", 
+                    { "text": "The man mentioned that he's feeling a squeezing pain in his chest. He also mentioned that he pain is radiating down into his left arm. It seems like the symptoms of a heart attack.<br><br>Do you:<br>1. Call the ambulance immediately<br>2. Sit with him and observe the situation ", 
                         "options": [
-                        { "text": "Just exploring.", "nextId": "TestScene3", "stats": [{"key":"Externalaid", "value":0}, {"key":"Mentalmodels", "value":1 }]},
-                        { "text": "None of your business.", "nextId": "TestScene3", "stats": [{"key":"Externalaid", "value":0}, {"key":"Mentalmodels", "value":1 }]}
+                        { "text": "1", "nextId": "L1HeartAttack11", "stats": [{"key":"Mentalmodels","value":2}, {"key":"Externalaid","value":2 }] },
+                        { "text": "2", "nextId": "L1HeartAttack12", "stats": [{"key":"Heuristics","value":2}, {"key":"Mentalmodels","value":0 }] }
                     ]}
                   ]
                 },
                 {
-                  "id": "TestScene3",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1HeartAttack2",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "options two:", 
+                    { "text": "He seems fine, you continue on your way.", "nextId": "L1HeartAttack21"}
+                  ]
+                },
+                {
+                  "id": "L1HeartAttack3",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "Someone approaches to check up on the man and you decide it is now safe to walk away.", "nextId": "L1HeartAttack21"}
+                  ]
+                },
+                {
+                  "id": "L1HeartAttack11",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You call the ambulance and inform them of the situation. The ambulance will arrive shortly.<br><br>Do you:<br>1. Inform the man that help will be arriving shortly, you then leave<br>2. Stay with the man until the ambulance arrives", 
                         "options": [
-                        { "text": "rrtrtrg.", "nextId": "TestScene6", "stats": [{"key":"Externalaid", "value":0}, {"key":"Mentalmodels", "value":1 }]},
-                        { "text": "None ofefss.", "nextId": "TestScene6", "stats": [{"key":"Externalaid", "value":0}, {"key":"Mentalmodels", "value":1 }]}
+                        { "text": "1", "nextId": "L1HeartAttackEnd", "stats": [{"key":"Infoclarity","value":2}, {"key":"Mentalmodels","value":0 }] },
+                        { "text": "2", "nextId": "L1HeartAttackEnd", "stats": [{"key":"Heuristics","value":2}, {"key":"Cognitiveload","value":1 }] }
                     ]}
                   ]
                 },
                 {
-                  "id": "TestScene6",
-                  "speaker": "Heart_Attack_Girl",
-                  "lines": [{ "text": "Ah, a curious soul! Be careful around here." , "nextId": "TestScene5"}]
-                },
-                {
-                  "id": "TestScene4",
-                  "speaker": "NPC_John",
-                  "lines": [{ "text": "Ah, a curious soul! Be careful around here." , "nextId": "TestScene5"}]
-                },
-                {
-                  "id": "TestScene5",
-                  "speaker": "NPC_John",
-                  "lines": [{ "text": "Well, no need to be rude about it!" }]
-                },
-
-
-
-
-
-    {
-      "id": "HeartAttackStart",
-      "speaker": "Heart_Attack_Girl",
-      "lines": [
-        { "text": "You notice there is someone panting with shallow breaths.<br>They look like they are sweating excessively but were not rushing anywhere. They also look like they are feeling dizzy. <br><br> These are signs of a heart attack.", "nextId": "HeartAttack2"}
-      ]
-    },
-                {
-                  "id": "HeartAttack2",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1HeartAttack12",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "After verifying that they are having a heart attack, you decide to seek help.<br>Do you:<br>1. Radio a medical professional to come and help <br>2. Run to the nearest medical tent and inform them of the emergency <br>3. Signal another volunteer to inform a professional while you stay", 
+                    { "text": "The man's condition doesn't seem to improve. He starts sweating profusely and looks worse.<br><br>Do you:<br>1. Call the ambulance<br>2. Help the man to the nearby first aid station<br>3. Ask a passerby for help", 
                         "options": [
-                        { "text": "1", "nextId": "HeartAttack3", "stats":[{"key":"Externalaid","value":1}, {"key":"Infoclarity","value":3}] },
-                        { "text": "2", "nextId": "HeartAttack3", "stats":[{"key":"Externalaid","value":0}, {"key":"Infoclarity","value":2}] },
-                        { "text": "3", "nextId": "HeartAttack3", "stats":[{"key":"Externalaid","value":1}, {"key":"Infoclarity","value":1}] }
+                        { "text": "1", "nextId": "L1HeartAttack11", "stats": [{"key":"Externalaid","value":2}, {"key":"Mentalmodels","value":0 }] },
+                        { "text": "2", "nextId": "L1HeartAttack122", "stats": [{"key":"Externalaid","value":1}, {"key":"Mentalmodels","value":0 }] },
+                        { "text": "3", "nextId": "L1HeartAttack123", "stats": [{"key":"Externalaid","value":1}, {"key":"Infoclarity","value":0 }] }
                     ]}
                   ]
                 },
                 {
-                  "id": "HeartAttack3",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1HeartAttack21",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "The medical professionals are on their way and a crowd starts to gather. <br><br> Do you: <br>1. Form a barrier with other volunteers to keep bystanders at a safe distance <br>2. Ask nearby spectators/runners to clear the space nearby <br>3. Move nearby obstacles that might obstruct the medical professionals arrival", 
+                    { "text": "As you are walking away, you hear someone shouting.<br>“Are you okay?”<br>You turn around and see that the man from before is now slumped over. A passerby is trying to assist, you rush back.<br><br>Do you:<br>1. Ask the passerby what's happening<br>2. Call the ambulance", 
                         "options": [
-                        { "text": "1", "nextId": "HeartAttack4", "stats":[{"key":"Mentalmodels","value":3}, {"key":"Externalaid","value":0}, {"key":"Cognitiveload","value":2}] },
-                        { "text": "2", "nextId": "HeartAttack4", "stats":[{"key":"Mentalmodels","value":1}, {"key":"Externalaid","value":1}, {"key":"Cognitiveload","value":3}] },
-                        { "text": "3", "nextId": "HeartAttack4", "stats":[{"key":"Mentalmodels","value":2}, {"key":"Externalaid","value":0}, {"key":"Cognitiveload","value":1}] }
+                        { "text": "1", "nextId": "L1HeartAttack123", "stats": [{"key":"Externalaid","value":1}, {"key":"Infoclarity","value":1 }] },
+                        { "text": "2", "nextId": "L1HeartAttack123", "stats": [{"key":"Externalaid","value":2}, {"key":"Infoclarity","value":0 }] }
                     ]}
                   ]
                 },
                 {
-                  "id": "HeartAttack4",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1HeartAttack122",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "The medical staff have not arrived, so you should attend to the patient.<br><br>Do you:<br>1. Start CPR immediately, since you are certified<br>2. Call for someone in the crowd who is medically trained to assist with CPR<br>3. Locate the nearest AED and bring it over", 
+                    { "text": "The man collapsed as you were helping him to the station. You call the ambulance. The dispatcher instructs you to start CPR and use an AED.<br><br>Do you:<br>Get a passerby to start compressions while you look for an AED<br>Get a passerby to look for an AED while you start compressions", 
                         "options": [
-                        { "text": "1", "nextId": "HeartAttack5", "stats":[{"key":"Externalaid","value":1}, {"key":"Mentalmodels","value":3}] },
-                        { "text": "2", "nextId": "HeartAttack5", "stats":[{"key":"Externalaid","value":2}, {"key":"Mentalmodels","value":2}] },
-                        { "text": "3", "nextId": "HeartAttack5", "stats":[{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":1}] }
+                        { "text": "1", "nextId": "L1HeartAttack1221", "stats": [{"key":"Externalaid","value":1}, {"key":"Mentalmodels","value":2 }] },
+                        { "text": "2", "nextId": "L1HeartAttack1222", "stats": [{"key":"Externalaid","value":2}, {"key":"Mentalmodels","value":2 }] }
                     ]}
                   ]
                 },
                 {
-                  "id": "HeartAttack5",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1HeartAttack123",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "The medical staff arrived and taken over, so you focus on the crowd.<br><br>Do you:<br>1. Calmly inform the crowd that the medical professionals are taking care of the situation<br>2. Politely ask them to avoid taking pictures or crowd the area<br>3. Direct worried bystanders toward officials to answer their questions", 
+                    { "text": "The passerby says the man is likely having a heart attack and you call the ambulance. Both of you then wait with the man for the ambulance to arrive.", "nextId": "L1HeartAttackEnd"}
+                  ]
+                },
+                {
+                  "id": "L1HeartAttack1221",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You are looking for the nearest AED. <br><br>Do you:<br>1. Run towards where you vaguely remember where an AED was<br>2. Ask the passersby if they have seen an AED<br>3. Run towards the first aid tent", 
                         "options": [
-                        { "text": "1", "nextId": "HeartAttack6", "stats":[{"key":"Heuristics","value":2}, {"key":"Cognitiveload","value":3}] },
-                        { "text": "2", "nextId": "HeartAttack6", "stats":[{"key":"Heuristics","value":3}, {"key":"Cognitiveload","value":2}] },
-                        { "text": "3", "nextId": "HeartAttack6", "stats":[{"key":"Heuristics","value":1}, {"key":"Cognitiveload","value":1}] }
+                        { "text": "1", "nextId": "L1HeartAttack12211", "stats": [{"key":"Cognitiveload","value":1}, {"key":"Mentalmodels","value":1 }] },
+                        { "text": "2", "nextId": "L1HeartAttack12212", "stats": [{"key":"Infoclarity","value":1}, {"key":"Externalaid","value":1 }] },
+                        { "text": "3", "nextId": "L1HeartAttack12212", "stats": [{"key":"Heuristics","value":1}, {"key":"Mentalmodels","value":0 }] }
                     ]}
                   ]
                 },
                 {
-                  "id": "HeartAttack6",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1HeartAttack1222",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "After addressing the crowd, you decide to inform the marathon officials.<br><br>Do you:<br>1. Provide location details through the communication channels<br>2. Assign another volunteer to guide the ambulance through the crowd<br>3. Inform the race director about the situation and provide the paramedics with details", 
-                        "options": [
-                        { "text": "1", "nextId": "HeartAttack7", "stats":[{"key":"Externalaid","value":0}, {"key":"Infoclarity","value":2}] },
-                        { "text": "2", "nextId": "HeartAttack7", "stats":[{"key":"Externalaid","value":1}, {"key":"Infoclarity","value":1}] },
-                        { "text": "3", "nextId": "HeartAttack7", "stats":[{"key":"Externalaid","value":0}, {"key":"Infoclarity","value":3}] }
-                    ]}
+                    { "text": "The passerby returns with the AED. You administer the AED.", "nextId": "L1HeartAttack12221"}
                   ]
                 },
                 {
-                  "id": "HeartAttack7",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1HeartAttack12211",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "You are now closing the matter before moving on to other checkpoints in the marathon.<br><br>Do you:<br>1. Offer reassurance to nearby distressed bystanders<br>2. Follow up with the race directors if the emergency contacts have been notified<br>3. Assist in resuming normal marathon operations", 
-                        "options": [
-                        { "text": "1", "nextId": "HeartAttackEnd", "stats":[{"key":"Heuristics","value":1}, {"key":"Externalaid","value":0}, {"key":"Cognitiveload","value":2}] },
-                        { "text": "2", "nextId": "HeartAttackEnd", "stats":[{"key":"Heuristics","value":2}, {"key":"Externalaid","value":1}, {"key":"Cognitiveload","value":1}] },
-                        { "text": "3", "nextId": "HeartAttackEnd", "stats":[{"key":"Heuristics","value":3}, {"key":"Externalaid","value":0}, {"key":"Cognitiveload","value":3}] }
-                    ]}
+                    { "text": "The AED isn’t where you thought it was, however a helpful passerby guides you to the AED. You bring it back to the man", "nextId": "L1HeartAttack12221"}
                   ]
                 },
                 {
-                  "id": "HeartAttackEnd",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1HeartAttack12212",
+                  "speaker": "-",
                   "lines": [
-                    { "text": " The patient is being transferred to receive appropriate medical care and the crowd has dispersed.<br><br>The marathon officials have been notified and updated about the incident.<br><br>You can now move on to check on other volunteers and checkpoints along the marathon route.2"}
+                    { "text": "They manage to guide you to an AED, you bring it back to the man.", "nextId": "L1HeartAttack12221"}
                   ]
                 },
+                {
+                  "id": "L1HeartAttack12221",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "Together, you are able to resuscitate the man.", "nextId": "L1HeartAttackEnd"}
+                  ]
+                },
+                {
+                  "id": "L1HeartAttackEnd",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "Ambulance arrives shortly after, the paramedics take over and the man is taken into the ambulance. The paramedic assures you that he will be fine."}
+                  ]
+                },
+                
+  
 
 
 
@@ -154,7 +150,7 @@
       "id": "MissingFamilyStart",
       "speaker": "Heart_Attack_Girl",
       "lines": [
-        { "text": "A volunteer reports to you that a runner�s family claims that their family member is missing. <br><br>You are to verify and determine if this report requires further action.", "nextId": "MissingFamily2"}
+        { "text": "A volunteer reports to you that a runner's family claims that their family member is missing. <br><br>You are to verify and determine if this report requires further action.", "nextId": "MissingFamily2"}
       ]
     },
                 {
@@ -242,59 +238,34 @@
       
       
     {
-      "id": "AnkleSprainStart",
-      "speaker": "Heart_Attack_Girl",
+      "id": "L1HamstringSprainStart",
+      "speaker": "-",
       "lines": [
         { "text": "You noticed a lady sitting on the side.<br>She tells you that she has an ankle sprain.<br><br>Do you:<br>1. Stretch her ankle<br>2. Ask the severity of her condition<br>3. Encourage her to call an ambulance and go to the hospital", 
             "options": [
-            { "text": "1", "nextId": "AnkleSprain1", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }]},
-            { "text": "2", "nextId": "AnkleSprain1", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }]},
-            { "text": "3", "nextId": "AnkleSprain1", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] }
+            { "text": "1", "nextId": "L1HamstringSprain1", "stats": [{"key":"Externalaid","value":3}, {"key":"Heuristics","value":2 }, {"key":"Infoclarity","value":1 }]},
+            { "text": "2", "nextId": "L1HamstringSprain1", "stats": [{"key":"Externalaid","value":1}, {"key":"Heuristics","value":3 }, {"key":"Infoclarity","value":3 }]},
+            { "text": "3", "nextId": "L1HamstringSprain1", "stats": [{"key":"Externalaid","value":2}, {"key":"Heuristics","value":1 }, {"key":"Infoclarity","value":2 }] }
         ]}
       ]
     },
                 {
-                  "id": "AnkleSprain1",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1HamstringSprain1",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "She seems like her ankle is feeling better and she wants to continue running.<br><br>Do you:<br>1. encourage her to rest and pass her to the medic to monitor her condition<br>2. insist on visiting the hospital and call the ambulance<br>3. Ensure the runner is alright and allow her to continue running", 
+                    { "text": "The man said, “It's ok, I'm fine.”<br><br>Do you:<br>1. Assess his condition further and see if there's any help you can provide. <br>2. Provide immediate assistance without forcing, for example, offer an ice pack. ", 
                         "options": [
-                        { "text": "1", "nextId": "AnkleSprain2", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "2", "nextId": "AnkleSprain2", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }]},
-                        { "text": "3", "nextId": "AnkleSprain2", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] }
+                        { "text": "1", "nextId": "L1HamstringSprain11", "stats": [{"key":"Heuristics","value":1}, {"key":"Infoclarity","value":3 }] },
+                        { "text": "2", "nextId": "L1HamstringSprain11", "stats": [{"key":"Heuristics","value":3}, {"key":"Infoclarity","value":1 }] }
                     ]}
                   ]
                 },
+
                 {
-                  "id": "AnkleSprain2",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1HamstringSprain11",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "Choose each step in order", 
-                        "options": [
-                        { "text": "Rest", "nextId": "AnkleSprain3", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "Ice", "nextId": "AnkleSprain3", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "Compression", "nextId": "AnkleSprain3", "stats":[{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "Elevation", "nextId": "AnkleSprain3", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] }
-                    ]}
-                  ]
-                },
-                {
-                  "id": "AnkleSprain not used",
-                  "speaker": "Heart_Attack_Girl",
-                  "lines": [
-                    { "text": "---", 
-                        "options": [
-                        { "text": "-", "nextId": "-", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "-", "nextId": "-", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "-", "nextId": "-", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] }
-                    ]}
-                  ]
-                },
-                {
-                  "id": "AnkleSprain3",
-                  "speaker": "Heart_Attack_Girl",
-                  "lines": [
-                    { "text": " Fill the rest ltr"}
+                    { "text": "First aid responders come."}
                   ]
                 },
 
@@ -303,91 +274,189 @@
 
 
     {
-      "id": "MuscleCrampStart",
-      "speaker": "Heart_Attack_Girl",
+      "id": "L1CalfCrampStart",
+      "speaker": "-",
       "lines": [
-        { "text": "You noticed that a runner running slowly and in pain. You asked him what is wrong. He mentioned that he has a muscle cramp.<br><br>Do you:<br>1. Tell the runner to stop and rest<br>2. Encourage him to carry on", 
+        { "text": "A runner slows down, clutching their calf and grimacing. You need to determine if it's a standard cramp or dehydration-related.<br><br>Do you: <br>Ask about sweating, hydration, and whether they had other cramps.<br>Help them stretch immediately without checking symptoms.<br>Offer water and electrolytes first before assessing further.", 
             "options": [
-            { "text": "1", "nextId": "MuscleCramp2", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-            { "text": "2", "nextId": "MuscleCramp2", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] }
+            { "text": "1", "nextId": "L1CalfCramp1", "stats": [{"key":"Infoclarity","value":3}, {"key":"Mentalmodels","value":2 }] },
+            { "text": "2", "nextId": "L1CalfCramp1", "stats": [{"key":"Infoclarity","value":1}, {"key":"Mentalmodels","value":3 }] },
+            { "text": "3 (CAN ADD MINIGAME)", "nextId": "L1CalfCramp1", "stats": [{"key":"Infoclarity","value":2}, {"key":"Mentalmodels","value":1 }] }
         ]}
       ]
     },
                 {
-                  "id": "MuscleCramp1",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1CalfCramp1",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "The runner sits on the pavement and reaches for his legs.<br><br>Do you want to:<br>1. Ask where the pain is<br>2. Stretch the calf<br>3. Stretch the hamstring<br>4. stretch the quadriceps", 
+                    { "text": "(COULD ADD MINIGAMES) The runner confirms a sharp, painful cramp in their calf. You must assist them.<br><br>Do you:<br>Help them stretch their leg and push their toes toward their shin.<br>Massage the calf muscle firmly to help it relax.<br>Tell them to walk around and shake out the leg immediately.", 
                         "options": [
-                        { "text": "1", "nextId": "MuscleCramp2", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "2", "nextId": "MuscleCramp2", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "3", "nextId": "MuscleCramp2", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "4", "nextId": "MuscleCramp2", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] }
+                        { "text": "1", "nextId": "L1CalfCramp11", "stats": [{"key":"Heuristics","value":2}, {"key":"Externalaid","value":1 }, {"key":"Mentalmodels","value":3 }] },
+                        { "text": "2", "nextId": "L1CalfCramp11", "stats": [{"key":"Heuristics","value":3}, {"key":"Externalaid","value":2 }, {"key":"Mentalmodels","value":2 }] },
+                        { "text": "4", "nextId": "L1CalfCramp11", "stats": [{"key":"Heuristics","value":1}, {"key":"Externalaid","value":3 }, {"key":"Mentalmodels","value":1 }] }
                     ]}
                   ]
                 },
                 {
-                  "id": "MuscleCramp2",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1CalfCramp11",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "He mentions that his ______ is cramping.<br><br>Do you want to:<br>1. Stretch the ______<br>2. Ice the ______<br>3. Bandage the ______", 
+                    { "text": "The cramp subsides, but the runner is still sore. They hesitate about continuing the race.<br><br>Do you:<br>Encourage them to keep moving but watch for recurring cramps.<br>Offer them water, electrolytes, and a short rest before deciding.<br>Escort them to the medical tent for further assessment.", 
                         "options": [
-                        { "text": "1", "nextId": "AnkleSprain3", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "2", "nextId": "AnkleSprain3", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "3", "nextId": "AnkleSprain3", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] }
+                        { "text": "1", "nextId": "L1CalfCrampEnd", "stats": [{"key":"Externalaid","value":2}, {"key":"Infoclarity","value":3 }] },
+                        { "text": "2", "nextId": "L1CalfCrampEnd", "stats": [{"key":"Externalaid","value":3}, {"key":"Infoclarity","value":2 }] },
+                        { "text": "3", "nextId": "L1CalfCrampEnd", "stats": [{"key":"Externalaid","value":1}, {"key":"Infoclarity","value":1 }] }
                     ]}
                   ]
                 },
                 {
-                  "id": "MuscleCramp3",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1CalfCrampEnd",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "He feels better and thanks you. <br><br>Do you:<br>1. encourage him to rest and pass him to the medic to monitor his condition<br>2. insist on visiting the hospital and call the ambulance<br>3. Ensure the runner is alright and allow him to continue running", 
-                        "options": [
-                        { "text": "1" , "nextId": "UniversalEnd", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }]},
-                        { "text": "2" , "nextId": "UniversalEnd", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }]},
-                        { "text": "3" , "nextId": "UniversalEnd", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }]}
-                    ]}
+                    { "text": "After assisting the runner in stretching and ensuring they hydrate properly, their calf cramp gradually subsides. They stand up carefully, test their leg, and confirm they feel better. The runner thanks you for your help continues the race at a slower pace." }
                   ]
                 }, 
 
 
+
+
 {
-      "id": "HeatstrokeStart",
-      "speaker": "Heart_Attack_Girl",
+      "id": "L1HeatstrokeStart",
+      "speaker": "-",
       "lines": [
-        { "text": "You noticed that a runner�s face is flushed and he appears dizzy. You stop him and he mumbles something, his words slurred and unclear.<br><br>Do you:<br>1. Call the medic<br>2. Call the ambulance<br>2. Ensure the runner is alright and allow him to continue running", 
+        { "text": "“Hey! Can you help this guy? He just fell over, and is short for breath! I think he is having a heatstroke!”<br><br>Do you:<br>1. Call for help<br>2. Find water<br>3. Fan the person", 
             "options": [
-            { "text": "1", "nextId": "Heatstroke2", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-            { "text": "2", "nextId": "Heatstroke2", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-            { "text": "3", "nextId": "Heatstroke2", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] }
+            { "text": "1", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":3}, {"key":"Mentalmodels","value":2 }, {"key":"Heuristics","value":1 }] },
+            { "text": "2", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":1}, {"key":"Mentalmodels","value":3 }, {"key":"Heuristics","value":2 }] },
+            { "text": "3", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":2}, {"key":"Mentalmodels","value":1 }, {"key":"Heuristics","value":3 }] }
         ]}
       ]
     },
                 {
-                  "id": "Heatstroke2",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1Heatstroke1",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "The medic arrives and quickly assesses that the runner is experiencing a heat stroke.<br><br>Do you:<br>1. Move the runner under a shady tree<br>2. Fan the runner<br>3. Leave the runner to the care of the medic", 
+                    { "text": "“Thank you for helping me! I think I can push through to the end!”", 
                         "options": [
-                        { "text": "1", "nextId": "Heatstroke3", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "2", "nextId": "Heatstroke3", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "3", "nextId": "Heatstroke3", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }] }
+                        { "text": "1", "nextId": "UniversalEnd", "stats": [{"key":"Heuristics","value":3}, {"key":"Mentalmodels","value":0 }] },
+                        { "text": "2", "nextId": "UniversalEnd", "stats": [{"key":"Heuristics","value":0}, {"key":"Mentalmodels","value":3 }] }
+                    ]}
+                  ]
+                },
+                
+
+
+                
+    {
+      "id": "L1DumpsterFireStart", 
+      "speaker": "-",
+      "lines": [
+        { "text": "“OMG THERES A FIRE! WHAT SHALL WE DO?”<br><br>Do you:<br>1. Call for emergency services immediately<br><br>2. Try to extinguish the fire yourself <br><br>3. Find a nearby event official or security personnel for assistance ", 
+            "options": [
+            { "text": "1", "nextId": "L1DumpsterFire1", "stats": [{"key":"Infoclarity","value":3}, {"key":"Externalaid","value":3 }]},
+            { "text": "2", "nextId": "L1DumpsterFire2", "stats": [{"key":"Mentalmodels","value":2}, {"key":"Heuristics","value":2 }]},
+            { "text": "3", "nextId": "L1DumpsterFire3", "stats": [{"key":"Heuristics","value":2}, {"key":"Externalaid","value":2 }] }
+        ]}
+      ]
+    },
+                {
+                  "id": "L1DumpsterFire2",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You decide to take action to prevent it from spreading.<br><br>What do you use?<br>1. Run to look for a fire extinguisher. <br>2. Grab a nearby cloth or jacket and try to smother the flames. <br>3. Use bottled water from the hydration station. ", 
+                        "options": [
+                        { "text": "1", "nextId": "L1DumpsterFire11", "stats": [{"key":"Mentalmodels","value":3}, {"key":"Externalaid","value":2 }] },
+                        { "text": "2", "nextId": "L1DumpsterFire12", "stats": [{"key":"Heuristics","value":2}, {"key":"Mentalmodels","value":0 }]},
+                        { "text": "3", "nextId": "L1DumpsterFire13", "stats": [{"key":"Heuristics","value":1}, {"key":"Mentalmodels","value":0 }] }
                     ]}
                   ]
                 },
                 {
-                  "id": "Heatstroke3",
-                  "speaker": "Heart_Attack_Girl",
+                  "id": "L1DumpsterFire1",
+                  "speaker": "-",
                   "lines": [
-                    { "text": "You got him to drink water. However the runner�s body continues to overheat.<br><br>Do you:<br>1. Cool the runner�s body with ice<br>2. Call the ambulance<br>3. Tell the medic to fan the runner as well", 
+                    { "text": "You take out your phone and dial emergency services. They ask you for details.<br><br>What information do you relay?<br>1. Give them a general location and say there's a fire. <br>2. Describe the location, size, type of fire, and immediate hazards.", 
                         "options": [
-                        { "text": "1" , "nextId": "UniversalEnd", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }]},
-                        { "text": "2" , "nextId": "UniversalEnd", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }]},
-                        { "text": "3" , "nextId": "UniversalEnd", "stats": [{"key":"Externalaid","value":0}, {"key":"Mentalmodels","value":0 }]}
+                        { "text": "1", "nextId": "L1DumpsterFire21", "stats": [{"key":"Infoclarity","value":1}, {"key":"Mentalmodels","value":0 }] },
+                        { "text": "2", "nextId": "L1DumpsterFire22", "stats": [{"key":"Infoclarity","value":3}, {"key":"Mentalmodels","value":0 }] }
                     ]}
                   ]
                 },
+                {
+                  "id": "L1DumpsterFire3",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You look for someone in charge to handle the fire.<br><br>Who do you approach?<br>1. A fellow volunteer who looks experienced. <br>2. A uniformed event security guard. <br>3. A random bystander who seems concerned. ", 
+                        "options": [
+                        { "text": "1", "nextId": "L1DumpsterFire31", "stats": [{"key":"Heuristics","value":1}, {"key":"Mentalmodels","value":1 }] },
+                        { "text": "2", "nextId": "L1DumpsterFire32", "stats": [{"key":"Externalaid","value":3}, {"key":"Mentalmodels","value":0 }] },
+                        { "text": "3", "nextId": "L1DumpsterFire33", "stats": [{"key":"Infoclarity","value":1}, {"key":"Mentalmodels","value":0 }] }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "L1DumpsterFire11",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You find a fire extinguisher and manage to reduce the fire (TO ADD MINIGAME -- FIND EXTINGUISHER", "nextId": "L1DumpsterFireEnd"}
+                  ]
+                },
+                {
+                  "id": "L1DumpsterFire12",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You use your jacket and managed to smother the flames. Another volunteer exclaimed “That is very dangerous, you could have gotten burnt or made the fire worse!” (TO ADD MINIGAME -- SMOTHER FLAMES)", "nextId": "L1DumpsterFireEnd"}
+                  ]
+                },
+                {
+                  "id": "L1DumpsterFire13",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": " You grabbed a cup of water from the water station and tried to put out the fire... Nothing happens (TO ADD Minigame: Find water)", "nextId": "L1DumpsterFireEnd"}
+                  ]
+                },
+                {
+                  "id": "L1DumpsterFire21",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": " General location only → Emergency services dispatch a unit but may take longer if they need more details upon arrival.", "nextId": "L1DumpsterFireEnd"}
+                  ]
+                },
+                {
+                  "id": "L1DumpsterFire22",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": " Detailed description → Emergency services dispatch the appropriate response immediately, improving effectiveness.", "nextId": "L1DumpsterFireEnd"}
+                  ]
+                },
+                {
+                  "id": "L1DumpsterFire31",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You approached the experienced volunteer but he does not know what to do. Fortunately the security guard called emergency responders.", "nextId": "L1DumpsterFireEnd"}
+                  ]
+                },                {
+                  "id": "L1DumpsterFire32",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You approached the Security guard. He immediately takes action to call emergency responders.", "nextId": "L1DumpsterFireEnd"}
+                  ]
+                },                {
+                  "id": "L1DumpsterFire33",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": " You approached the Concerned bystander. He told you what caused the fire and informed you that the security guard had already called emergency responders.", "nextId": "L1DumpsterFireEnd"}
+                  ]
+                },
+                {
+                  "id": "L1DumpsterFireEnd",
+                  "speaker": "-",
+                  "lines": [{ "text": "The fire department arrives and handles the situation."}]
+                },
+
+
+
+              
                 {
                   "id": "TrainingScene",
                   "speaker": "TrainerNPC",
@@ -449,13 +518,10 @@
                   ]
                 },
     {
-        "id": "UniversalEnd",
-        "speaker": "-",
-        "lines": [{ "text": " Temporary End"}]
+      "id": "UniversalEnd",
+      "speaker": "-",
+      "lines": [{ "text": " Temporary End"}]
     }
-                
-
-
 
 
   ]

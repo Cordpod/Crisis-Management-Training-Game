@@ -858,7 +858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d37bb9f4e26cd40bf10580598a8fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenarioName: AnkleSprainStart
+  scenarioName: L1HamstringSprainStart
 --- !u!61 &793715838
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2097,7 +2097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cab96c78f61184ab490cda637f2818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: GameSceneStart
+  targetScene: GameSceneRight1
   entryDirection: Left
 --- !u!61 &2049642439
 BoxCollider2D:
