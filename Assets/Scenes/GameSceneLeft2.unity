@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d37bb9f4e26cd40bf10580598a8fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenarioName: MuscleCrampStart
+  scenarioName: L1CalfCrampStart
 --- !u!1 &203424839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,7 +1142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cab96c78f61184ab490cda637f2818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: GameSceneLeft2
+  targetScene: GameSceneStart
   entryDirection: Right
 --- !u!61 &859621345
 BoxCollider2D:
