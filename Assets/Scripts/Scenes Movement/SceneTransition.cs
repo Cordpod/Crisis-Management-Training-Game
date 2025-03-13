@@ -11,6 +11,10 @@ public class SceneTransition : MonoBehaviour
         if (collision.CompareTag("Player"))  // Make sure the player GameObject is tagged as "Player"
         {
             GameManager.instance.entryDirection = entryDirection;
+            if (targetScene == "StatsScene") // Stop timer only when transitioning to StatsScene
+            {
+                TimeManager.instance.StopTimer();
+            }
             SceneManager.LoadScene(targetScene);
         }
     }
