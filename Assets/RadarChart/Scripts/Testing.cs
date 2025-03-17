@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro; 
 
 public class Testing : MonoBehaviour {
 
     [SerializeField] private UI_StatsRadarChart uiStatsRadarChart;
+    [SerializeField] private TMP_Text timeText;
 
     private void Start() {
-        // newly deleted
-        // Stats stats = new Stats(10, 10, 10, 10, 2);
 
         // newly added
         Stats stats = new Stats();
@@ -25,14 +26,19 @@ public class Testing : MonoBehaviour {
             return;
         }
 
-        // int heuristics = PlayerPrefs.GetInt("Heuristics", 0);
-        // int mentalModels = PlayerPrefs.GetInt("MentalModels", 0);
-        // int infoClarity = PlayerPrefs.GetInt("InformationClarity", 0);
-        // int cognitiveLoad = PlayerPrefs.GetInt("CognitiveLoad", 0);
-        // int externalAid = PlayerPrefs.GetInt("ExternalAid", 0);
+        float elapsedTime = PlayerPrefs.GetFloat("ElapsedTime", 0f);
 
-        // Stats stats = new Stats(heuristics, mentalModels, infoClarity, cognitiveLoad, externalAid);
-        // uiStatsRadarChart.SetStats(stats);
+        if (timeText != null)
+        {
+            // float elapsedTime = TimeManager.instance.GetElapsedTime();
+            timeText.text = elapsedTime.ToString("F2") + " s";
+        }
+        else
+        {
+            Debug.LogError("timeText UI is not assigned in Testing.cs!");
+        }
+
+
             
             
     }
