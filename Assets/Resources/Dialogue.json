@@ -462,7 +462,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "Welcome to training mode! This is line 1. Tap to continue.",
+                      "text": "You are rushing to school for an exam. In the station, you feel overwhelmed by the crowd. <br><br>You choose not to do anything, and continue stressing about being on time for the paper.",
                       "nextId": "TrainingScene2"
                     }
                   ]
@@ -472,7 +472,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "Line 2. Notice that 'C' is now highlighted. Tap again to continue.",
+                      "text": "You notice that someone left a bag behind.<br><br>You pretend that you did not notice anything and hope that someone else will help them.",
                       "nextId": "TrainingScene3"
                     }
                   ]
@@ -482,7 +482,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "Line 3. 'H' should be highlighted now. Keep tapping to see the next letters.",
+                      "text": "After a few stops, the train has come to a sudden stop in the middle of the tracks.",
                       "nextId": "TrainingScene4"
                     }
                   ]
@@ -492,7 +492,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "Line 4. 'I' will highlight next. Then 'M' and 'E' after that.",
+                      "text": "You still have your headphones on and missed the announcement.<br><br>You decide to do nothing and wait to see how the people around you react.",
                       "nextId": "TrainingScene5"
                     }
                   ]
@@ -502,7 +502,127 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "Line 5. Keep tapping. Each tap highlights the next letter in CHIME!",
+                      "text": "You find out that everyone is required to evacuate the train.<br><br>You choose to wait for someone to open the door to leave.",
+                      "nextId": "TrainingScene6"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene6",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "While evacuating, you notice an elderly woman asking for someone to help her.<br><br>You think that the others around you can help her instead so you continue walking down the tracks.",
+                      "nextId": "TrainingScene7"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene7",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "As you make your way to the exam, you wonder if there was a better way that you could have handled this situation.<br><br>Let’s take a look at how it could have turned out better with the crisis management framework, <b><color=#FF0000>CHIME</color></b>.",
+                      "nextId": "TrainingScene8"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene8",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "You are rushing to school for an exam. In the station, you feel overwhelmed by the crowd.<br><br>You decide to put your headphones on to destress.",
+                      "nextId": "TrainingScene9"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene9",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "This is an example of <b><color=#FF0000>cognitive load</color></b> in crisis management.<br><br>Cognitive load refers to choosing and acting on the most suitable decision based on the available choices and resources to resolve a crisis, without feeling too overwhelmed.",
+                      "nextId": "TrainingScene10"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene10",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "You notice that someone left a bag behind.<br><br>You decide to return the bag before she alights the train.",
+                      "nextId": "TrainingScene11"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene11",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "This is an example of <b><color=#FF0000>heuristics and biases</color></b> in crisis management.<br><br>Heuristics and biases refers to the immediate actions you might take at the start of a crisis, based on your background knowledge or past experiences.",
+                      "nextId": "TrainingScene12"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene12",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "You still have your headphones on and missed the announcement.<br><br>You decide to ask someone nearby if there was anything important in the announcement.",
+                      "nextId": "TrainingScene13"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene13",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "This is an example of <b><color=#FF0000>information clarity</color></b>.<br><br>Information clarity refers to whether you have sufficient information in a crisis and if its clear how you can find out more.",
+                      "nextId": "TrainingScene14"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene14",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "You find out that everyone is required to evacuate the train.<br><br>You choose to look around and assist people to leave the train safely.",
+                      "nextId": "TrainingScene15"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene15",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "This is an example of <b><color=#FF0000>mental models</color></b> in crisis management.<br><br>Mental models refers to how standard procedures may be applied to resolve an issue, such as drills.",
+                      "nextId": "TrainingScene16"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene16",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "While evacuating, you notice an elderly woman asking for someone to help her.<br><br>You decide to work with other people around you to assist her to safely navigate on the tracks.",
+                      "nextId": "TrainingScene17"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene17",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "This is an example of <b><color=#FF0000>external aid</color></b> in crisis management.<br><br>External aid refers to task delegation or requesting help from others who are suitable to assist in resolving a crisis more efficiently.",
                       "nextId": "TrainingSceneEnd"
                     }
                   ]
@@ -512,7 +632,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "Line 6. This is the final line. 'E' should be highlighted now. End of training!",
+                      "text": "Summary:<br>Information clarity, heuristics & biases, external aid, mental models and cognitive load are 5 factors for effectively managing crises.<br><br>Choose your next step:<br>> See more examples of the crisis management framework<br><br>> Move on to the framework test",
                       "nextId": ""
                     }
                   ]
