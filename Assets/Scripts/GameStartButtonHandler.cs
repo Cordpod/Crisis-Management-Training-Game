@@ -6,15 +6,16 @@ using UnityEngine.UI;
 
 public class GameStartButtonHandler : MonoBehaviour
 {
+    public string gameSceneName; // Set this in the Inspector for each button
     void Start()
     {
         Button button = GetComponent<Button>();
         if (button != null)
         {
-            button.onClick.AddListener(LoadGameScene);
+            button.onClick.AddListener(() => LoadGameScene(gameSceneName));
         }
     }
-    void LoadGameScene()
+    public void LoadGameScene(string startScene)
     {
         if (TimeManager.instance == null)
         {
@@ -22,7 +23,7 @@ public class GameStartButtonHandler : MonoBehaviour
             return;
         }
         TimeManager.instance.StartTimer(); // Start timer
-        SceneManager.LoadScene("GameSceneStart");
+        SceneManager.LoadScene(startScene);
     }
 
 }
