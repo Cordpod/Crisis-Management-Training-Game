@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using TMPro;
-using UnityEngine;
+using UnityEngine;  
 using UnityEngine.UI;
 
 public class DialogueUI : MonoBehaviour
@@ -26,7 +26,6 @@ public class DialogueUI : MonoBehaviour
     // Flag to indicate training mode
     public bool isTrainingMode = false;
 
-    
     public UI_StatsRadarChart radarChart;
     private Stats stats;
 
@@ -66,10 +65,16 @@ public class DialogueUI : MonoBehaviour
         dialogueText.text = dialogue.lines[0].text;
         Debug.Log($"Displaying current dialogue: {dialogueText.text}");
 
-        // In training mode, always disable option buttons
+        // In training mode, disable option buttons and update the CHIME highlight based on dialogue id
         if (isTrainingMode)
         {
             optionsContainer.SetActive(false);
+            int factorIndex = GetFactorIndex(dialogue.id);
+            if (factorIndex != -1)
+            {
+                trainingDialogueIndex = factorIndex;
+                UpdateLetterHighlight();
+            }
         }
         else
         {
@@ -131,17 +136,15 @@ public class DialogueUI : MonoBehaviour
             // Only advance if no choices are active (or if training mode has no choices)
             if (optionsContainer.activeSelf == false)
             {
-                // If there's a current dialogue with no branching
                 if (currentDialogue != null && currentDialogue.lines[0].options.Count == 0)
                 {
-                    // If training mode, increment the highlight index before continuing
-                    if (isTrainingMode)
+                    // If NOT in training mode, auto-increment the highlight index as before.
+                    if (!isTrainingMode)
                     {
                         trainingDialogueIndex++;
                         UpdateLetterHighlight();
                     }
-
-                    // Advance to the next dialogue line
+                    // Continue to the next dialogue line regardless.
                     ContinueDialogue(currentDialogue.lines[0].nextId);
                 }
             }
@@ -172,7 +175,6 @@ public class DialogueUI : MonoBehaviour
             {
                 stats.AddToStatAmount(stat.GetParsedKey(), stat.value);
                 Debug.Log($"Parsed Stat: {stat.GetParsedKey()}, Value: {stat.value}");
-
             }
         }
         else
@@ -190,20 +192,20 @@ public class DialogueUI : MonoBehaviour
         {
             Debug.LogError("StatsManager instance is null!");
         }
-        else{
+        else
+        {
             // Store stats persistently using PlayerPrefs or a Singleton
             StatsManager.instance.SaveStats(stats);
             // Retrieve the saved stats to verify
-            Stats loadedStats = StatsManager.instance.GetStats();  
-            
+            Stats loadedStats = StatsManager.instance.GetStats();
+
             Debug.Log("Stats After Saving:");
             foreach (var statType in System.Enum.GetValues(typeof(Stats.Type)))
             {
                 Debug.Log($"{statType}: {loadedStats.GetStatAmount((Stats.Type)statType)}");
             }
-
         }
-        
+
         // Continue to next dialogue
         ContinueDialogue(nextId);
     }
@@ -248,6 +250,35 @@ public class DialogueUI : MonoBehaviour
         if (trainingDialogueIndex >= 0 && trainingDialogueIndex < factorLetters.Count)
         {
             factorLetters[trainingDialogueIndex].color = Color.red;
+        }
+    }
+
+    /// <summary>
+    /// Returns the factor index based on the dialogue id.
+    /// For example:
+    /// "TrainingScene9"  => 0 (Cognitive load => C)
+    /// "TrainingScene11" => 1 (Heuristics and biases => H)
+    /// "TrainingScene13" => 2 (Information clarity => I)
+    /// "TrainingScene15" => 3 (Mental models => M)
+    /// "TrainingScene17" => 4 (External aid => E)
+    /// Returns -1 if the dialogue id does not match any factor.
+    /// </summary>
+    private int GetFactorIndex(string dialogueId)
+    {
+        switch (dialogueId)
+        {
+            case "TrainingScene9":
+                return 0; // Cognitive load -> C
+            case "TrainingScene11":
+                return 1; // Heuristics and biases -> H
+            case "TrainingScene13":
+                return 2; // Information clarity -> I
+            case "TrainingScene15":
+                return 3; // Mental models -> M
+            case "TrainingScene17":
+                return 4; // External aid -> E
+            default:
+                return -1;
         }
     }
 }
