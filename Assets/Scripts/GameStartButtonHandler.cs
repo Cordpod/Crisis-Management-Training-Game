@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameStartButtonHandler : MonoBehaviour
 {
     public string gameSceneName; // Set this in the Inspector for each button
+
     void Start()
     {
         Button button = GetComponent<Button>();
@@ -15,15 +16,25 @@ public class GameStartButtonHandler : MonoBehaviour
             button.onClick.AddListener(() => LoadGameScene(gameSceneName));
         }
     }
+
     public void LoadGameScene(string startScene)
     {
-        if (TimeManager.instance == null)
+        // If the scene is NOT the training scene, start the timer.
+        if (startScene != "TrainingScene")
         {
-            Debug.LogError("TimeManager is NULL! Cannot start the timer.");
-            return;
+            if (TimeManager.instance == null)
+            {
+                Debug.LogError("TimeManager is NULL! Cannot start the timer.");
+                return;
+            }
+            TimeManager.instance.StartTimer(); // Start timer for normal gameplay
         }
-        TimeManager.instance.StartTimer(); // Start timer
+        else
+        {
+            Debug.Log("Loading training scene – skipping timer start.");
+        }
+
+        // Load the desired scene
         SceneManager.LoadScene(startScene);
     }
-
 }
