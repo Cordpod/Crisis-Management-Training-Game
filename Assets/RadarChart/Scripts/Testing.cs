@@ -64,22 +64,19 @@ public class Testing : MonoBehaviour {
     }
 
     private string GenerateAssessmentComment(Stats stats) {
-        // Create lists to store categorized factors
+
         List<string> expertFactors = new List<string>();
         List<string> intermediateFactors = new List<string>();
         List<string> beginnerFactors = new List<string>();
-        
-        // Get all factor scores
+
         int informationClarityScore = stats.GetStatAmount(Stats.Type.Infoclarity);
         int mentalModelsScore = stats.GetStatAmount(Stats.Type.Mentalmodels);
         int externalAidScore = stats.GetStatAmount(Stats.Type.Externalaid);
         int heuristicsBiasScore = stats.GetStatAmount(Stats.Type.Heuristics);
         int cognitiveLoadScore = stats.GetStatAmount(Stats.Type.Cognitiveload);
-        
-        // Calculate total score
+
         int totalScore = informationClarityScore + mentalModelsScore + externalAidScore + heuristicsBiasScore + cognitiveLoadScore;
-        
-        // Categorize Information Clarity
+
         if (informationClarityScore >= 16 && informationClarityScore <= 23) {
             expertFactors.Add("Information Clarity");
         } else if (informationClarityScore >= 8 && informationClarityScore <= 15) {
@@ -87,8 +84,7 @@ public class Testing : MonoBehaviour {
         } else {
             beginnerFactors.Add("Information Clarity");
         }
-        
-        // Categorize Mental Models
+
         if (mentalModelsScore >= 14 && mentalModelsScore <= 20) {
             expertFactors.Add("Mental Models");
         } else if (mentalModelsScore >= 7 && mentalModelsScore <= 13) {
@@ -96,8 +92,7 @@ public class Testing : MonoBehaviour {
         } else {
             beginnerFactors.Add("Mental Models");
         }
-        
-        // Categorize External Aid
+
         if (externalAidScore >= 15 && externalAidScore <= 21) {
             expertFactors.Add("External Aid");
         } else if (externalAidScore >= 8 && externalAidScore <= 14) {
@@ -105,8 +100,7 @@ public class Testing : MonoBehaviour {
         } else {
             beginnerFactors.Add("External Aid");
         }
-        
-        // Categorize Heuristics & Bias
+
         if (heuristicsBiasScore >= 17 && heuristicsBiasScore <= 24) {
             expertFactors.Add("Heuristics & Bias");
         } else if (heuristicsBiasScore >= 9 && heuristicsBiasScore <= 16) {
@@ -114,8 +108,7 @@ public class Testing : MonoBehaviour {
         } else {
             beginnerFactors.Add("Heuristics & Bias");
         }
-        
-        // Categorize Cognitive Load
+
         if (cognitiveLoadScore == 24) {
             expertFactors.Add("Cognitive Load");
         } else if (cognitiveLoadScore == 16) {
@@ -123,8 +116,7 @@ public class Testing : MonoBehaviour {
         } else {
             beginnerFactors.Add("Cognitive Load");
         }
-        
-        // Determine performance level
+
         string level;
         if (totalScore >= 76) {
             level = "excellent";
@@ -133,13 +125,11 @@ public class Testing : MonoBehaviour {
         } else {
             level = "poor";
         }
-        
-        // Format factors for the comment
+
         string expertFactorsText = FormatFactorsList(expertFactors);
         string intermediateFactorsText = FormatFactorsList(intermediateFactors);
         string beginnerFactorsText = FormatFactorsList(beginnerFactors);
-        
-        // Generate the comment based on the template
+
         string comment = $"Your crisis management assessment shows <b>{level}</b> performance: ";
         
         if (expertFactors.Count > 0) {
