@@ -81,7 +81,7 @@ public class TimeManager : MonoBehaviour
         int seconds = Mathf.FloorToInt(timeRemaining % 60);
 
         CountdownTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        Debug.Log("Timer Updated: " + CountdownTimer.text);
+        //Debug.Log("Timer Updated: " + CountdownTimer.text);
     }
 
     private void StartBlinking()
