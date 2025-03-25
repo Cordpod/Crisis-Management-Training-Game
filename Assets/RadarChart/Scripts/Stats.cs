@@ -8,7 +8,6 @@ public class Stats {
     public event EventHandler OnStatsChanged;
 
     public static int STAT_MIN = 0;
-    // public static int STAT_MAX = 24;  // since we have a factor of max 24 for the scoring among the categories
     private static Dictionary<Type, int> CategoryMaxScores = new Dictionary<Type, int>() {
         { Type.Infoclarity, 23 },
         { Type.Mentalmodels, 20 },
@@ -30,15 +29,6 @@ public class Stats {
     private SingleStat infoclarityStat;
     private SingleStat cognitiveloadStat;
     private SingleStat externalaidStat;
-
-    // new added
-    // public Stats() {
-    //     heuristicsStat = new SingleStat(0);
-    //     mentalmodelsStat = new SingleStat(0);
-    //     infoclarityStat = new SingleStat(0);
-    //     cognitiveloadStat = new SingleStat(0);
-    //     externalaidStat = new SingleStat(0);
-    // }
 
     public Stats() {
         heuristicsStat = new SingleStat(0, CategoryMaxScores[Type.Heuristics]);
@@ -75,7 +65,6 @@ public class Stats {
     }
 
     public float GetStatAmountNormalized(Type statType) {
-        // return GetSingleStat(statType).GetStatAmountNormalized();
         float normalizedValue = GetSingleStat(statType).GetStatAmountNormalized();
         Debug.Log($"{statType} normalized value: {normalizedValue}");
         return normalizedValue;
@@ -91,18 +80,10 @@ public class Stats {
         private int stat;
         private int maxStat;
 
-        // public SingleStat(int statAmount) {
-        //     SetStatAmount(statAmount);
-        // }
-
         public SingleStat(int statAmount, int maxStatAmount) {
             maxStat = maxStatAmount;
             SetStatAmount(statAmount);
         }
-
-        // public void SetStatAmount(int statAmount) {
-        //     stat = Mathf.Clamp(statAmount, STAT_MIN, STAT_MAX);
-        // }
 
         public void SetStatAmount(int statAmount) {
             stat = Mathf.Clamp(statAmount, STAT_MIN, maxStat);
@@ -112,9 +93,6 @@ public class Stats {
             return stat;
         }
 
-        // public float GetStatAmountNormalized() {
-        //     return (float)stat / (STAT_MAX * 2);
-        // }
         public float GetStatAmountNormalized() {
             // Normalize based on category's max score
             return (float)stat / (maxStat * 2);
