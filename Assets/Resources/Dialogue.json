@@ -115,7 +115,7 @@
                   "id": "L1HeartAttack12211",
                   "speaker": "-",
                   "lines": [
-                    { "text": "The AED isn’t where you thought it was, however a helpful passerby guides you to the AED. You bring it back to the man", "nextId": "L1HeartAttack12221"}
+                    { "text": "The AED isn't where you thought it was, however a helpful passerby guides you to the AED. You bring it back to the man", "nextId": "L1HeartAttack12221"}
                   ]
                 },
                 {
@@ -140,7 +140,204 @@
                   ]
                 },
                 
-  
+    {
+      "id": "L2HeartAttackStart",
+      "speaker": "Heart_Attack_Girl",
+      "lines": [
+        { "text": "You notice a man sitting on the curb clutching his chest. He has a pained look on his face.<br><br>Do you: <br>1. Ask the man if he's feeling alright<br>2. Continue on your way<br>3. Wait to see if anyone approaches him", 
+            "options": [
+            { "text": "1", "nextId": "L2HeartAttack1", "stats": [{"key":"Infoclarity", "value":3}, {"key":"Mentalmodels", "value":0 }]},
+            { "text": "2", "nextId": "L2HeartAttack2", "stats": [{"key":"Heuristics", "value":1}, {"key":"Mentalmodels", "value":0 }]},
+            { "text": "3", "nextId": "L2HeartAttack3", "stats": [{"key":"Heuristics", "value":1}, {"key":"Mentalmodels", "value":0 }]}
+        ]}
+      ]
+    },
+                {
+                  "id": "L2HeartAttack1",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The man mentioned that he's feeling unwell and uncomfortable.<br><br>Do you:<br>1. Call the ambulance immediately<br>2. Sit with him and observe the situation<br>3. Ask him to describe his symptoms", 
+                        "options": [
+                        { "text": "1", "nextId": "L2HeartAttack11", "stats": [{"key":"Mentalmodels","value":2}, {"key":"Externalaid","value":2 }] },
+                        { "text": "2", "nextId": "L2HeartAttack12", "stats": [{"key":"Heuristics","value":2}, {"key":"Mentalmodels","value":0 }] },
+                        { "text": "3", "nextId": "L2HeartAttack13", "stats": [{"key":"Infoclarity","value":3}, {"key":"Mentalmodels","value":1 }] }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack2",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "He seems fine, you continue on your way.", "nextId": "L2HeartAttack21"}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack3",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "Someone approaches to check up on the man and you decide it is now safe to walk away.", "nextId": "L2HeartAttack21"}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack11",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You call the ambulance and inform them that there is a man feeling unwell. The dispatcher asks for his symptoms.<br><br>Do you:<br>1. Inform the dispatcher that the man mentioned feeling unwell and uncomfortable<br>2. Ask the man to describe his symptoms", 
+                        "options": [
+                        { "text": "1", "nextId": "L2HeartAttack111", "stats": [{"key":"Infoclarity","value":1}, {"key":"Externalaid","value":0 }] },
+                        { "text": "2", "nextId": "L2HeartAttack112", "stats": [{"key":"Infoclarity","value":3}, {"key":"Mentalmodels","value":0 }] }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack12",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The man's condition doesn't seem to improve. He starts sweating profusely and looks worse.<br><br>Do you:<br>1. Call the ambulance<br>2. Help the man to the nearby first aid station<br>3. Ask a passerby for help", 
+                        "options": [
+                        { "text": "1", "nextId": "L2HeartAttack11", "stats": [{"key":"Externalaid","value":2}] },
+                        { "text": "2", "nextId": "L2HeartAttack122", "stats": [{"key":"Externalaid","value":1}] },
+                        { "text": "3", "nextId": "L2HeartAttack123", "stats": [{"key":"Externalaid","value":1}] }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack122",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The man collapsed as you were helping him to the station. You call the ambulance.", "nextId": "L2HeartAttack1221"}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack123",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The passerby says the man is likely having an active heart attack and you call the emergency hotline for help.", "nextId": "L2HeartAttack1221"}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack21",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "As you are walking away, you hear someone shouting.<br>“Are you okay? Can you hear me?”<br>You turn around and see that the man from before has now collapsed. A passerby is trying to assist, you rush back.<br><br>Do you:<br>1. Ask the passerby what's happening<br>2. Call the emergency hotline", 
+                        "options": [
+                        { "text": "1", "nextId": "L2HeartAttack123", "stats": [{"key":"Infoclarity","value":1}, {"key":"Externalaid","value":0 }] },
+                        { "text": "2", "nextId": "L2HeartAttack123", "stats": [{"key":"Infoclarity","value":0}, {"key":"Externalaid","value":2 }] }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack111",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The dispatcher tells you that this is an emergency line and should not be used for non emergency medical situations.<br><br>Do you:<br>1. Apologize and offer to accompany the man to the first aid station instead<br>2. Pass the phone to the man to describe his symptoms", 
+                        "options": [
+                        { "text": "1", "nextId": "L2HeartAttack122", "stats": [{"key":"Infoclarity","value":0}, {"key":"Heuristics","value":1 }] },
+                        { "text": "2", "nextId": "L2HeartAttack112", "stats": [{"key":"Infoclarity","value":2}, {"key":"Heuristics","value":0 }] }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack112",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "With the dispatcher's help, the man is able to describe his symptoms. These symptoms sound like those of a heart attack.", "nextId": "L2HeartAttack1121"}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack1121",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The situation has been verified. The ambulance will arrive shortly.<br><br>Do you:<br>1. Inform the man that help will be arriving shortly, you then leave<br>2. Stay with the man until the ambulance arrives", 
+                        "options": [
+                        { "text": "1", "nextId": "L2HeartAttack21", "stats": [{"key":"Infoclarity","value":2}, {"key":"Heuristics","value":0 }] },
+                        { "text": "2", "nextId": "L2HeartAttackEnd", "stats": [{"key":"Cognitiveload","value":2}, {"key":"Heuristics","value":2 }] }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack1221",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The dispatcher instructs you to start CPR and use an AED.<br><br>Do you:<br>1. Get a passerby to start compressions while you look for an AED<br>2. Get a passerby to look for an AED while you start compressions", 
+                        "options": [
+                        { "text": "1", "nextId": "L2HeartAttack12211", "stats": [{"key":"Externalaid","value":1}, {"key":"Mentalmodels","value":2 }] },
+                        { "text": "2", "nextId": "L2HeartAttack12212", "stats": [{"key":"Externalaid","value":2}, {"key":"Mentalmodels","value":2 }] }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack12211",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You are looking for the nearest AED. <br><br>Do you:<br>1. Run towards where you vaguely remember where an AED was<br>2. Ask the passersby if they have seen an AED<br>3. Run towards the first aid tent", 
+                        "options": [
+                        { "text": "1", "nextId": "L2HeartAttack122111", "stats": [{"key":"Cognitiveload","value":1}, {"key":"Mentalmodels","value":1 }] },
+                        { "text": "2", "nextId": "L2HeartAttack122112", "stats": [{"key":"Infoclarity","value":1}, {"key":"Externalaid","value":1 }] },
+                        { "text": "3", "nextId": "L2HeartAttack122112", "stats": [{"key":"Heuristics","value":1}, {"key":"Mentalmodels","value":0 }] }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack122111",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The AED isn't where you thought it was, however a helpful passerby guides you to the AED. You bring it back to the man.", "nextId": "L2HeartAttack1221111"}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack122112",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "They manage to guide you to an AED, you bring it back to the man.", "nextId": "L2HeartAttack1221111"}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack1221111",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "Luckily, you are able to resuscitate the man.", "nextId": "L2HeartAttackEnd"}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack12212",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You are starting to get tired while doing compressions.<br><br>Do you:<br>1. Shout for another passerby to take your place<br>2. Slow down the pace slightly", 
+                        "options": [
+                        { "text": "1", "nextId": "L2HeartAttack122121", "stats": [{"key":"Externalaid","value":2}, {"key":"Mentalmodels","value":2 }] },
+                        { "text": "2", "nextId": "L2HeartAttack122122", "stats": [{"key":"Heuristics","value":1}, {"key":"Externalaid","value":0 }] }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack122121",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "Another trained passerby helps with the compressions. It seems to be working", "nextId": "L2HeartAttack1221211"}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack122122",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You slow down slightly to catch your breath, the CPR does not seem to be effective.", "nextId": "L2HeartAttack1221211"}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttack1221211",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The passerby returns with the AED. You administer the AED.", "nextId": "L2HeartAttack1221111"}
+                  ]
+                },
+                {
+                  "id": "L2HeartAttackEnd",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "Ambulance arrives, the paramedics take over and the man is taken into the ambulance. The paramedic assures you that he will be fine."}
+                  ]
+                },  
 
 
 
@@ -281,7 +478,7 @@
             "options": [
             { "text": "1", "nextId": "L1CalfCramp1", "stats": [{"key":"Infoclarity","value":3}, {"key":"Mentalmodels","value":2 }] },
             { "text": "2", "nextId": "L1CalfCramp1", "stats": [{"key":"Infoclarity","value":1}, {"key":"Mentalmodels","value":3 }] },
-            { "text": "3 (CAN ADD MINIGAME)", "nextId": "L1CalfCramp1", "stats": [{"key":"Infoclarity","value":2}, {"key":"Mentalmodels","value":1 }] }
+            { "text": "3", "nextId": "L1CalfCramp1", "stats": [{"key":"Infoclarity","value":2}, {"key":"Mentalmodels","value":1 }] }
         ]}
       ]
     },
@@ -293,7 +490,7 @@
                         "options": [
                         { "text": "1", "nextId": "L1CalfCramp11", "stats": [{"key":"Heuristics","value":2}, {"key":"Externalaid","value":1 }, {"key":"Mentalmodels","value":3 }] },
                         { "text": "2", "nextId": "L1CalfCramp11", "stats": [{"key":"Heuristics","value":3}, {"key":"Externalaid","value":2 }, {"key":"Mentalmodels","value":2 }] },
-                        { "text": "4", "nextId": "L1CalfCramp11", "stats": [{"key":"Heuristics","value":1}, {"key":"Externalaid","value":3 }, {"key":"Mentalmodels","value":1 }] }
+                        { "text": "3", "nextId": "L1CalfCramp11", "stats": [{"key":"Heuristics","value":1}, {"key":"Externalaid","value":3 }, {"key":"Mentalmodels","value":1 }] }
                     ]}
                   ]
                 },
@@ -336,11 +533,7 @@
                   "id": "L1Heatstroke1",
                   "speaker": "-",
                   "lines": [
-                    { "text": "“Thank you for helping me! I think I can push through to the end!”", 
-                        "options": [
-                        { "text": "1", "nextId": "UniversalEnd", "stats": [{"key":"Heuristics","value":3}, {"key":"Mentalmodels","value":0 }] },
-                        { "text": "2", "nextId": "UniversalEnd", "stats": [{"key":"Heuristics","value":0}, {"key":"Mentalmodels","value":3 }] }
-                    ]}
+                    { "text": "“Thank you for helping me! I think I can push through to the end!”" }
                   ]
                 },
                 
@@ -365,9 +558,9 @@
                   "lines": [
                     { "text": "You decide to take action to prevent it from spreading.<br><br>What do you use?<br>1. Run to look for a fire extinguisher. <br>2. Grab a nearby cloth or jacket and try to smother the flames. <br>3. Use bottled water from the hydration station. ", 
                         "options": [
-                        { "text": "1", "nextId": "L1DumpsterFire11", "stats": [{"key":"Mentalmodels","value":3}, {"key":"Externalaid","value":2 }] },
-                        { "text": "2", "nextId": "L1DumpsterFire12", "stats": [{"key":"Heuristics","value":2}, {"key":"Mentalmodels","value":0 }]},
-                        { "text": "3", "nextId": "L1DumpsterFire13", "stats": [{"key":"Heuristics","value":1}, {"key":"Mentalmodels","value":0 }] }
+                        { "image": "Options/Fire/[fire] fire extinguisher_ you try to extinguish it yourself.png", "nextId": "L1DumpsterFire11", "stats": [{"key":"Mentalmodels","value":3}, {"key":"Externalaid","value":2 }] },
+                        { "image": "Options/Fire/[fire] fire blanket_ you try to extinguish it yourself.png", "nextId": "L1DumpsterFire12", "stats": [{"key":"Heuristics","value":2}, {"key":"Mentalmodels","value":0 }]},
+                        { "image": "Options/Fire/[fire] water_ you try to extinguish it yourself.png", "nextId": "L1DumpsterFire13", "stats": [{"key":"Heuristics","value":1}, {"key":"Mentalmodels","value":0 }] }
                     ]}
                   ]
                 },

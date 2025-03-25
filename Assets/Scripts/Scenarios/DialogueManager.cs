@@ -28,6 +28,7 @@ public class StatPair
 public class DialogueOption
 {
     public string text;
+    public string image;
     public string nextId;
     public List<StatPair> stats;
 }
@@ -81,39 +82,39 @@ public class DialogueManager : MonoBehaviour
             dialogueData = JsonUtility.FromJson<DialogueData>(jsonFile.text);
             Debug.Log($"Loaded dialogue for scenario: {scenarioName}");
             // Debugging: Print entire parsed dialogue
-            foreach (var entry in dialogueData.dialogue)
-            {
-                Debug.Log($"Dialogue ID: {entry.id}, Speaker: {entry.speaker}");
+            //foreach (var entry in dialogueData.dialogue)
+            //{
+            //    Debug.Log($"Dialogue ID: {entry.id}, Speaker: {entry.speaker}");
 
-                foreach (var line in entry.lines)
-                {
-                    Debug.Log($"  Text: {line.text}, NextId: {line.nextId}");
+            //    foreach (var line in entry.lines)
+            //    {
+            //        Debug.Log($"  Text: {line.text}, NextId: {line.nextId}");
 
-                    if (line.options != null)
-                    {
-                        foreach (var option in line.options)
-                        {
-                            Debug.Log($"    Option Text: {option.text}, NextId: {option.nextId}");
+            //        if (line.options != null)
+            //        {
+            //            foreach (var option in line.options)
+            //            {
+            //                Debug.Log($"    Option Text: {option.text}, NextId: {option.nextId}");
 
-                            if (option.stats != null)
-                            {
-                                foreach (var stat in option.stats)
-                                {
-                                    Debug.Log($"      Stat: {stat.GetParsedKey()}, Value: {stat.value}");
-                                }
-                            }
-                            else
-                            {
-                                Debug.Log("      Stats: None");
-                            }
-                        }
-                    }
-                    else
-                    {
-                        Debug.Log("    No options available.");
-                    }
-                }
-            }
+            //                if (option.stats != null)
+            //                {
+            //                    foreach (var stat in option.stats)
+            //                    {
+            //                        Debug.Log($"      Stat: {stat.GetParsedKey()}, Value: {stat.value}");
+            //                    }
+            //                }
+            //                else
+            //                {
+            //                    Debug.Log("      Stats: None");
+            //                }
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Debug.Log("    No options available.");
+            //        }
+            //    }
+            //}
         }
         else
         {
