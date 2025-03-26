@@ -282,4 +282,9 @@ public class DialogueUI : MonoBehaviour
         }
     }
 
+    private void hiGuys()
+    {
+        //nothing
+    }
+
 }
