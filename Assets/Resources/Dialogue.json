@@ -219,7 +219,7 @@
                   "id": "L2HeartAttack21",
                   "speaker": "-",
                   "lines": [
-                    { "text": "As you are walking away, you hear someone shouting.<br>“Are you okay? Can you hear me?”<br>You turn around and see that the man from before has now collapsed. A passerby is trying to assist, you rush back.<br><br>Do you:<br>1. Ask the passerby what's happening<br>2. Call the emergency hotline", 
+                    { "text": "As you are walking away, you hear someone shouting.<br>“Are you okay? Can you hear me?”<br>You turn around and see that the man from before has now collapsed. A passerby is trying to assist him.<br><br>Do you:<br>1. Ask the passerby what's happening<br>2. Call the emergency hotline", 
                         "options": [
                         { "text": "1", "nextId": "L2HeartAttack123", "stats": [{"key":"Infoclarity","value":1}, {"key":"Externalaid","value":0 }] },
                         { "text": "2", "nextId": "L2HeartAttack123", "stats": [{"key":"Infoclarity","value":0}, {"key":"Externalaid","value":2 }] }
@@ -522,7 +522,7 @@
                   "id": "L1CalfCrampEnd",
                   "speaker": "-",
                   "lines": [
-                    { "text": "After assisting the runner in stretching and ensuring they hydrate properly, their calf cramp gradually subsides. They stand up carefully, and confirm that they feel better. The runner thanks you for your help continues the race at a slower pace." }
+                    { "text": "After assisting the runner in stretching and ensuring they hydrate properly, their calf cramp gradually subsides. <br>They stand up carefully, and confirm that they feel better. <br>The runner thanks you for your help continues the race at a slower pace." }
                   ]
                 }, 
 
@@ -578,7 +578,7 @@
       "id": "L1DumpsterFireStart", 
       "speaker": "-",
       "lines": [
-        { "text": "“OMG THERES A FIRE! WHAT SHALL WE DO?”<br><br>Do you:<br>1. Call for emergency services immediately<br>2. Try to extinguish the fire yourself <br>3. Find a nearby event official or security personnel for assistance ", 
+        { "text": "You hear someone shouting “OMG THERES A FIRE! WHAT SHALL WE DO?”<br><br>Do you:<br>1. Call for emergency services immediately<br>2. Try to extinguish the fire yourself <br>3. Find a nearby event official or security personnel for assistance ", 
             "options": [
             { "text": "1", "nextId": "L1DumpsterFire1", "stats": [{"key":"Infoclarity","value":3}, {"key":"Externalaid","value":3 }]},
             { "text": "2", "nextId": "L1DumpsterFire2", "stats": [{"key":"Mentalmodels","value":2}, {"key":"Heuristics","value":2 }]},
@@ -749,7 +749,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "As you make your way to the exam, you wonder if there was a better way that you could have handled this situation.<br><br>Let's take a look at how it could have turned out better with the crisis management framework, <b><color=#FF0000>CHIME</color></b>.",
+                      "text": "As you make your way to the exam, you wonder if there was a better way to handle the situation.<br><br>Let's take a look at how it could have turned out better with the crisis management framework, <b><color=#FF0000>CHIME</color></b>.",
                       "nextId": "TrainingScene8"
                     }
                   ]
