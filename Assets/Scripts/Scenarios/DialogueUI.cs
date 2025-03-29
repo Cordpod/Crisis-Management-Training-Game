@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using TMPro;
@@ -65,16 +65,10 @@ public class DialogueUI : MonoBehaviour
         dialogueText.text = dialogue.lines[0].text;
         Debug.Log($"Displaying current dialogue: {dialogueText.text}");
 
-        // In training mode, disable option buttons and update the CHIME highlight based on dialogue id
+        // In training mode, always disable option buttons
         if (isTrainingMode)
         {
             optionsContainer.SetActive(false);
-            int factorIndex = GetFactorIndex(dialogue.id);
-            if (factorIndex != -1)
-            {
-                trainingDialogueIndex = factorIndex;
-                UpdateLetterHighlight();
-            }
         }
         else
         {
@@ -93,10 +87,35 @@ public class DialogueUI : MonoBehaviour
                 {
                     Button btn = Instantiate(optionButtonPrefab, optionsContainer.transform);
                     TMP_Text btnText = btn.GetComponentInChildren<TMP_Text>();
-                    if (btnText != null)
+
+                    // image_v1.0
+                    Image btnImage = btn.GetComponent<Image>();
+                    if (!string.IsNullOrEmpty(option.image))
+                    {
+                        // Remove extension (if any) before loading
+                        string imagePath = System.IO.Path.ChangeExtension(option.image, null);
+                        Debug.Log($"Attempting to load sprite from: {imagePath}");
+
+                        Sprite optionSprite = Resources.Load<Sprite>(imagePath);
+                        if (optionSprite != null)
+                        {
+                            btnImage.sprite = optionSprite;
+                            if (btnText != null) btnText.gameObject.SetActive(false);
+                            Debug.Log($"Successfully loaded image: {imagePath}");
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"❌ Could NOT load image: {imagePath}. Make sure it's in Resources/Options.");
+                        }
+                    }
+                    else if (!string.IsNullOrEmpty(option.text) && btnText != null)
                     {
                         btnText.text = option.text;
+                        btnText.gameObject.SetActive(true);
                     }
+
+                    // image_v1.0 end
+
                     else
                     {
                         Debug.LogError("TMP text not found in button prefab");
@@ -114,8 +133,15 @@ public class DialogueUI : MonoBehaviour
                             Debug.Log($"  -- Stat Key: '{stat.GetParsedKey()}', Value: {stat.value}");
                         }
                     }
+
                     Debug.Log($"option text for button: {option.text}, option nextId for button {option.nextId}");
-                    btn.onClick.AddListener(() => OnOptionSelected(btnText.text, option.nextId, option.stats));
+
+                    // image_v1.0
+
+                    // Assign click behavior
+                    btn.onClick.AddListener(() => OnOptionSelected(option.text ?? option.image, option.nextId, option.stats));
+
+                    // image_v1.0 end
                 }
             }
             else
