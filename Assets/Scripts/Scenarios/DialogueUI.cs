@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -65,10 +64,16 @@ public class DialogueUI : MonoBehaviour
         dialogueText.text = dialogue.lines[0].text;
         Debug.Log($"Displaying current dialogue: {dialogueText.text}");
 
-        // In training mode, always disable option buttons
+        // In training mode, disable option buttons and update the CHIME highlight based on dialogue id
         if (isTrainingMode)
         {
             optionsContainer.SetActive(false);
+            int factorIndex = GetFactorIndex(dialogue.id);
+            if (factorIndex != -1)
+            {
+                trainingDialogueIndex = factorIndex;
+                UpdateLetterHighlight();
+            }
         }
         else
         {
@@ -113,13 +118,12 @@ public class DialogueUI : MonoBehaviour
                         btnText.text = option.text;
                         btnText.gameObject.SetActive(true);
                     }
-
-                    // image_v1.0 end
-
                     else
                     {
                         Debug.LogError("TMP text not found in button prefab");
                     }
+                    // image_v1.0 end
+
                     // Check if stats is null
                     if (option.stats == null)
                     {
@@ -136,12 +140,8 @@ public class DialogueUI : MonoBehaviour
 
                     Debug.Log($"option text for button: {option.text}, option nextId for button {option.nextId}");
 
-                    // image_v1.0
-
                     // Assign click behavior
                     btn.onClick.AddListener(() => OnOptionSelected(option.text ?? option.image, option.nextId, option.stats));
-
-                    // image_v1.0 end
                 }
             }
             else
@@ -196,7 +196,6 @@ public class DialogueUI : MonoBehaviour
         if (optionStats != null && optionStats.Count > 0)
         {
             Debug.Log("Current Stats from option:");
-
             foreach (var stat in optionStats)
             {
                 stats.AddToStatAmount(stat.GetParsedKey(), stat.value);
@@ -224,7 +223,6 @@ public class DialogueUI : MonoBehaviour
             StatsManager.instance.SaveStats(stats);
             // Retrieve the saved stats to verify
             Stats loadedStats = StatsManager.instance.GetStats();
-
             Debug.Log("Stats After Saving:");
             foreach (var statType in System.Enum.GetValues(typeof(Stats.Type)))
             {
@@ -239,9 +237,7 @@ public class DialogueUI : MonoBehaviour
     void ContinueDialogue(string nextId)
     {
         Debug.Log($"Calling ContinueDialogue, Moving to Next Dialogue Line Id:{nextId}");
-
         var nextDialogue = DialogueManager.instance.GetDialogueById(nextId);
-
         if (nextDialogue != null)
         {
             DisplayDialogue(nextDialogue);
@@ -271,7 +267,6 @@ public class DialogueUI : MonoBehaviour
         {
             letter.color = Color.black;
         }
-
         // Highlight the current letter if it's in range
         if (trainingDialogueIndex >= 0 && trainingDialogueIndex < factorLetters.Count)
         {
@@ -307,5 +302,4 @@ public class DialogueUI : MonoBehaviour
                 return -1;
         }
     }
-
 }
