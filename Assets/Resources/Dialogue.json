@@ -435,10 +435,10 @@
       
       
     {
-      "id": "L1AnkleSprainStart",
+      "id": "L1AnkleStart",
       "speaker": "-",
       "lines": [
-        { "text": "You noticed a lady sitting on the side.<br>She tells you that she has an ankle sprain.<br><br>Do you:<br>1. Stretch her ankle<br>2. Ask the severity of her condition<br>3. Encourage her to call an ambulance and go to the hospital", 
+        { "text": "You noticed a man sitting on the side.<br>She tells you that he has an ankle sprain.<br><br>Do you:<br>1. Stretch his ankle<br>2. Ask the severity of his condition<br>3. Encourage him to call an ambulance and go to the hospital", 
             "options": [
             { "text": "1", "nextId": "L1AnkleSprain1", "stats": [{"key":"Externalaid","value":3}, {"key":"Heuristics","value":2 }, {"key":"Infoclarity","value":1 }]},
             { "text": "2", "nextId": "L1AnkleSprain1", "stats": [{"key":"Externalaid","value":1}, {"key":"Heuristics","value":3 }, {"key":"Infoclarity","value":3 }]},
@@ -450,7 +450,7 @@
                   "id": "L1AnkleSprain1",
                   "speaker": "-",
                   "lines": [
-                    { "text": "The lady said, “It's ok, I'm fine.”<br><br>Do you:<br>1. Assess her condition further and see if there's any help you can provide. <br>2. Provide immediate assistance without forcing, for example, offering an ice pack. ", 
+                    { "text": "The man said, “It's ok, I'm fine.”<br><br>Do you:<br>1. Assess his condition further and see if there's any help you can provide. <br>2. Provide immediate assistance without forcing, for example, offering an ice pack. ", 
                         "options": [
                         { "text": "1", "nextId": "L1AnkleSprain2", "stats": [{"key":"Heuristics","value":1}, {"key":"Infoclarity","value":3 }] },
                         { "text": "2", "nextId": "L1AnkleSprain2", "stats": [{"key":"Heuristics","value":3}, {"key":"Infoclarity","value":1 }] }
@@ -463,7 +463,7 @@
                   "speaker": "-",
                   "lines": [
                     { 
-                      "text": "The lady tries to stand, but she stumbles and falls back down.<br><br>Do you:<br>1. Immediately call for help and keep her still.<br>2. Help her to a seated position and suggest resting her ankle." , 
+                      "text": "The man tries to stand, but he stumbles and falls back down.<br><br>Do you:<br>1. Immediately call for help and keep him still.<br>2. Help him to a seated position and suggest resting his ankle." , 
                       "options": [
                         { "text": "1", "nextId": "L1AnkleSprain21", "stats": [{"key":"Externalaid","value":3}, {"key":"Heuristics","value":2}, {"key":"Infoclarity","value":1}] },
                         { "text": "2", "nextId": "L1AnkleSprain21","stats": [{"key":"Externalaid","value":2}, {"key":"Heuristics","value":3}, {"key":"Infoclarity","value":2}] }
@@ -474,7 +474,7 @@
                   "id": "L1AnkleSprain21",
                   "speaker": "-",
                   "lines": [
-                    { "text": "You acted according to the situation, providing help and advice. The lady is now resting and is receiving assistance from the paramedics." }
+                    { "text": "You acted according to the situation, providing help and advice. The man is now resting and is receiving assistance from the paramedics." }
                   ]
                 },
 
@@ -632,7 +632,7 @@
                   "id": "L1DumpsterFire12",
                   "speaker": "-",
                   "lines": [
-                    { "text": "You use your jacket and managed to smother the flames. Another volunteer exclaimed “That is very dangerous, you could have gotten burnt or made the fire bigger!”", "nextId": "L1DumpsterFireEnd"}
+                    { "text": "You used a fire blanket and managed to smother the flames. Another volunteer exclaimed “That is very dangerous, you could have gotten burnt or made the fire bigger!”", "nextId": "L1DumpsterFireEnd"}
                   ]
                 },
                 {
