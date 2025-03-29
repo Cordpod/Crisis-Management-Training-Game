@@ -632,7 +632,7 @@
                   "id": "L1DumpsterFire12",
                   "speaker": "-",
                   "lines": [
-                    { "text": "You use your jacket and managed to smother the flames. Another volunteer exclaimed “That is very dangerous, you could have gotten burnt or made the fire bigger!”", "nextId": "L1DumpsterFireEnd"}
+                    { "text": "You used a fire blanket and managed to smother the flames. Another volunteer exclaimed “That is very dangerous, you could have gotten burnt or made the fire bigger!”", "nextId": "L1DumpsterFireEnd"}
                   ]
                 },
                 {
