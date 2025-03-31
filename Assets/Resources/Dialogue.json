@@ -19,7 +19,7 @@
                   "id": "L1HeartAttack1",
                   "speaker": "-",
                   "lines": [
-                    { "text": "The man mentioned that he's feeling a squeezing pain in his chest. He also mentioned that he pain is radiating down into his left arm. It seems like the symptoms of a heart attack.<br><br>Do you:<br>1. Call the ambulance immediately<br>2. Sit with him and observe the situation ", 
+                    { "text": "The man mentioned that he's feeling a squeezing pain in his chest. He also mentioned that the pain is radiating down into his left arm. It seems like the symptoms of a heart attack.<br><br>Do you:<br>1. Call the ambulance immediately<br>2. Sit with him and observe the situation ", 
                         "options": [
                         { "text": "1", "nextId": "L1HeartAttack11", "stats": [{"key":"Mentalmodels","value":2}, {"key":"Externalaid","value":2 }] },
                         { "text": "2", "nextId": "L1HeartAttack12", "stats": [{"key":"Heuristics","value":2}, {"key":"Mentalmodels","value":0 }] }
@@ -55,7 +55,7 @@
                   "id": "L1HeartAttack12",
                   "speaker": "-",
                   "lines": [
-                    { "text": "The man's condition doesn't seem to improve. He starts sweating profusely and looks worse.<br><br>Do you:<br>1. Call the ambulance<br>2. Help the man to the nearby first aid station<br>3. Ask a passerby for help", 
+                    { "text": "The man's condition doesn't seem to improve. He starts sweating profusely and looks worse.<br><br>Do you:<br>1. Call the ambulance<br>2. Help the man to a nearby first aid station<br>3. Ask a passerby for help", 
                         "options": [
                         { "text": "1", "nextId": "L1HeartAttack11", "stats": [{"key":"Externalaid","value":2}, {"key":"Mentalmodels","value":0 }] },
                         { "text": "2", "nextId": "L1HeartAttack122", "stats": [{"key":"Externalaid","value":1}, {"key":"Mentalmodels","value":0 }] },
@@ -67,7 +67,7 @@
                   "id": "L1HeartAttack21",
                   "speaker": "-",
                   "lines": [
-                    { "text": "As you are walking away, you hear someone shouting.<br>“Are you okay?”<br>You turn around and see that the man from before is now slumped over. A passerby is trying to assist, you rush back.<br><br>Do you:<br>1. Ask the passerby what's happening<br>2. Call the ambulance", 
+                    { "text": "As you are walking away, you hear someone shouting.<br>“Are you okay?”<br>You turn around and see that the man from before is now slumped over. A passerby is trying to assist and you rush back.<br><br>Do you:<br>1. Ask the passerby what's happening<br>2. Call the ambulance", 
                         "options": [
                         { "text": "1", "nextId": "L1HeartAttack123", "stats": [{"key":"Externalaid","value":1}, {"key":"Infoclarity","value":1 }] },
                         { "text": "2", "nextId": "L1HeartAttack123", "stats": [{"key":"Externalaid","value":2}, {"key":"Infoclarity","value":0 }] }
@@ -78,7 +78,7 @@
                   "id": "L1HeartAttack122",
                   "speaker": "-",
                   "lines": [
-                    { "text": "The man collapsed as you were helping him to the station. You call the ambulance. The dispatcher instructs you to start CPR and use an AED.<br><br>Do you:<br>Get a passerby to start compressions while you look for an AED<br>Get a passerby to look for an AED while you start compressions", 
+                    { "text": "The man collapsed as you were helping him to the station. You call the ambulance. The dispatcher instructs you to start CPR and use an AED.<br><br>Do you:<br>1. Get a passerby to start compressions while you look for an AED<br>2. Get a passerby to look for an AED while you start compressions", 
                         "options": [
                         { "text": "1", "nextId": "L1HeartAttack1221", "stats": [{"key":"Externalaid","value":1}, {"key":"Mentalmodels","value":2 }] },
                         { "text": "2", "nextId": "L1HeartAttack1222", "stats": [{"key":"Externalaid","value":2}, {"key":"Mentalmodels","value":2 }] }
@@ -115,7 +115,7 @@
                   "id": "L1HeartAttack12211",
                   "speaker": "-",
                   "lines": [
-                    { "text": "The AED isn't where you thought it was, however a helpful passerby guides you to the AED. You bring it back to the man", "nextId": "L1HeartAttack12221"}
+                    { "text": "The AED isn't where you thought it was, however a helpful passerby guides you to the AED. You bring it back to the man.", "nextId": "L1HeartAttack12221"}
                   ]
                 },
                 {
@@ -144,7 +144,7 @@
       "id": "L2HeartAttackStart",
       "speaker": "Heart_Attack_Girl",
       "lines": [
-        { "text": "You notice a man sitting on the curb clutching his chest. He has a pained look on his face.<br><br>Do you: <br>1. Ask the man if he's feeling alright<br>2. Continue on your way<br>3. Wait to see if anyone approaches him", 
+        { "text": "You notice a man sitting on the curb clutching his chest. He has a laboured look on his face.<br><br>Do you: <br>1. Ask the man if he's feeling alright<br>2. Continue on your way<br>3. Wait to see if anyone approaches him", 
             "options": [
             { "text": "1", "nextId": "L2HeartAttack1", "stats": [{"key":"Infoclarity", "value":3}, {"key":"Mentalmodels", "value":0 }]},
             { "text": "2", "nextId": "L2HeartAttack2", "stats": [{"key":"Heuristics", "value":1}, {"key":"Mentalmodels", "value":0 }]},
@@ -219,7 +219,7 @@
                   "id": "L2HeartAttack21",
                   "speaker": "-",
                   "lines": [
-                    { "text": "As you are walking away, you hear someone shouting.<br>“Are you okay? Can you hear me?”<br>You turn around and see that the man from before has now collapsed. A passerby is trying to assist, you rush back.<br><br>Do you:<br>1. Ask the passerby what's happening<br>2. Call the emergency hotline", 
+                    { "text": "As you are walking away, you hear someone shouting.<br>“Are you okay? Can you hear me?”<br>You turn around and see that the man from before has now collapsed. A passerby is trying to assist him.<br><br>Do you:<br>1. Ask the passerby what's happening<br>2. Call the emergency hotline", 
                         "options": [
                         { "text": "1", "nextId": "L2HeartAttack123", "stats": [{"key":"Infoclarity","value":1}, {"key":"Externalaid","value":0 }] },
                         { "text": "2", "nextId": "L2HeartAttack123", "stats": [{"key":"Infoclarity","value":0}, {"key":"Externalaid","value":2 }] }
@@ -335,7 +335,7 @@
                   "id": "L2HeartAttackEnd",
                   "speaker": "-",
                   "lines": [
-                    { "text": "Ambulance arrives, the paramedics take over and the man is taken into the ambulance. The paramedic assures you that he will be fine."}
+                    { "text": "The ambulance arrives, and the paramedics take over and takes the man into the ambulance. The paramedic assures you that he will be fine."}
                   ]
                 },  
 
@@ -414,7 +414,7 @@
                   "id": "MissingFamily7",
                   "speaker": "Heart_Attack_Girl",
                   "lines": [
-                    { "text": "You are now closing the report before moving on to other checkpoints in the marathon.<br><br>Do you:<br>1. Confirm the runner�s identity and document key details for records<br>2. Coordinate with medical staff to assess condition and arrange transport if needed<br>3. Report the resolution to race officials and volunteers", 
+                    { "text": "You are now closing the report before moving on to other checkpoints in the marathon.<br><br>Do you:<br>1. Confirm the runner's identity and document key details for records<br>2. Coordinate with medical staff to assess condition and arrange transport if needed<br>3. Report the resolution to race officials and volunteers", 
                         "options": [
                         { "text": "1", "nextId": "MissingFamilyEnd", "stats":[{"key":"Mentalmodels","value":3},{"key":"Externalaid","value":2}, {"key":"Infoclarity","value":2}, {"key":"Heuristics","value":1}] },
                         { "text": "2", "nextId": "MissingFamilyEnd", "stats":[{"key":"Mentalmodels","value":2},{"key":"Externalaid","value":3}, {"key":"Infoclarity","value":3}, {"key":"Heuristics","value":2}] },
@@ -426,7 +426,7 @@
                   "id": "MissingFamilyEnd",
                   "speaker": "Heart_Attack_Girl",
                   "lines": [
-                    { "text": " The missing runner has been located and is now receiving appropriate medical care.<br><br>The marathon officials, as well as the runner�s family, have been notified and updated about the incident.<br><br>You can now move on to check on other volunteers and checkpoints along the marathon route."}   
+                    { "text": " The missing runner has been located and is now receiving appropriate medical care.<br>The marathon officials, as well as the runner's family, have been notified and updated about the incident.<br><br>You can now move on to check on other volunteers and checkpoints along the marathon route."}   
                   ]
                 },
       
@@ -435,34 +435,46 @@
       
       
     {
-      "id": "L1HamstringSprainStart",
+      "id": "L1AnkleStart",
       "speaker": "-",
       "lines": [
-        { "text": "You noticed a lady sitting on the side.<br>She tells you that she has an ankle sprain.<br><br>Do you:<br>1. Stretch her ankle<br>2. Ask the severity of her condition<br>3. Encourage her to call an ambulance and go to the hospital", 
+        { "text": "You noticed a man sitting on the side.<br>She tells you that he has an ankle sprain.<br><br>Do you:<br>1. Stretch his ankle<br>2. Ask the severity of his condition<br>3. Encourage him to call an ambulance and go to the hospital", 
             "options": [
-            { "text": "1", "nextId": "L1HamstringSprain1", "stats": [{"key":"Externalaid","value":3}, {"key":"Heuristics","value":2 }, {"key":"Infoclarity","value":1 }]},
-            { "text": "2", "nextId": "L1HamstringSprain1", "stats": [{"key":"Externalaid","value":1}, {"key":"Heuristics","value":3 }, {"key":"Infoclarity","value":3 }]},
-            { "text": "3", "nextId": "L1HamstringSprain1", "stats": [{"key":"Externalaid","value":2}, {"key":"Heuristics","value":1 }, {"key":"Infoclarity","value":2 }] }
+            { "text": "1", "nextId": "L1AnkleSprain1", "stats": [{"key":"Externalaid","value":3}, {"key":"Heuristics","value":2 }, {"key":"Infoclarity","value":1 }]},
+            { "text": "2", "nextId": "L1AnkleSprain1", "stats": [{"key":"Externalaid","value":1}, {"key":"Heuristics","value":3 }, {"key":"Infoclarity","value":3 }]},
+            { "text": "3", "nextId": "L1AnkleSprain1", "stats": [{"key":"Externalaid","value":2}, {"key":"Heuristics","value":1 }, {"key":"Infoclarity","value":2 }] }
         ]}
       ]
     },
                 {
-                  "id": "L1HamstringSprain1",
+                  "id": "L1AnkleSprain1",
                   "speaker": "-",
                   "lines": [
-                    { "text": "The man said, “It's ok, I'm fine.”<br><br>Do you:<br>1. Assess his condition further and see if there's any help you can provide. <br>2. Provide immediate assistance without forcing, for example, offer an ice pack. ", 
+                    { "text": "The man said, “It's ok, I'm fine.”<br><br>Do you:<br>1. Assess his condition further and see if there's any help you can provide. <br>2. Provide immediate assistance without forcing, for example, offering an ice pack. ", 
                         "options": [
-                        { "text": "1", "nextId": "L1HamstringSprain11", "stats": [{"key":"Heuristics","value":1}, {"key":"Infoclarity","value":3 }] },
-                        { "text": "2", "nextId": "L1HamstringSprain11", "stats": [{"key":"Heuristics","value":3}, {"key":"Infoclarity","value":1 }] }
+                        { "text": "1", "nextId": "L1AnkleSprain2", "stats": [{"key":"Heuristics","value":1}, {"key":"Infoclarity","value":3 }] },
+                        { "text": "2", "nextId": "L1AnkleSprain2", "stats": [{"key":"Heuristics","value":3}, {"key":"Infoclarity","value":1 }] }
                     ]}
                   ]
                 },
 
                 {
-                  "id": "L1HamstringSprain11",
+                  "id": "L1AnkleSprain2",
                   "speaker": "-",
                   "lines": [
-                    { "text": "First aid responders come."}
+                    { 
+                      "text": "The man tries to stand, but he stumbles and falls back down.<br><br>Do you:<br>1. Immediately call for help and keep him still.<br>2. Help him to a seated position and suggest resting his ankle." , 
+                      "options": [
+                        { "text": "1", "nextId": "L1AnkleSprain21", "stats": [{"key":"Externalaid","value":3}, {"key":"Heuristics","value":2}, {"key":"Infoclarity","value":1}] },
+                        { "text": "2", "nextId": "L1AnkleSprain21","stats": [{"key":"Externalaid","value":2}, {"key":"Heuristics","value":3}, {"key":"Infoclarity","value":2}] }
+                      ]}
+                  ]
+                },
+                {
+                  "id": "L1AnkleSprain21",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You acted according to the situation, providing help and advice. The man is now resting and is receiving assistance from the paramedics." }
                   ]
                 },
 
@@ -474,7 +486,7 @@
       "id": "L1CalfCrampStart",
       "speaker": "-",
       "lines": [
-        { "text": "A runner slows down, clutching their calf and grimacing. You need to determine if it's a standard cramp or dehydration-related.<br><br>Do you: <br>Ask about sweating, hydration, and whether they had other cramps.<br>Help them stretch immediately without checking symptoms.<br>Offer water and electrolytes first before assessing further.", 
+        { "text": "A runner slows down, clutching their calf and grimacing. You need to determine if it's a standard cramp or dehydration-related.<br><br>Do you: <br>1. Ask about sweating, hydration, and whether they had other cramps.<br>2. Help them stretch immediately without checking symptoms.<br>3. Offer water and electrolytes first before assessing further.", 
             "options": [
             { "text": "1", "nextId": "L1CalfCramp1", "stats": [{"key":"Infoclarity","value":3}, {"key":"Mentalmodels","value":2 }] },
             { "text": "2", "nextId": "L1CalfCramp1", "stats": [{"key":"Infoclarity","value":1}, {"key":"Mentalmodels","value":3 }] },
@@ -486,7 +498,7 @@
                   "id": "L1CalfCramp1",
                   "speaker": "-",
                   "lines": [
-                    { "text": "(COULD ADD MINIGAMES) The runner confirms a sharp, painful cramp in their calf. You must assist them.<br><br>Do you:<br>Help them stretch their leg and push their toes toward their shin.<br>Massage the calf muscle firmly to help it relax.<br>Tell them to walk around and shake out the leg immediately.", 
+                    { "text": "The runner confirms a sharp, painful cramp in their calf. You must assist them.<br><br>Do you:<br>1. Help them stretch their leg and push their toes toward their shin.<br>2. Massage the calf muscle firmly to help it relax.<br>3. Tell them to walk around and shake out the leg immediately.", 
                         "options": [
                         { "text": "1", "nextId": "L1CalfCramp11", "stats": [{"key":"Heuristics","value":2}, {"key":"Externalaid","value":1 }, {"key":"Mentalmodels","value":3 }] },
                         { "text": "2", "nextId": "L1CalfCramp11", "stats": [{"key":"Heuristics","value":3}, {"key":"Externalaid","value":2 }, {"key":"Mentalmodels","value":2 }] },
@@ -498,7 +510,7 @@
                   "id": "L1CalfCramp11",
                   "speaker": "-",
                   "lines": [
-                    { "text": "The cramp subsides, but the runner is still sore. They hesitate about continuing the race.<br><br>Do you:<br>Encourage them to keep moving but watch for recurring cramps.<br>Offer them water, electrolytes, and a short rest before deciding.<br>Escort them to the medical tent for further assessment.", 
+                    { "text": "The cramp subsides, but the runner is still sore. They hesitate about continuing the race.<br><br>Do you:<br>1. Encourage them to keep moving but watch for recurring cramps.<br>2. Offer them water, electrolytes, and a short rest before deciding.<br>3. Escort them to the medical tent for further assessment.", 
                         "options": [
                         { "text": "1", "nextId": "L1CalfCrampEnd", "stats": [{"key":"Externalaid","value":2}, {"key":"Infoclarity","value":3 }] },
                         { "text": "2", "nextId": "L1CalfCrampEnd", "stats": [{"key":"Externalaid","value":3}, {"key":"Infoclarity","value":2 }] },
@@ -510,7 +522,7 @@
                   "id": "L1CalfCrampEnd",
                   "speaker": "-",
                   "lines": [
-                    { "text": "After assisting the runner in stretching and ensuring they hydrate properly, their calf cramp gradually subsides. They stand up carefully, test their leg, and confirm they feel better. The runner thanks you for your help continues the race at a slower pace." }
+                    { "text": "After assisting the runner in stretching and ensuring they hydrate properly, their calf cramp gradually subsides. <br>They stand up carefully, and confirm that they feel better. <br>The runner thanks you for your help continues the race at a slower pace." }
                   ]
                 }, 
 
@@ -533,7 +545,29 @@
                   "id": "L1Heatstroke1",
                   "speaker": "-",
                   "lines": [
-                    { "text": "“Thank you for helping me! I think I can push through to the end!”" }
+                    { "text": "“Thank you for helping me! I think I can push through to the end!”<br><br>Do you:<br>1. Encourage him to rest for a while and drink water.<br>2. Suggest he continues but monitor him closely." ,
+                      "options": [
+                        { "text": "1", "nextId": "L1Heatstroke2", "stats": [{"key":"Mentalmodels","value":2}, {"key":"Heuristics","value":3}, {"key":"Externalaid","value":3}] },
+                        { "text": "2", "nextId": "L1Heatstroke2", "stats": [{"key":"Mentalmodels","value":3}, {"key":"Heuristics","value":2}, {"key":"Externalaid","value":1}] }
+                      ]}
+                  ]
+                },
+                {
+                  "id": "L1Heatstroke2",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The person decides to rest and drink water.<br><br>Do you:<br>1. Wait until he feels better to continue.<br>2. Encourage him to keep moving to avoid cooling down too much." ,
+                      "options": [
+                        { "text": "1", "nextId": "L1Heatstroke3", "stats": [{"key":"Mentalmodels","value":3}, {"key":"Heuristics","value":1}, {"key":"Externalaid","value":2}] },
+                        { "text": "2", "nextId": "L1Heatstroke3", "stats": [{"key":"Mentalmodels","value":2}, {"key":"Heuristics","value":3}, {"key":"Externalaid","value":1}] }
+                      ]}
+                  ]
+                },
+                {
+                  "id": "L1Heatstroke3",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The runner feels much better after resting and hydrating. He thanks you and continues towards the finish line." }
                   ]
                 },
                 
@@ -544,7 +578,7 @@
       "id": "L1DumpsterFireStart", 
       "speaker": "-",
       "lines": [
-        { "text": "“OMG THERES A FIRE! WHAT SHALL WE DO?”<br><br>Do you:<br>1. Call for emergency services immediately<br><br>2. Try to extinguish the fire yourself <br><br>3. Find a nearby event official or security personnel for assistance ", 
+        { "text": "You hear someone shouting “OMG THERES A FIRE! WHAT SHALL WE DO?”<br><br>Do you:<br>1. Call for emergency services immediately<br>2. Try to extinguish the fire yourself <br>3. Find a nearby event official or security personnel for assistance ", 
             "options": [
             { "text": "1", "nextId": "L1DumpsterFire1", "stats": [{"key":"Infoclarity","value":3}, {"key":"Externalaid","value":3 }]},
             { "text": "2", "nextId": "L1DumpsterFire2", "stats": [{"key":"Mentalmodels","value":2}, {"key":"Heuristics","value":2 }]},
@@ -579,7 +613,7 @@
                   "id": "L1DumpsterFire3",
                   "speaker": "-",
                   "lines": [
-                    { "text": "You look for someone in charge to handle the fire.<br><br>Who do you approach?<br>1. A fellow volunteer who looks experienced. <br>2. A uniformed event security guard. <br>3. A random bystander who seems concerned. ", 
+                    { "text": "You look for someone in charge to handle the fire.<br><br>Who do you approach?<br>1. A fellow volunteer who looks experienced. <br>2. A uniformed event Security Guard. <br>3. A random bystander who seems concerned. ", 
                         "options": [
                         { "text": "1", "nextId": "L1DumpsterFire31", "stats": [{"key":"Heuristics","value":1}, {"key":"Mentalmodels","value":1 }] },
                         { "text": "2", "nextId": "L1DumpsterFire32", "stats": [{"key":"Externalaid","value":3}, {"key":"Mentalmodels","value":0 }] },
@@ -591,54 +625,54 @@
                   "id": "L1DumpsterFire11",
                   "speaker": "-",
                   "lines": [
-                    { "text": "You find a fire extinguisher and manage to reduce the fire (TO ADD MINIGAME -- FIND EXTINGUISHER", "nextId": "L1DumpsterFireEnd"}
+                    { "text": "You find a fire extinguisher and manage to reduce the fire", "nextId": "L1DumpsterFireEnd"}
                   ]
                 },
                 {
                   "id": "L1DumpsterFire12",
                   "speaker": "-",
                   "lines": [
-                    { "text": "You use your jacket and managed to smother the flames. Another volunteer exclaimed “That is very dangerous, you could have gotten burnt or made the fire worse!” (TO ADD MINIGAME -- SMOTHER FLAMES)", "nextId": "L1DumpsterFireEnd"}
+                    { "text": "You used a fire blanket and managed to smother the flames. Another volunteer exclaimed “That is very dangerous, you could have gotten burnt or made the fire bigger!”", "nextId": "L1DumpsterFireEnd"}
                   ]
                 },
                 {
                   "id": "L1DumpsterFire13",
                   "speaker": "-",
                   "lines": [
-                    { "text": " You grabbed a cup of water from the water station and tried to put out the fire... Nothing happens (TO ADD Minigame: Find water)", "nextId": "L1DumpsterFireEnd"}
+                    { "text": "You grabbed a few cups of water from the water station and tried to put out the fire... Nothing happens as the fire continues burning", "nextId": "L1DumpsterFireEnd"}
                   ]
                 },
                 {
                   "id": "L1DumpsterFire21",
                   "speaker": "-",
                   "lines": [
-                    { "text": " General location only → Emergency services dispatch a unit but may take longer if they need more details upon arrival.", "nextId": "L1DumpsterFireEnd"}
+                    { "text": "You gave a generic location → Emergency services dispatch a unit but may take longer if they need more details upon arrival.", "nextId": "L1DumpsterFireEnd"}
                   ]
                 },
                 {
                   "id": "L1DumpsterFire22",
                   "speaker": "-",
                   "lines": [
-                    { "text": " Detailed description → Emergency services dispatch the appropriate response immediately, improving effectiveness.", "nextId": "L1DumpsterFireEnd"}
+                    { "text": "You gave a detailed description → Emergency services dispatch the appropriate response immediately, improving effectiveness.", "nextId": "L1DumpsterFireEnd"}
                   ]
                 },
                 {
                   "id": "L1DumpsterFire31",
                   "speaker": "-",
                   "lines": [
-                    { "text": "You approached the experienced volunteer but he does not know what to do. Fortunately the security guard called emergency responders.", "nextId": "L1DumpsterFireEnd"}
+                    { "text": "You approached the experienced volunteer but he is unsure of what to do. Fortunately the Security Guard called emergency responders.", "nextId": "L1DumpsterFireEnd"}
                   ]
                 },                {
                   "id": "L1DumpsterFire32",
                   "speaker": "-",
                   "lines": [
-                    { "text": "You approached the Security guard. He immediately takes action to call emergency responders.", "nextId": "L1DumpsterFireEnd"}
+                    { "text": "You approached the Security Guard. He immediately takes action to call emergency responders.", "nextId": "L1DumpsterFireEnd"}
                   ]
                 },                {
                   "id": "L1DumpsterFire33",
                   "speaker": "-",
                   "lines": [
-                    { "text": " You approached the Concerned bystander. He told you what caused the fire and informed you that the security guard had already called emergency responders.", "nextId": "L1DumpsterFireEnd"}
+                    { "text": " You approached the Concerned bystander. He told you what caused the fire and informed you that the Security Guard had already called emergency responders.", "nextId": "L1DumpsterFireEnd"}
                   ]
                 },
                 {
@@ -655,7 +689,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "You are rushing to school for an exam. In the station, you feel overwhelmed by the crowd. <br><br>You choose not to do anything, and continue stressing about being on time for the paper.",
+                      "text": "You are rushing to school for an exam. In the station, you feel overwhelmed by the crowd. <br><br>You choose not to do anything, and continue stressing about where you are on time for the paper.",
                       "nextId": "TrainingScene2"
                     }
                   ]
@@ -665,7 +699,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "You notice that someone left a bag behind.<br><br>You pretend that you did not notice anything and hope that someone else will help them.",
+                      "text": "You notice that someone left a bag behind.<br><br>You pretend that you did not notice anything and hope that someone else will help them instead.",
                       "nextId": "TrainingScene3"
                     }
                   ]
@@ -675,7 +709,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "After a few stops, the train has come to a sudden stop in the middle of the tracks.",
+                      "text": "After a few stops, the train comes to a sudden stop in the middle of the tracks.",
                       "nextId": "TrainingScene4"
                     }
                   ]
@@ -715,7 +749,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "As you make your way to the exam, you wonder if there was a better way that you could have handled this situation.<br><br>Let’s take a look at how it could have turned out better with the crisis management framework, <b><color=#FF0000>CHIME</color></b>.",
+                      "text": "As you make your way to the exam, you wonder if there was a better way to handle the situation.<br><br>Let's take a look at how it could have turned out better with the crisis management framework, <b><color=#FF0000>CHIME</color></b>.",
                       "nextId": "TrainingScene8"
                     }
                   ]
@@ -785,7 +819,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "You find out that everyone is required to evacuate the train.<br><br>You choose to look around and assist people to leave the train safely.",
+                      "text": "You find out that everyone is required to evacuate the train.<br><br>You choose to look around and assist people in leaving the train safely.",
                       "nextId": "TrainingScene15"
                     }
                   ]
@@ -805,7 +839,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "While evacuating, you notice an elderly woman asking for someone to help her.<br><br>You decide to work with other people around you to assist her to safely navigate on the tracks.",
+                      "text": "While evacuating, you notice an elderly woman asking for someone to help her.<br><br>You decide to work with others around you to assist her in safely navigating along the tracks.",
                       "nextId": "TrainingScene17"
                     }
                   ]
@@ -825,7 +859,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "Summary:<br>Information clarity, heuristics & biases, external aid, mental models and cognitive load are 5 factors for effectively managing crises.<br><br>Choose your next step:<br>> See more examples of the crisis management framework<br><br>> Move on to the framework test",
+                      "text": "Summary:<br>Cognitive load, Heuristics & biases, Information clarity, Mental models and External aid are 5 factors for effectively managing crises.<br><br>Choose your next step:<br>> See more examples of the crisis management framework<br><br>> Move on to the framework test",
                       "nextId": ""
                     }
                   ]
