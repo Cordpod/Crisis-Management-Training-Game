@@ -124,7 +124,15 @@ public class DialogueManager : MonoBehaviour
 
     public DialogueEntry GetDialogueById(string id)
     {
-        Debug.Log($"DialogueManager.GetDialogueByID: {dialogueData?.dialogue.Find(d => d.id == id)}");
-        return dialogueData?.dialogue.Find(d => d.id == id);
+        string levelPrefix = GameStateManager.instance?.GetLevelPrefix() ?? "L1";
+
+        // Priority: Check for level-specific override
+        DialogueEntry entry = dialogueData?.dialogue.Find(d => d.id == $"{levelPrefix}{id}");
+
+        // Fallback to generic (non-prefixed) dialogue
+        if (entry == null)
+            entry = dialogueData?.dialogue.Find(d => d.id == id);
+
+        return entry;
     }
 }

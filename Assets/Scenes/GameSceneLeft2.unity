@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d37bb9f4e26cd40bf10580598a8fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenarioName: L1CalfCrampStart
+  scenarioName: CalfCrampStart
   dialogueCompleted: 0
   alertIcon: {fileID: 2080053209}
 --- !u!1 &203424839

@@ -37,4 +37,10 @@ public class GameStartButtonHandler : MonoBehaviour
         // Load the desired scene
         SceneManager.LoadScene(startScene);
     }
+
+    public void SelectLevel(int level) //to choose the level
+    {
+        GameStateManager.instance.currentLevel = level;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(gameSceneName);
+    }
 }
