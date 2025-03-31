@@ -8,12 +8,14 @@ using TMPro;
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager instance;
-    private float startTime;
+    // private float startTime;
+    private float accumulatedTime = 0f;
     private bool isTimerRunning = false;
+    private float startGameTime = 0f;
 
 
     public TMP_Text CountdownTimer;  
-    private float countdownTime = 120f;  
+    private float countdownTime = 300f;  
     private float timeRemaining;
 
 
@@ -35,6 +37,7 @@ public class TimeManager : MonoBehaviour
         {
             Destroy(gameObject); 
         }
+        accumulatedTime = PlayerPrefs.GetFloat("AccumulatedTime", 0f);
         timeRemaining = countdownTime;
     }
 
@@ -42,6 +45,17 @@ public class TimeManager : MonoBehaviour
     {
         FindCountdownTimerUI();
         SceneManager.sceneLoaded += OnSceneLoaded; 
+    }
+
+    public void RecordStartGameTime()
+    {
+        startGameTime = Time.time;
+        isTimerRunning = true;
+    }
+
+    public float GetTotalGameTime()
+    {
+        return Time.time - startGameTime;
     }
 
     void Update()
@@ -55,6 +69,8 @@ public class TimeManager : MonoBehaviour
                 timeRemaining = 0;
                 StopTimer();
             }
+
+            accumulatedTime += Time.deltaTime;
 
             UpdateTimerUI();  
 
@@ -121,27 +137,48 @@ public class TimeManager : MonoBehaviour
 
     public void StartTimer()
     {
-        startTime = Time.time;
+        // startTime = Time.time;
         isTimerRunning = true;
     }
 
+    // public void StopTimer()
+    // {
+    //     float elapsedTime = 0f;
+
+    //     if (isTimerRunning)
+    //     {
+    //         elapsedTime = Time.time - startTime;
+    //         PlayerPrefs.SetFloat("ElapsedTime", elapsedTime); 
+    //         PlayerPrefs.Save(); 
+    //         isTimerRunning = false;
+
+    //         if (isBlinking)
+    //         {
+    //             StopBlinking();
+    //         }
+    //     }
+    //     Debug.Log("Total Time Taken: " + elapsedTime + " seconds");
+    // }
     public void StopTimer()
     {
-        float elapsedTime = 0f;
-
         if (isTimerRunning)
         {
-            elapsedTime = Time.time - startTime;
-            PlayerPrefs.SetFloat("ElapsedTime", elapsedTime); 
-            PlayerPrefs.Save(); 
             isTimerRunning = false;
+
+            // Save accumulated time to PlayerPrefs
+            PlayerPrefs.SetFloat("AccumulatedTime", accumulatedTime);
+            PlayerPrefs.Save();
 
             if (isBlinking)
             {
                 StopBlinking();
             }
         }
-        Debug.Log("Total Time Taken: " + elapsedTime + " seconds");
+    }
+
+    public float GetAccumulatedTime()
+    {
+        return accumulatedTime;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -153,7 +190,7 @@ public class TimeManager : MonoBehaviour
     {
         if (CountdownTimer == null)
         {
-            GameObject timerObject = GameObject.Find("CountdownTimer"); 
+            GameObject timerObject = GameObject.FindGameObjectWithTag("CountdownTimer"); 
             if (timerObject != null)
             {
                 CountdownTimer = timerObject.GetComponent<TMP_Text>();
@@ -162,6 +199,7 @@ public class TimeManager : MonoBehaviour
                 if (CountdownTimer != null)
                 {
                     originalColor = CountdownTimer.color;
+                    UpdateTimerUI();
 
                     if (timeRemaining <= 15f && isTimerRunning)
                     {
