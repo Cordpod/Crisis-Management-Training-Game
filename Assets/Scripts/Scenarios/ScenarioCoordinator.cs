@@ -19,12 +19,27 @@ public class ScenarioCoordinator : MonoBehaviour
         }
     }
 
-    public void StartScenario(string scenarioName)
+    public void StartScenario(string scenarioName, NPC npcRef)
     {
         Debug.Log($"Starting scenario: {scenarioName}");
         DialogueManager.instance.LoadDialogueForScenario(scenarioName);
         StartFirstDialogue(scenarioName);
+        if (npcRef != null)
+        {
+            StartCoroutine(HandleDialogue(npcRef, scenarioName));
+        }
         TriggerScenarioSpecificAssets(scenarioName);
+    }
+
+    private IEnumerator HandleDialogue(NPC npcRef, string scenarioName)
+    {
+        yield return new WaitUntil(() => DialogueUI.isDialogueActive == false); // Wait until the dialogue is done
+
+        npcRef.MarkDialogueComplete();
+
+        // Optional: Save completion persistently
+        //PlayerPrefs.SetInt("Scenario_" + scenarioName, 1);
+        //PlayerPrefs.Save();
     }
 
     private void TriggerScenarioSpecificAssets(string scenarioName)
