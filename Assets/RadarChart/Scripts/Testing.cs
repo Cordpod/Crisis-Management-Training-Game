@@ -18,19 +18,22 @@ public class Testing : MonoBehaviour {
         }
 
         // newly added
+        float elapsedTime = TimeManager.instance.GetTotalGameTime();
+        Debug.Log("Accumulated Time Retrieved: " + elapsedTime);
+
         Stats stats = StatsManager.instance.GetStats();
 
-        float elapsedTime = PlayerPrefs.GetFloat("ElapsedTime", 0f);
-        Debug.Log("Elapsed Time Retrieved: " + elapsedTime);
-        if (elapsedTime <= 60f)
+        // float elapsedTime = PlayerPrefs.GetFloat("ElapsedTime", 0f);
+        // Debug.Log("Elapsed Time Retrieved: " + elapsedTime);
+        if (elapsedTime <= 100f)
         {
             stats.AddToStatAmount(Stats.Type.Cognitiveload, 24);
         }
-        else if (elapsedTime <= 90f)
+        else if (elapsedTime <= 200f)
         {
             stats.AddToStatAmount(Stats.Type.Cognitiveload, 16);
         }
-        else if (elapsedTime <= 120f)
+        else if (elapsedTime <= 300f)
         {
             stats.AddToStatAmount(Stats.Type.Cognitiveload, 8);
         }
@@ -42,8 +45,6 @@ public class Testing : MonoBehaviour {
         StatsManager.instance.SaveStats(stats);
         string assessmentComment = GenerateAssessmentComment(stats);
         commentText.text = assessmentComment;
-
-        Debug.Log("Cognitiveload Value After Update: " + stats.GetStatAmount(Stats.Type.Cognitiveload));
 
         if (uiStatsRadarChart == null) {
             Debug.LogError("uiStatsRadarChart is not assigned in Testing.cs!");
@@ -119,7 +120,7 @@ public class Testing : MonoBehaviour {
 
         string level;
         if (totalScore >= 76) {
-            level = "excellent";
+            level = "great";
         } else if (totalScore >= 38 && totalScore <= 75) {
             level = "good";
         } else {
@@ -130,18 +131,18 @@ public class Testing : MonoBehaviour {
         string intermediateFactorsText = FormatFactorsList(intermediateFactors);
         string beginnerFactorsText = FormatFactorsList(beginnerFactors);
 
-        string comment = $"Your crisis management assessment shows <b>{level}</b> performance: ";
+        string comment = $"Your crisis management assessment shows a <b>{level}</b> overall performance: ";
         
         if (expertFactors.Count > 0) {
-            comment += $"You excellent in your <b>{expertFactorsText}</b>. ";
+            comment += $"You consistently demonstrated a strong tendency to rely on <b>{expertFactorsText}</b>, using it frequently throughout the scenarios. ";
         }
         
         if (beginnerFactors.Count > 0) {
-            comment += $"Your <b>{beginnerFactorsText}</b> need significant development. ";
+            comment += $"You also showed a moderate use of <b>{beginnerFactorsText}</b>, applying it in some situations while exploring other strategies. ";
         }
         
         if (intermediateFactors.Count > 0) {
-            comment += $"Your <b>{intermediateFactorsText}</b> are adequate but could be improved through more refined techniques and consistent practice.";
+            comment += $"However, you seldom relied on <b>{intermediateFactorsText}</b>, instead favouring alternative approaches. ";
         }
         
         return comment;
