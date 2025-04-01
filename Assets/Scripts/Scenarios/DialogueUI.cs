@@ -60,8 +60,16 @@ public class DialogueUI : MonoBehaviour
             return;
         }
 
-        // Display the first line of this dialogue entry
-        dialogueText.text = dialogue.lines[0].text;
+        //// Display the first line of this dialogue entry
+        //dialogueText.text = dialogue.lines[0].text;
+
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+
+        typingCoroutine = StartCoroutine(TypeText(dialogue.lines[0].text));
+
         Debug.Log($"Displaying current dialogue: {dialogueText.text}");
 
         // In training mode, disable option buttons and update the CHIME highlight based on dialogue id
@@ -151,6 +159,30 @@ public class DialogueUI : MonoBehaviour
         }
     }
 
+    private Coroutine typingCoroutine;
+    private bool isTyping = false;
+    private bool skipTyping = false;
+
+    IEnumerator TypeText(string fullText)
+    {
+        dialogueText.text = "";
+        isTyping = true;
+        skipTyping = false;
+
+        foreach (char c in fullText)
+        {
+            if (skipTyping)
+            {
+                dialogueText.text = fullText;
+                break;
+            }
+
+            dialogueText.text += c;
+            yield return new WaitForSeconds(0.03f); // Adjust speed as needed
+        }
+
+        isTyping = false;
+    }
     private void Update()
     {
         // Handles screen taps/clicks to move on dialogue
@@ -158,6 +190,13 @@ public class DialogueUI : MonoBehaviour
            (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
             Debug.Log("Screen Clicked");
+
+            if (isTyping)
+            {
+                // If currently typing, finish typing immediately
+                skipTyping = true;
+                return;
+            }
 
             // Only advance if no choices are active (or if training mode has no choices)
             if (optionsContainer.activeSelf == false)

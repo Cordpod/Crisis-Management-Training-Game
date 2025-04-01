@@ -2019,6 +2019,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenarioName: HeartAttackStart
+  dialogueCompleted: 0
+  alertIcon: {fileID: 0}
 --- !u!212 &1326222334
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2772,7 +2774,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 100
   m_Sprite: {fileID: 2006543260, guid: d2144f25f5acec243810357817a27406, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

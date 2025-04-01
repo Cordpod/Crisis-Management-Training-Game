@@ -4,6 +4,6 @@ public class TrainingSceneStartup : MonoBehaviour
 {
     void Start()
     {
-        ScenarioCoordinator.instance.StartScenario("TrainingScene");
+        ScenarioCoordinator.instance.StartScenario("TrainingScene", null);
     }
 }

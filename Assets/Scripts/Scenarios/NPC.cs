@@ -5,14 +5,25 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     public string scenarioName; // Set this in the Inspector for each NPC
+    public bool dialogueCompleted = false; // Tracking if dialogue has been done before
+    public GameObject alertIcon; // Assign in inspector. shows up if havent completed
+
+    private void Start()
+    {
+        dialogueCompleted = SessionScenarioTracker.IsCompleted(scenarioName);
+
+        if (alertIcon != null)
+            alertIcon.SetActive(!dialogueCompleted);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !dialogueCompleted)
         {
             StartCoroutine(HighlightNPC());
-            ScenarioCoordinator.instance.StartScenario(scenarioName);
+            ScenarioCoordinator.instance.StartScenario(scenarioName, this);
             //Debug.Log("calling the scenario coordinator from NPC.cs");
 
             //DialogueEntry dialogue = DialogueManager.instance.GetDialogueById(dialogueId);
@@ -25,6 +36,14 @@ public class NPC : MonoBehaviour
             //    Debug.Log("dialogue not found");  
             //}
         }
+    }
+    public void MarkDialogueComplete()
+    {
+        dialogueCompleted = true;
+        SessionScenarioTracker.MarkCompleted(scenarioName);
+
+        if (alertIcon != null)
+            alertIcon.SetActive(false);
     }
 
     System.Collections.IEnumerator HighlightNPC()
