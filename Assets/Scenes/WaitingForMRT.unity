@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 145679016}
   - component: {fileID: 145679015}
   - component: {fileID: 145679014}
+  - component: {fileID: 145679019}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -201,12 +202,6 @@ MonoBehaviour:
   dialogueText: {fileID: 1400453563}
   optionsContainer: {fileID: 1254195709}
   optionButtonPrefab: {fileID: 1134830942}
-  factorLetters:
-  - {fileID: 247459054}
-  - {fileID: 880284586}
-  - {fileID: 1648222687}
-  - {fileID: 765415826}
-  - {fileID: 1704717537}
   isTrainingMode: 1
   radarChart: {fileID: 0}
 --- !u!114 &145679015
@@ -292,6 +287,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &145679019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145679013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0254b4b5190f64ab53fe2ea6e12adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  factorLetters:
+  - {fileID: 247459054}
+  - {fileID: 880284586}
+  - {fileID: 1648222687}
+  - {fileID: 765415826}
+  - {fileID: 1704717537}
 --- !u!1 &203966389
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueUI : MonoBehaviour
 {
@@ -13,14 +14,8 @@ public class DialogueUI : MonoBehaviour
     public GameObject optionsContainer;
     public Button optionButtonPrefab;
 
-    private DialogueEntry currentDialogue; // For current ref dialogue
+    private DialogueEntry currentDialogue; // For current reference dialogue
     public static bool isDialogueActive = false; // Global flag
-
-    // Holds references to your "C, H, I, M, E" TextMeshPro objects in order
-    public List<TMP_Text> factorLetters;
-
-    // Start at -1 so that no letter is highlighted initially
-    private int trainingDialogueIndex = -1;
 
     // Flag to indicate training mode
     public bool isTrainingMode = false;
@@ -64,15 +59,17 @@ public class DialogueUI : MonoBehaviour
         dialogueText.text = dialogue.lines[0].text;
         Debug.Log($"Displaying current dialogue: {dialogueText.text}");
 
-        // In training mode, disable option buttons and update the CHIME highlight based on dialogue id
+        // In training mode, disable option buttons.
         if (isTrainingMode)
         {
             optionsContainer.SetActive(false);
-            int factorIndex = GetFactorIndex(dialogue.id);
-            if (factorIndex != -1)
+            if (ChimeHighlighter.instance != null)
             {
-                trainingDialogueIndex = factorIndex;
-                UpdateLetterHighlight();
+                ChimeHighlighter.instance.SetHighlightForDialogue(dialogue.id);
+            }
+            else
+            {
+                Debug.LogError("ChimeHighlighter instance not found!");
             }
         }
         else
@@ -105,7 +102,8 @@ public class DialogueUI : MonoBehaviour
                         if (optionSprite != null)
                         {
                             btnImage.sprite = optionSprite;
-                            if (btnText != null) btnText.gameObject.SetActive(false);
+                            if (btnText != null)
+                                btnText.gameObject.SetActive(false);
                             Debug.Log($"Successfully loaded image: {imagePath}");
                         }
                         else
@@ -155,7 +153,7 @@ public class DialogueUI : MonoBehaviour
     {
         // Handles screen taps/clicks to move on dialogue
         if (Input.GetMouseButtonDown(0) ||
-           (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+            (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
             Debug.Log("Screen Clicked");
 
@@ -164,13 +162,6 @@ public class DialogueUI : MonoBehaviour
             {
                 if (currentDialogue != null && currentDialogue.lines[0].options.Count == 0)
                 {
-                    // If NOT in training mode, auto-increment the highlight index as before.
-                    if (!isTrainingMode)
-                    {
-                        trainingDialogueIndex++;
-                        UpdateLetterHighlight();
-                    }
-                    // Continue to the next dialogue line regardless.
                     ContinueDialogue(currentDialogue.lines[0].nextId);
                 }
             }
@@ -255,51 +246,5 @@ public class DialogueUI : MonoBehaviour
         Debug.Log("Dialogue closed.");
         isDialogueActive = false; // Allow player to move again
         gameObject.SetActive(false); // Hide dialogue box
-    }
-
-    /// <summary>
-    /// Resets all letters to black, then highlights the current index red if valid.
-    /// </summary>
-    private void UpdateLetterHighlight()
-    {
-        // Reset all letters to black
-        foreach (var letter in factorLetters)
-        {
-            letter.color = Color.black;
-        }
-        // Highlight the current letter if it's in range
-        if (trainingDialogueIndex >= 0 && trainingDialogueIndex < factorLetters.Count)
-        {
-            factorLetters[trainingDialogueIndex].color = Color.red;
-        }
-    }
-
-    /// <summary>
-    /// Returns the factor index based on the dialogue id.
-    /// For example:
-    /// "TrainingScene9"  => 0 (Cognitive load => C)
-    /// "TrainingScene11" => 1 (Heuristics and biases => H)
-    /// "TrainingScene13" => 2 (Information clarity => I)
-    /// "TrainingScene15" => 3 (Mental models => M)
-    /// "TrainingScene17" => 4 (External aid => E)
-    /// Returns -1 if the dialogue id does not match any factor.
-    /// </summary>
-    private int GetFactorIndex(string dialogueId)
-    {
-        switch (dialogueId)
-        {
-            case "TrainingScene9":
-                return 0; // Cognitive load -> C
-            case "TrainingScene11":
-                return 1; // Heuristics and biases -> H
-            case "TrainingScene13":
-                return 2; // Information clarity -> I
-            case "TrainingScene15":
-                return 3; // Mental models -> M
-            case "TrainingScene17":
-                return 4; // External aid -> E
-            default:
-                return -1;
-        }
     }
 }
