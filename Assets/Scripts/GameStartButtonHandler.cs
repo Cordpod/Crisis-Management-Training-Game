@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class GameStartButtonHandler : MonoBehaviour
 {
-    public string gameSceneName; // Set this in the Inspector for each button
+    public string gameSceneName; // Set these in the Inspector for each button
+    public GameObject startupGroup;  
+    public GameObject levelSelectGroup;   
 
     void Start()
     {
@@ -42,5 +44,12 @@ public class GameStartButtonHandler : MonoBehaviour
     {
         GameStateManager.instance.currentLevel = level;
         UnityEngine.SceneManagement.SceneManager.LoadScene(gameSceneName);
+    }
+
+
+    public void ShowLevelSelection()
+    {
+        if (startupGroup != null) startupGroup.SetActive(false);
+        if (levelSelectGroup != null) levelSelectGroup.SetActive(true);
     }
 }

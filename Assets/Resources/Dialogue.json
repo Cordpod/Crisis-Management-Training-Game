@@ -202,6 +202,13 @@
                   ]
                 },
                 {
+                  "id": "L2HeartAttack13",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "He describes his symptoms to you and you decide that it would be better to call the ambulance.", "nextId": "L2HeartAttack112" }
+                  ]
+                },
+                {
                   "id": "L2HeartAttack122",
                   "speaker": "-",
                   "lines": [
@@ -438,7 +445,7 @@
       "id": "L1AnkleStart",
       "speaker": "-",
       "lines": [
-        { "text": "You noticed a man sitting on the side.<br>She tells you that he has an ankle sprain.<br><br>Do you:<br>1. Stretch his ankle<br>2. Ask the severity of his condition<br>3. Encourage him to call an ambulance and go to the hospital", 
+        { "text": "You noticed a man sitting on the side.<br>He tells you that he has an ankle sprain.<br><br>Do you:<br>1. Stretch his ankle<br>2. Ask the severity of his condition<br>3. Encourage him to call an ambulance and go to the hospital", 
             "options": [
             { "text": "1", "nextId": "L1AnkleSprain1", "stats": [{"key":"Externalaid","value":3}, {"key":"Heuristics","value":2 }, {"key":"Infoclarity","value":1 }]},
             { "text": "2", "nextId": "L1AnkleSprain1", "stats": [{"key":"Externalaid","value":1}, {"key":"Heuristics","value":3 }, {"key":"Infoclarity","value":3 }]},
@@ -681,6 +688,163 @@
                   "lines": [{ "text": "The fire department arrives and handles the situation."}]
                 },
 
+    {
+      "id": "L2DumpsterFireStart", 
+      "speaker": "-",
+      "lines": [
+        { "text": "The fire department is handling the fire, however you noticed that part of the crowd is beginning to inch closer to watch the firemen while others are coughing due to the thick smoke. You need to take control of the situation. What do you do first?<br>1. Give the crowd clear instructions to move back and let the firemen handle the fire.<br><br>2. Direct the runners to a clearer area.<br><br>3. Find masks or cloths for people struggling with breathing due to the smoke.", 
+            "options": [
+            { "text": "1", "nextId": "L2DumpsterFire1", "stats": [{"key":"Infoclarity","value":3}, {"key":"Mentalmodels","value":3 }]},
+            { "text": "2", "nextId": "L2DumpsterFire2", "stats": [{"key":"Mentalmodels","value":3}, {"key":"Externalaid","value":3 }]},
+            { "text": "3", "nextId": "L2DumpsterFire3", "stats": [{"key":"Externalaid","value":3}, {"key":"Heuristics","value":3 }] }
+        ]}
+      ]
+    },
+                {
+                  "id": "L2DumpsterFire1",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You need to clear the area so people do not inhale too much smoke or start to panic.<br><br>What do you say?<br>1. “Move back from the fire! Don't stay near the smoke!” <br>2. “Everyone, just step away from the fire!” <br>3. “Everyone, move back at least 20 meters! Head toward the hydration station and stay calm!” ", 
+                        "options": [
+                        { "text": "1", "nextId": "L2DumpsterFire11", "stats": [{"key":"Infoclarity","value":2}, {"key":"Mentalmodels","value":2 }] },
+                        { "text": "2", "nextId": "L2DumpsterFire12", "stats": [{"key":"Infoclarity","value":1}, {"key":"Mentalmodels","value":1 }]},
+                        { "text": "3", "nextId": "L2DumpsterFire13", "stats": [{"key":"Infoclarity","value":3}, {"key":"Mentalmodels","value":3 }] }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "L2DumpsterFire2",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "Some runners are exhausted and struggling to breathe, unable to move quickly.<br><br>How do you proceed?<br>1. “Come with me, I'll take you somewhere with fresh air!” <br>2. “Let's move away from the smoke. Can you walk? I'll help you.” <br>3. Find another volunteer to help before moving anyone. ", 
+                        "options": [
+                        { "text": "1", "nextId": "L2DumpsterFire21", "stats": [{"key":"Mentalmodels","value":2}, {"key":"Externalaid","value":1 }] },
+                        { "text": "2", "nextId": "L2DumpsterFire22", "stats": [{"key":"Mentalmodels","value":3}, {"key":"Externalaid","value":2 }] },
+                        { "text": "3", "nextId": "L2DumpsterFire23", "stats": [{"key":"Mentalmodels","value":2}, {"key":"Externalaid","value":3 }] }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "L2DumpsterFire3",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "People are coughing heavily, and you need to find a way to help them breathe more easily.<br><br>Where will you search for supplies? (Add Picture: groups of people with the equipment as part of outfit)<br>1. Hydration station: Ask volunteers for towels or cloths. <br>2. Medical tent: Look for masks or oxygen supplies. <br>3. Nearby runners and volunteers: Ask if anyone has a spare shirt or towel. ", 
+                        "options": [
+                        { "text": "1", "nextId": "L2DumpsterFire31", "stats": [{"key":"Externalaid","value":3}, {"key":"Heuristics","value":1 }] },
+                        { "text": "2", "nextId": "L2DumpsterFire32", "stats": [{"key":"Externalaid","value":2}, {"key":"Heuristics","value":2 }] },
+                        { "text": "3", "nextId": "L2DumpsterFire33", "stats": [{"key":"Externalaid","value":1}, {"key":"Heuristics","value":3 }] }
+                    ]}
+                  ]
+                },
+                {
+                  "id": "L2DumpsterFire11",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "Some move away, but others don't know where exactly to go. ", "nextId": "L2DumpsterFire1X1"}
+                  ]
+                },
+                {
+                  "id": "L2DumpsterFire12",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The crowd scatters in different directions, leading to minor confusion. ", "nextId": "L2DumpsterFire1X1"}
+                  ]
+                },
+                {
+                  "id": "L2DumpsterFire13",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The crowd moves in an organized manner, reducing congestion. No one suffers from excessive smoke inhalation.", "nextId": "L2DumpsterFire1X1"}
+                  ]
+                },
+                {
+                  "id": "L2DumpsterFire21",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "Some runners need to rest, but you guide them to a safer location.", "nextId": "L2DumpsterFire2X2"}
+                  ]
+                },
+                {
+                  "id": "L2DumpsterFire22",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You correctly identify the most affected runners, but moving them takes a while. (Minigame: Spot those in need)", "nextId": "L2DumpsterFire2X2"}
+                  ]
+                },
+                {
+                  "id": "L2DumpsterFire23",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "The extra help reduces strain on you, and all runners get to safety faster.", "nextId": "L2DumpsterFire2X2"}
+                  ]
+                },                {
+                  "id": "L2DumpsterFire31",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You find multiple towels, dampen them with bottled water, and distribute them efficiently.", "nextId": "L3DumpsterFire3X3"}
+                  ]
+                },                {
+                  "id": "L2DumpsterFire32",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "By the time you return, some runners are already struggling, but those who receive masks recover faster.", "nextId": "L3DumpsterFire3X3"}
+                  ]
+                },                {
+                  "id": "L2DumpsterFire33",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You get some cloths but not enough for everyone.", "nextId": "L3DumpsterFire3X3"}
+                  ]
+                },                {
+                  "id": "L2DumpsterFire1X1",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "You notice that some people are still confused, and a few runners are unresponsive. Some volunteers are panicking, unsure of what to do next.<br>What's your next priority?<br><br>1. Direct volunteers to assist those who are struggling.<br>2. Shout for medical personnel to come over.<br>3. Try to assess the unresponsive runners yourself.", 
+                    "options": [
+                        { "text": "1", "nextId": "L2DumpsterFireConclusion", "stats": [{"key":"Externalaid","value":3}] },
+                        { "text": "2", "nextId": "L2DumpsterFireConclusion", "stats": [{"key":"Heuristics","value":2}, {"key":"Externalaid","value":2 }] },
+                        { "text": "3", "nextId": "L2DumpsterFireConclusion", "stats": [{"key":"Mentalmodels","value":3}] }
+                    ]}
+                  ]
+                },                {
+                  "id": "L2DumpsterFire2X2",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "As you guide the runners, one collapses from exhaustion and heavy smoke inhalation. <br>How do you handle this?<br><br>1. Try to carry the collapsed runner to a safer location.<br>2. Get a volunteer to help while you support another struggling runner.<br>3. Wave down a passing event official for assistance.", 
+                    "options": [
+                        { "text": "1", "nextId": "L2DumpsterFireConclusion", "stats": [{"key":"Mentalmodels","value":2}, {"key":"Heuristics","value":2}] },
+                        { "text": "2", "nextId": "L2DumpsterFireConclusion", "stats": [{"key":"Mentalmodels","value":2}, {"key":"Externalaid","value":3 }] },
+                        { "text": "3", "nextId": "L2DumpsterFireConclusion", "stats": [{"key":"Externalaid","value":3}] }
+                    ]}
+                  ]
+                },                 {
+                  "id": "L2DumpsterFire3X3",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "Some people are still having trouble breathing. Some runners are lying down, looking increasingly weak.<br>What do you do next?<br><br>1. Move them to a sitting position and instruct them to breathe slowly.<br>2. Instruct the stronger runners to help the weaker ones to the medical tent for treatment.<br>3. Encourage them to keep drinking water to clear their airways.", 
+                    "options": [
+                        { "text": "1", "nextId": "L2DumpsterFireConclusion", "stats": [{"key":"Mentalmodels","value":2}, {"key":"Infoclarity","value":2}] },
+                        { "text": "2", "nextId": "L2DumpsterFireConclusion", "stats": [{"key":"Externalaid","value":3}, {"key":"Infoclarity","value":1 }] },
+                        { "text": "3", "nextId": "L2DumpsterFireConclusion", "stats": [{"key":"Heuristics","value":2}] }
+                    ]}
+                  ]
+                },                {
+                  "id": "L2DumpsterFireConclusion",
+                  "speaker": "-",
+                  "lines": [
+                    { "text": "A paramedic asks for a quick update on the situation. What do you tell them?<br><br>1. Give a full summary of the fire, smoke conditions, and affected individuals.<br>2. Point them to the affected individuals.<br>3. Just say “Over there!” and let them figure it out.", 
+                    "options": [
+                        { "text": "1", "nextId": "L2DumpsterFireEnd", "stats": [{"key":"Infoclarity","value":3}] },
+                        { "text": "2", "nextId": "L2DumpsterFireEnd", "stats": [{"key":"Infoclarity","value":2}]},
+                        { "text": "3", "nextId": "L2DumpsterFireEnd", "stats": [{"key":"Infoclarity","value":1}] }
+                    ]}
+                  ]
+                }, 
+                {
+                  "id": "L2DumpsterFireEnd",
+                  "speaker": "-",
+                  "lines": [{ "text": "Emergency services arrive, extinguishing the fire and treating those affected. Thanks to your actions, panic was controlled, and injuries were minimized. Your quick thinking and coordination helped keep the situation under control."}]
+                },
 
 
               

@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 108638007}
   - component: {fileID: 108638008}
   m_Layer: 0
-  m_Name: Girl_Bow
+  m_Name: Girl_Cool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,8 +234,8 @@ Transform:
   m_GameObject: {fileID: 108638004}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0796816, y: -1.2089874, z: -0.043947216}
-  m_LocalScale: {x: 1.396, y: 1.396, z: 1.396}
+  m_LocalPosition: {x: 2.1, y: -1.15, z: -0.043947216}
+  m_LocalScale: {x: 1.5210816, y: 1.5210816, z: 1.5210816}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1447397295}
@@ -282,7 +282,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1459244981, guid: d2144f25f5acec243810357817a27406, type: 3}
+  m_Sprite: {fileID: 618999471, guid: d2144f25f5acec243810357817a27406, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d37bb9f4e26cd40bf10580598a8fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenarioName: L1HeartAttackStart
+  scenarioName: HeartAttackStart
   dialogueCompleted: 0
   alertIcon: {fileID: 1447397294}
 --- !u!61 &108638008
@@ -344,7 +344,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.45, y: 0.97}
+    oldSize: {x: 0.39, y: 0.81}
     newSize: {x: 0.45, y: 0.97}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2101,8 +2101,8 @@ Transform:
   m_GameObject: {fileID: 1447397294}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.79, z: 0}
-  m_LocalScale: {x: 0.044290826, y: 0.044290826, z: 0.044290826}
+  m_LocalPosition: {x: -0.013357777, y: 0.6862568, z: 0}
+  m_LocalScale: {x: 0.040648703, y: 0.040648703, z: 0.040648703}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 108638005}
