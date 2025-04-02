@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
@@ -8,15 +7,6 @@ public class PlayerMovement : MonoBehaviour
     private bool isMoving = false;
 
     public static PlayerMovement instance; // Singleton Pattern
-
-    private Animator animator;
-    private SpriteRenderer spriteRenderer;
-    //private int lastFacing = 1; // 1 = right, -1 = left
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
 
     private void Awake()
     {
@@ -34,15 +24,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (DialogueUI.isDialogueActive)
-        {
-            animator.SetBool("isWalking", false);
-            return; // Stop movement when dialogue is active
-        }
-        
+        if (DialogueUI.isDialogueActive) return; // Stop movement when dialogue is active
         HandleInput();
         MoveCharacter();
-
     }
 
     void HandleInput()
@@ -70,15 +54,10 @@ public class PlayerMovement : MonoBehaviour
     {
         // Check if the tap/click is on the left or right half of the screen
         if (inputPosition.x < 0)
-        {
             targetPosition = transform.position + Vector3.left;  // Move Left
-            //lastFacing = -1;
-        }
         else
-        {
             targetPosition = transform.position + Vector3.right; // Move Right
-            //lastFacing = 1;
-        }
+
         isMoving = true;
     }
 
@@ -87,25 +66,8 @@ public class PlayerMovement : MonoBehaviour
         if (isMoving)
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-            // Set walking bool for animator
-            animator.SetBool("isWalking", true);
-
-            //// Flip sprite based on direction
-            //if (targetPosition.x < transform.position.x)
-            //    spriteRenderer.flipX = true;
-            //else if (targetPosition.x > transform.position.x)
-            //    spriteRenderer.flipX = false;
-
             if ((Vector2)transform.position == targetPosition)
-            {
                 isMoving = false;
-                animator.SetBool("isWalking", false);
-
-            }
-        } else
-        {
-            animator.SetBool("isWalking", false );
         }
     }
 
