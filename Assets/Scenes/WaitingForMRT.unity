@@ -131,26 +131,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 77956090}
-  - component: {fileID: 77956089}
+  - component: {fileID: 77956091}
   m_Layer: 0
-  m_Name: ScenarioCoordinator
+  m_Name: TrainingScenarioCoordinator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &77956089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77956088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 697d579f098f3924f94046066d3df3a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &77956090
 Transform:
   m_ObjectHideFlags: 0
@@ -166,6 +154,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &77956091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77956088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab04728a1b5071042b9536b6b4061cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &145679013
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +178,6 @@ GameObject:
   - component: {fileID: 145679017}
   - component: {fileID: 145679016}
   - component: {fileID: 145679015}
-  - component: {fileID: 145679014}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -186,29 +185,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &145679014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145679013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa9a82dcc6469bf42b44f664a8f14e9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 1400453563}
-  optionsContainer: {fileID: 1254195709}
-  optionButtonPrefab: {fileID: 1134830942}
-  factorLetters:
-  - {fileID: 247459054}
-  - {fileID: 880284586}
-  - {fileID: 1648222687}
-  - {fileID: 765415826}
-  - {fileID: 1704717537}
-  isTrainingMode: 1
-  radarChart: {fileID: 0}
 --- !u!114 &145679015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,7 +1423,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 145679014}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DialogueUI, Assembly-CSharp
         m_MethodName: CloseDialogue
         m_Mode: 1
@@ -2140,27 +2116,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1109082269}
-  - component: {fileID: 1109082268}
+  - component: {fileID: 1109082271}
   - component: {fileID: 1109082270}
+  - component: {fileID: 1109082272}
   m_Layer: 0
-  m_Name: DialogueManager
+  m_Name: TrainingDialogueManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1109082268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109082267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd1072a1e90fee3439084f7dda8fe1e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1109082269
 Transform:
   m_ObjectHideFlags: 0
@@ -2188,6 +2153,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a63642de9053d547ab7cf62890e8f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1109082271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109082267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba9b6ec22e034e46a58a7041b2bbbbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1109082272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109082267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a88ae6214544da4f9242cc23ef6ed43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 1400453563}
+  factorLetters:
+  - {fileID: 247459054}
+  - {fileID: 880284586}
+  - {fileID: 1648222687}
+  - {fileID: 765415826}
+  - {fileID: 1704717537}
 --- !u!1 &1134830941
 GameObject:
   m_ObjectHideFlags: 0
