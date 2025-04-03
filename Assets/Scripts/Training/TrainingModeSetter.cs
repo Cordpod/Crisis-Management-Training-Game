@@ -4,15 +4,15 @@ public class TrainingModeSetter : MonoBehaviour
 {
     void Start()
     {
-        if (DialogueUI.instance != null)
+        if (TrainingDialogueUI.instance != null)
         {
-            DialogueUI.instance.isTrainingMode = true;
-            DialogueUI.instance.gameObject.SetActive(true); // Make sure it shows up
-            Debug.Log("Training mode activated and Dialogue UI is visible.");
+            TrainingDialogueUI.instance.gameObject.SetActive(true);
+            TrainingDialogueUI.instance.gameObject.SetActive(true); // Make sure it shows up
+            Debug.Log("Training mode activated and Training Dialogue UI is visible.");
         }
         else
         {
-            Debug.LogWarning("DialogueUI instance not found.");
+            Debug.LogWarning("TrainingDialogueUI instance not found.");
         }
     }
 }
