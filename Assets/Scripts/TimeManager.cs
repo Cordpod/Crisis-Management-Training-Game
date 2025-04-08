@@ -8,17 +8,16 @@ using TMPro;
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager instance;
-    // private float startTime;
+
+    // Timing variables
     private float accumulatedTime = 0f;
     private bool isTimerRunning = false;
     private float startGameTime = 0f;
-
-
-    public TMP_Text CountdownTimer;  
-    private float countdownTime = 300f;  
+    public TMP_Text CountdownTimer;
+    private float countdownTime = 300f;
     private float timeRemaining;
 
-
+    // Blinking variables
     private bool isBlinking = false;
     private float blinkInterval = 0.5f; // Time between color changes in seconds
     private float blinkTimer = 0;
@@ -31,12 +30,13 @@ public class TimeManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); 
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
+
         accumulatedTime = PlayerPrefs.GetFloat("AccumulatedTime", 0f);
         timeRemaining = countdownTime;
     }
@@ -44,7 +44,7 @@ public class TimeManager : MonoBehaviour
     void Start()
     {
         FindCountdownTimerUI();
-        SceneManager.sceneLoaded += OnSceneLoaded; 
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public void RecordStartGameTime()
@@ -71,8 +71,7 @@ public class TimeManager : MonoBehaviour
             }
 
             accumulatedTime += Time.deltaTime;
-
-            UpdateTimerUI();  
+            UpdateTimerUI();
 
             if (timeRemaining <= 15f && !isBlinking)
             {
@@ -82,22 +81,19 @@ public class TimeManager : MonoBehaviour
             {
                 StopBlinking();
             }
+
             if (isBlinking)
             {
                 UpdateBlinkEffect();
             }
         }
-
-        
     }
 
     private void UpdateTimerUI()
     {
         int minutes = Mathf.FloorToInt(timeRemaining / 60);
         int seconds = Mathf.FloorToInt(timeRemaining % 60);
-
         CountdownTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        //Debug.Log("Timer Updated: " + CountdownTimer.text);
     }
 
     private void StartBlinking()
@@ -121,51 +117,29 @@ public class TimeManager : MonoBehaviour
 
     private void UpdateBlinkEffect()
     {
-        if (CountdownTimer == null) return;
-        
+        if (CountdownTimer == null)
+            return;
+
         blinkTimer += Time.deltaTime;
-        
+
         if (blinkTimer >= blinkInterval)
         {
             blinkTimer = 0;
             isRed = !isRed;
-            
             CountdownTimer.color = isRed ? blinkColor : originalColor;
         }
     }
 
-
     public void StartTimer()
     {
-        // startTime = Time.time;
         isTimerRunning = true;
     }
 
-    // public void StopTimer()
-    // {
-    //     float elapsedTime = 0f;
-
-    //     if (isTimerRunning)
-    //     {
-    //         elapsedTime = Time.time - startTime;
-    //         PlayerPrefs.SetFloat("ElapsedTime", elapsedTime); 
-    //         PlayerPrefs.Save(); 
-    //         isTimerRunning = false;
-
-    //         if (isBlinking)
-    //         {
-    //             StopBlinking();
-    //         }
-    //     }
-    //     Debug.Log("Total Time Taken: " + elapsedTime + " seconds");
-    // }
     public void StopTimer()
     {
         if (isTimerRunning)
         {
             isTimerRunning = false;
-
-            // Save accumulated time to PlayerPrefs
             PlayerPrefs.SetFloat("AccumulatedTime", accumulatedTime);
             PlayerPrefs.Save();
 
@@ -181,20 +155,33 @@ public class TimeManager : MonoBehaviour
         return accumulatedTime;
     }
 
+    // This method now only starts the timer if the scene is "GameSceneStart"
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        FindCountdownTimerUI(); 
+        FindCountdownTimerUI();
+
+        if (scene.name == "GameSceneStart")
+        {
+            // Reset and start the timer when entering the GameSceneStart.
+            timeRemaining = countdownTime;
+            RecordStartGameTime();
+        }
+        else
+        {
+            // Stop the timer if the scene is not GameSceneStart.
+            StopTimer();
+        }
     }
 
     private void FindCountdownTimerUI()
     {
         if (CountdownTimer == null)
         {
-            GameObject timerObject = GameObject.FindGameObjectWithTag("CountdownTimer"); 
+            GameObject timerObject = GameObject.FindGameObjectWithTag("CountdownTimer");
             if (timerObject != null)
             {
                 CountdownTimer = timerObject.GetComponent<TMP_Text>();
-                UpdateTimerUI(); 
+                UpdateTimerUI();
 
                 if (CountdownTimer != null)
                 {
@@ -211,6 +198,6 @@ public class TimeManager : MonoBehaviour
             {
                 Debug.LogWarning("Countdown Timer UI not found in scene.");
             }
-        }   
+        }
     }
 }
