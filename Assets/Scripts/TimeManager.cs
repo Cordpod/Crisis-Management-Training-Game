@@ -25,6 +25,18 @@ public class TimeManager : MonoBehaviour
     private Color blinkColor = Color.red;
     private bool isRed = false;
 
+    // We’ll track if we’ve already initialized the timer once in a main game scene.
+    private bool hasStartedGameTimer = false;
+
+    // List of scenes that are NOT part of the main game
+    private readonly List<string> nonGameScenes = new List<string>
+    {
+        "MainScene",     // Menu scene
+        "SampleScene",
+        "StatsScene",
+        "WaitingForMRT" // Training scene
+    };
+
     void Awake()
     {
         if (instance == null)
@@ -91,6 +103,8 @@ public class TimeManager : MonoBehaviour
 
     private void UpdateTimerUI()
     {
+        if (CountdownTimer == null) return;
+
         int minutes = Mathf.FloorToInt(timeRemaining / 60);
         int seconds = Mathf.FloorToInt(timeRemaining % 60);
         CountdownTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -117,8 +131,7 @@ public class TimeManager : MonoBehaviour
 
     private void UpdateBlinkEffect()
     {
-        if (CountdownTimer == null)
-            return;
+        if (CountdownTimer == null) return;
 
         blinkTimer += Time.deltaTime;
 
@@ -155,49 +168,65 @@ public class TimeManager : MonoBehaviour
         return accumulatedTime;
     }
 
-    // This method now only starts the timer if the scene is "GameSceneStart"
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         FindCountdownTimerUI();
 
-        if (scene.name == "GameSceneStart")
+        // If scene is in the non-game list, stop the timer and reset flags
+        if (nonGameScenes.Contains(scene.name))
         {
-            // Reset and start the timer when entering the GameSceneStart.
+            StopTimer();
+            hasStartedGameTimer = false;  // So that next time we go back to main game, it resets properly
+            return;
+        }
+
+        // Otherwise, we treat this as a main-game scene
+        // If we've NOT started the timer yet (i.e. first main-game scene, typically "GameSceneStart"), reset the time
+        if (!hasStartedGameTimer)
+        {
+            // Reset the time only on the first main-game scene
             timeRemaining = countdownTime;
+            accumulatedTime = 0f;
+
+            // Start the timer
             RecordStartGameTime();
+            hasStartedGameTimer = true;
         }
         else
         {
-            // Stop the timer if the scene is not GameSceneStart.
-            StopTimer();
+            // Already started the timer in a previous main-game scene
+            // Just continue running
+            isTimerRunning = true;
         }
     }
 
     private void FindCountdownTimerUI()
     {
-        if (CountdownTimer == null)
+        // If the reference is already found, no need to look again
+        if (CountdownTimer != null)
+            return;
+
+        GameObject timerObject = GameObject.FindGameObjectWithTag("CountdownTimer");
+        if (timerObject != null)
         {
-            GameObject timerObject = GameObject.FindGameObjectWithTag("CountdownTimer");
-            if (timerObject != null)
+            CountdownTimer = timerObject.GetComponent<TMP_Text>();
+            UpdateTimerUI();
+
+            if (CountdownTimer != null)
             {
-                CountdownTimer = timerObject.GetComponent<TMP_Text>();
+                originalColor = CountdownTimer.color;
                 UpdateTimerUI();
 
-                if (CountdownTimer != null)
+                // If the timer is already running and time is low, resume blinking
+                if (timeRemaining <= 15f && isTimerRunning)
                 {
-                    originalColor = CountdownTimer.color;
-                    UpdateTimerUI();
-
-                    if (timeRemaining <= 15f && isTimerRunning)
-                    {
-                        StartBlinking();
-                    }
+                    StartBlinking();
                 }
             }
-            else
-            {
-                Debug.LogWarning("Countdown Timer UI not found in scene.");
-            }
+        }
+        else
+        {
+            Debug.LogWarning("Countdown Timer UI not found in scene.");
         }
     }
 }

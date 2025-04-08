@@ -888,7 +888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88a889eebd591441b83b2c121f586c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CountdownTimer: {fileID: 0}
+  CountdownTimer: {fileID: 555290692}
 --- !u!4 &543397710
 Transform:
   m_ObjectHideFlags: 0
@@ -1538,6 +1538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 915971172}
+  - component: {fileID: 915971173}
   m_Layer: 0
   m_Name: Sound Manager
   m_TagString: Untagged
@@ -1562,6 +1563,20 @@ Transform:
   - {fileID: 1364037025}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &915971173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915971171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e149d05839850b5408242cd332c3dc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainGameAudio: {fileID: 1799577891}
+  trainingAudio: {fileID: 1364037026}
 --- !u!1 &965649499
 GameObject:
   m_ObjectHideFlags: 0
