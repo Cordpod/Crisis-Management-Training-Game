@@ -14,7 +14,7 @@ public class CutsceneController : MonoBehaviour
         instance = this;
     }
 
-    public IEnumerator MoveTrain()
+    public IEnumerator MoveSprite()
     {
         Vector3 startPos = trainTransform.position;
         float elapsed = 0f;
