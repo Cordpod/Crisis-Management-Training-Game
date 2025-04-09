@@ -136,7 +136,10 @@
                   "id": "L1HeartAttackEnd",
                   "speaker": "-",
                   "lines": [
-                    { "text": "Ambulance arrives shortly after, the paramedics take over and the man is taken into the ambulance. The paramedic assures you that he will be fine."}
+                    { "text": "Ambulance arrives shortly after, the paramedics take over and the man is taken into the ambulance. The paramedic assures you that he will be fine.",
+                      "trigger": "move_sprite",
+                      "sound": "siren"
+                    }
                   ]
                 },
                 
@@ -458,7 +461,7 @@
                   "speaker": "-",
                   "lines": [
                     { "text": "The man said, “It's ok, I'm fine.”<br><br>Do you:<br>1. Assess his condition further and see if there's any help you can provide. <br>2. Provide immediate assistance without forcing, for example, offering an ice pack. ", 
-                        "options": [
+                      "options": [
                         { "text": "1", "nextId": "L1AnkleSprain2", "stats": [{"key":"Heuristics","value":1}, {"key":"Infoclarity","value":3 }] },
                         { "text": "2", "nextId": "L1AnkleSprain2", "stats": [{"key":"Heuristics","value":3}, {"key":"Infoclarity","value":1 }] }
                     ]}
@@ -864,6 +867,8 @@
                   "lines": [
                     {
                       "text": "You notice that someone left a bag behind.<br><br>You pretend that you did not notice anything and hope that someone else will help them instead.",
+                      "trigger": "test_scene_change",
+                      "sound": "siren",
                       "nextId": "TrainingScene3"
                     }
                   ]

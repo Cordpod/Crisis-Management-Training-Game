@@ -49,7 +49,7 @@ public class Stats {
         }
     }
     public void SetStatAmount(Type statType, int statAmount) {
-        Debug.Log($"Setting {statType} to {statAmount}");
+        //Debug.Log($"Setting {statType} to {statAmount}");
         GetSingleStat(statType).SetStatAmount(statAmount);
         if (OnStatsChanged != null) OnStatsChanged(this, EventArgs.Empty);
     }

@@ -39,6 +39,8 @@ public class DialogueLine
     public string text;
     public List<DialogueOption> options;
     public string nextId;
+    public string trigger;
+    public string sound;
 }
 
 [System.Serializable]

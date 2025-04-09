@@ -206,6 +206,78 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &126032012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 126032013}
+  - component: {fileID: 126032015}
+  - component: {fileID: 126032014}
+  m_Layer: 0
+  m_Name: CHIMELogo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &126032013
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126032012}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4.163897}
+  m_LocalScale: {x: 0.6175, y: 0.6175, z: 0.6175}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2049102545}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -63.350544, y: 226.0347}
+  m_SizeDelta: {x: 1089.691, y: 786.255}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &126032014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126032012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 7e736fdee2b3bf14d8310d9124a6678d, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &126032015
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126032012}
+  m_CullTransparentMesh: 1
 --- !u!1 &158848953
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +344,7 @@ Transform:
   m_GameObject: {fileID: 187382844}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.26, y: 1.38, z: -9.917057}
+  m_LocalPosition: {x: 1.26, y: -1, z: -9.917057}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -308,7 +380,7 @@ Transform:
   m_GameObject: {fileID: 204321795}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.67, y: 4.18, z: 0}
+  m_LocalPosition: {x: 2.42, y: 4.18, z: 0}
   m_LocalScale: {x: 0.74, y: 0.74, z: 0.74}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -777,6 +849,7 @@ MonoBehaviour:
   gameSceneName: WaitingForMRT
   startupGroup: {fileID: 0}
   levelSelectGroup: {fileID: 0}
+  BuildingGroup: {fileID: 0}
 --- !u!114 &519348164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1210,6 +1283,7 @@ MonoBehaviour:
   gameSceneName: GameSceneStart
   startupGroup: {fileID: 0}
   levelSelectGroup: {fileID: 0}
+  BuildingGroup: {fileID: 0}
 --- !u!114 &621889765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1795,6 +1869,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1008862958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1008862960}
+  - component: {fileID: 1008862959}
+  m_Layer: 0
+  m_Name: CutsceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1008862959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008862958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f2f480e6e41504eb3f8c61943ad65d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteTransform: {fileID: 187382845}
+  endPosition: {x: 1.26, y: 1.38, z: -9.917057}
+  duration: 2
+--- !u!4 &1008862960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008862958}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.717855, y: 0.12488687, z: -9.934481}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1202816928
 GameObject:
   m_ObjectHideFlags: 0
@@ -2960,6 +3081,7 @@ MonoBehaviour:
   gameSceneName: GameSceneStart
   startupGroup: {fileID: 0}
   levelSelectGroup: {fileID: 0}
+  BuildingGroup: {fileID: 0}
 --- !u!114 &1730918879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3086,6 +3208,7 @@ MonoBehaviour:
   gameSceneName: 
   startupGroup: {fileID: 2049102544}
   levelSelectGroup: {fileID: 609768166}
+  BuildingGroup: {fileID: 0}
 --- !u!4 &1732856107
 Transform:
   m_ObjectHideFlags: 0
@@ -3255,7 +3378,7 @@ Transform:
   m_GameObject: {fileID: 1831615543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.49, y: 3.77, z: 0}
+  m_LocalPosition: {x: -2.69, y: 3.77, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3349,7 +3472,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.7490196, g: 0.9215687, b: 0.9568628, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3554,6 +3677,7 @@ MonoBehaviour:
   gameSceneName: GameSceneStart
   startupGroup: {fileID: 0}
   levelSelectGroup: {fileID: 0}
+  BuildingGroup: {fileID: 0}
 --- !u!1 &2049102544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3585,6 +3709,7 @@ Transform:
   m_Children:
   - {fileID: 2049098776}
   - {fileID: 519348162}
+  - {fileID: 126032013}
   m_Father: {fileID: 399070157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2053089441
@@ -3684,3 +3809,4 @@ SceneRoots:
   - {fileID: 1732856107}
   - {fileID: 1202816930}
   - {fileID: 915971172}
+  - {fileID: 1008862960}

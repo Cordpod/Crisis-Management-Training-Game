@@ -92,7 +92,7 @@ public class DialogueUI : MonoBehaviour
                 foreach (Transform child in optionsContainer.transform)
                 {
                     Destroy(child.gameObject);
-                    Debug.Log($"destroyed: {child.name}");
+                    //Debug.Log($"destroyed: {child.name}");
                 }
 
                 optionsContainer.SetActive(true);
@@ -107,14 +107,14 @@ public class DialogueUI : MonoBehaviour
                     {
                         // Remove extension (if any) before loading
                         string imagePath = System.IO.Path.ChangeExtension(option.image, null);
-                        Debug.Log($"Attempting to load sprite from: {imagePath}");
+                        //Debug.Log($"Attempting to load sprite from: {imagePath}");
 
                         Sprite optionSprite = Resources.Load<Sprite>(imagePath);
                         if (optionSprite != null)
                         {
                             btnImage.sprite = optionSprite;
                             if (btnText != null) btnText.gameObject.SetActive(false);
-                            Debug.Log($"Successfully loaded image: {imagePath}");
+                            //Debug.Log($"Successfully loaded image: {imagePath}");
                         }
                         else
                         {
@@ -139,14 +139,14 @@ public class DialogueUI : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log($"Option '{option.text}' has {option.stats.Count} stats entries:");
-                        foreach (var stat in option.stats)
-                        {
-                            Debug.Log($"  -- Stat Key: '{stat.GetParsedKey()}', Value: {stat.value}");
-                        }
+                        //Debug.Log($"Option '{option.text}' has {option.stats.Count} stats entries:");
+                        //foreach (var stat in option.stats)
+                        //{
+                        //    Debug.Log($"  -- Stat Key: '{stat.GetParsedKey()}', Value: {stat.value}");
+                        //}
                     }
 
-                    Debug.Log($"option text for button: {option.text}, option nextId for button {option.nextId}");
+                    //Debug.Log($"option text for button: {option.text}, option nextId for button {option.nextId}");
 
                     // Assign click behavior
                     btn.onClick.AddListener(() => OnOptionSelected(option.text ?? option.image, option.nextId, option.stats));
@@ -189,7 +189,7 @@ public class DialogueUI : MonoBehaviour
         if (Input.GetMouseButtonDown(0) ||
            (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
-            Debug.Log("Screen Clicked");
+            //Debug.Log("Screen Clicked");
 
             if (isTyping)
             {
@@ -218,38 +218,38 @@ public class DialogueUI : MonoBehaviour
 
     void OnOptionSelected(string optionText, string nextId, List<StatPair> optionStats)
     {
-        Debug.Log("Player selected: " + optionText);
+        //Debug.Log("Player selected: " + optionText);
 
         if (stats == null)
         {
             stats = new Stats(); // Create if null
         }
 
-        Debug.Log("Stats Before Update:");
+        //Debug.Log("Stats Before Update:");
         foreach (var statType in System.Enum.GetValues(typeof(Stats.Type)))
         {
-            Debug.Log($"{statType}: {stats.GetStatAmount((Stats.Type)statType)}");
+        //    Debug.Log($"{statType}: {stats.GetStatAmount((Stats.Type)statType)}");
         }
 
         // Update stats based on the stats passed in from the dialogue option
         if (optionStats != null && optionStats.Count > 0)
         {
-            Debug.Log("Current Stats from option:");
+            //Debug.Log("Current Stats from option:");
             foreach (var stat in optionStats)
             {
                 stats.AddToStatAmount(stat.GetParsedKey(), stat.value);
-                Debug.Log($"Parsed Stat: {stat.GetParsedKey()}, Value: {stat.value}");
+                //Debug.Log($"Parsed Stat: {stat.GetParsedKey()}, Value: {stat.value}");
             }
         }
         else
         {
-            Debug.Log($"Option '{optionText}' has no stats to add.");
+            //Debug.Log($"Option '{optionText}' has no stats to add.");
         }
 
-        Debug.Log("Stats After Update:");
+        //Debug.Log("Stats After Update:");
         foreach (var statType in System.Enum.GetValues(typeof(Stats.Type)))
         {
-            Debug.Log($"{statType}: {stats.GetStatAmount((Stats.Type)statType)}");
+        //    Debug.Log($"{statType}: {stats.GetStatAmount((Stats.Type)statType)}");
         }
 
         if (StatsManager.instance == null)
@@ -262,10 +262,10 @@ public class DialogueUI : MonoBehaviour
             StatsManager.instance.SaveStats(stats);
             // Retrieve the saved stats to verify
             Stats loadedStats = StatsManager.instance.GetStats();
-            Debug.Log("Stats After Saving:");
+            //Debug.Log("Stats After Saving:");
             foreach (var statType in System.Enum.GetValues(typeof(Stats.Type)))
             {
-                Debug.Log($"{statType}: {loadedStats.GetStatAmount((Stats.Type)statType)}");
+                //Debug.Log($"{statType}: {loadedStats.GetStatAmount((Stats.Type)statType)}");
             }
         }
 
@@ -277,8 +277,18 @@ public class DialogueUI : MonoBehaviour
     {
         Debug.Log($"Calling ContinueDialogue, Moving to Next Dialogue Line Id:{nextId}");
         var nextDialogue = DialogueManager.instance.GetDialogueById(nextId);
+
         if (nextDialogue != null)
         {
+            var line = nextDialogue.lines[0];
+            Debug.Log($"this is the line: ({line}) and this is the trigger ({line.trigger})");
+            if (!string.IsNullOrEmpty(line.trigger))
+            {
+                Debug.Log("Trigger param has been detected");
+                StartCoroutine(ExecuteTriggerSequence(line.trigger, line.sound, line.nextId));
+            }
+
+            Debug.Log("This is outside the trigger param");
             DisplayDialogue(nextDialogue);
         }
         else
@@ -299,6 +309,33 @@ public class DialogueUI : MonoBehaviour
     /// <summary>
     /// Resets all letters to black, then highlights the current index red if valid.
     /// </summary>
+    /// 
+    IEnumerator ExecuteTriggerSequence(string triggerId, string soundName, string resumeId)
+    {
+        Debug.Log("inside ExecuteTriggerSequence");
+        yield return ScreenFader.instance.FadeOut();
+
+        if (!string.IsNullOrEmpty(soundName))
+            yield return SoundManager.instance.PlaySoundAndWait(soundName);
+            Debug.Log($"Sound name: {soundName} has been played");
+        // "Options/Fire/[fire] fire extinguisher_ you try to extinguish it yourself.png"
+
+        // trigger logic
+        if (triggerId == "move_sprite") { 
+            Debug.Log($"Triggered: {triggerId} has been played");
+        yield return CutsceneController.instance.MoveSprite(); }
+
+        else if (triggerId == "test_scene_change") {
+            Debug.Log($"Triggered: {triggerId} has been played");
+            BackgroundController.instance.ChangeTo("MRTOutside"); }
+
+        yield return new WaitForSeconds(0.5f); // Optional pause
+
+        yield return ScreenFader.instance.FadeIn();
+
+
+    }
+
     private void UpdateLetterHighlight()
     {
         // Reset all letters to black
