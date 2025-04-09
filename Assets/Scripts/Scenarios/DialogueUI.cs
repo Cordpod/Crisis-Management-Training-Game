@@ -280,7 +280,7 @@ public class DialogueUI : MonoBehaviour
 
         if (nextDialogue != null)
         {
-            var line = currentDialogue.lines[0];
+            var line = nextDialogue.lines[0];
             Debug.Log($"this is the line: ({line}) and this is the trigger ({line.trigger})");
             if (!string.IsNullOrEmpty(line.trigger))
             {
@@ -333,7 +333,7 @@ public class DialogueUI : MonoBehaviour
 
         yield return ScreenFader.instance.FadeIn();
 
-        ContinueDialogue(resumeId); // FIX THIS its continuing before the options are being chosen
+
     }
 
     private void UpdateLetterHighlight()
