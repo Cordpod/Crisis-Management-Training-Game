@@ -92,7 +92,7 @@ public class DialogueUI : MonoBehaviour
                 foreach (Transform child in optionsContainer.transform)
                 {
                     Destroy(child.gameObject);
-                    Debug.Log($"destroyed: {child.name}");
+                    //Debug.Log($"destroyed: {child.name}");
                 }
 
                 optionsContainer.SetActive(true);
@@ -277,6 +277,7 @@ public class DialogueUI : MonoBehaviour
     {
         Debug.Log($"Calling ContinueDialogue, Moving to Next Dialogue Line Id:{nextId}");
         var nextDialogue = DialogueManager.instance.GetDialogueById(nextId);
+
         if (nextDialogue != null)
         {
             var line = currentDialogue.lines[0];
@@ -285,7 +286,6 @@ public class DialogueUI : MonoBehaviour
             {
                 Debug.Log("Trigger param has been detected");
                 StartCoroutine(ExecuteTriggerSequence(line.trigger, line.sound, line.nextId));
-                return;
             }
 
             Debug.Log("This is outside the trigger param");
@@ -317,19 +317,23 @@ public class DialogueUI : MonoBehaviour
 
         if (!string.IsNullOrEmpty(soundName))
             yield return SoundManager.instance.PlaySoundAndWait(soundName);
+            Debug.Log($"Sound name: {soundName} has been played");
         // "Options/Fire/[fire] fire extinguisher_ you try to extinguish it yourself.png"
 
         // trigger logic
-        if (triggerId == "train_depart")
-            yield return CutsceneController.instance.MoveTrain();
-        else if (triggerId == "test_scene_change")
-            BackgroundController.instance.ChangeTo("MRTOutside");
+        if (triggerId == "move_sprite") { 
+            Debug.Log($"Triggered: {triggerId} has been played");
+        yield return CutsceneController.instance.MoveSprite(); }
+
+        else if (triggerId == "test_scene_change") {
+            Debug.Log($"Triggered: {triggerId} has been played");
+            BackgroundController.instance.ChangeTo("MRTOutside"); }
 
         yield return new WaitForSeconds(0.5f); // Optional pause
 
         yield return ScreenFader.instance.FadeIn();
 
-        ContinueDialogue(resumeId);
+        ContinueDialogue(resumeId); // FIX THIS its continuing before the options are being chosen
     }
 
     private void UpdateLetterHighlight()
