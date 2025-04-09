@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SoundManager : MonoBehaviour
+public class SFXManager : MonoBehaviour
 {
-    public static SoundManager Instance;
+    public static SFXManager Instance;
 
     // References to the AudioSource components for different music tracks.
     public AudioSource mainGameAudio;
