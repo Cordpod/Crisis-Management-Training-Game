@@ -23,7 +23,7 @@ public class ScenarioCoordinator : MonoBehaviour
     {
         Debug.Log($"Starting scenario: {scenarioName}");
         DialogueManager.instance.LoadDialogueForScenario(scenarioName);
-        StartFirstDialogue(scenarioName);
+        StartFirstDialogue(scenarioName, npcRef);
         if (npcRef != null)
         {
             StartCoroutine(HandleDialogue(npcRef, scenarioName));
@@ -35,7 +35,10 @@ public class ScenarioCoordinator : MonoBehaviour
     {
         yield return new WaitUntil(() => DialogueUI.isDialogueActive == false); // Wait until the dialogue is done
 
-        npcRef.MarkDialogueComplete();
+        if (!npcRef.dialogueWasSkipped)
+        {
+            npcRef.MarkDialogueComplete();
+        }
 
         // Optional: Save completion persistently
         //PlayerPrefs.SetInt("Scenario_" + scenarioName, 1);
@@ -55,7 +58,7 @@ public class ScenarioCoordinator : MonoBehaviour
         }
     }
 
-    private void StartFirstDialogue(string scenarioName)
+    private void StartFirstDialogue(string scenarioName, NPC npcRef)
     {
 
         DialogueEntry firstDialogue = DialogueManager.instance.GetDialogueById(scenarioName);
@@ -63,7 +66,9 @@ public class ScenarioCoordinator : MonoBehaviour
         if (firstDialogue != null)
         {
             Debug.Log($"Starting First Dialogue for: {scenarioName}");
-            DialogueUI.instance.DisplayDialogue(firstDialogue);
+            //DialogueUI.instance.DisplayDialogue(firstDialogue);
+            DialogueUI.instance.StartDialogueFromNPC(firstDialogue, npcRef); // replace with actual reference
+
         }
         else
         {

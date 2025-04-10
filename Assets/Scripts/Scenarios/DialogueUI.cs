@@ -27,6 +27,8 @@ public class DialogueUI : MonoBehaviour
 
     public UI_StatsRadarChart radarChart;
     private Stats stats;
+    private NPC currentNPC;
+
 
     private void Start()
     {
@@ -47,6 +49,12 @@ public class DialogueUI : MonoBehaviour
             Destroy(gameObject); // Prevent duplicates
         }
     }
+    public void StartDialogueFromNPC(DialogueEntry dialogue, NPC npc)
+    {
+        currentNPC = npc;
+        DisplayDialogue(dialogue);
+    }
+
 
     public void DisplayDialogue(DialogueEntry dialogue)
     {
@@ -304,6 +312,11 @@ public class DialogueUI : MonoBehaviour
         Debug.Log("Dialogue closed.");
         isDialogueActive = false; // Allow player to move again
         gameObject.SetActive(false); // Hide dialogue box
+
+        if (currentNPC != null) {
+            currentNPC.MarkDialogueSkipped();
+            currentNPC = null;
+        }
     }
 
     /// <summary>
@@ -315,10 +328,6 @@ public class DialogueUI : MonoBehaviour
         Debug.Log("inside ExecuteTriggerSequence");
         yield return ScreenFader.instance.FadeOut();
 
-        if (!string.IsNullOrEmpty(soundName))
-            yield return SoundManager.instance.PlaySoundAndWait(soundName);
-            Debug.Log($"Sound name: {soundName} has been played");
-        // "Options/Fire/[fire] fire extinguisher_ you try to extinguish it yourself.png"
 
         // trigger logic
         if (triggerId == "move_sprite") { 
@@ -328,6 +337,11 @@ public class DialogueUI : MonoBehaviour
         else if (triggerId == "test_scene_change") {
             Debug.Log($"Triggered: {triggerId} has been played");
             BackgroundController.instance.ChangeTo("MRTOutside"); }
+
+        if (!string.IsNullOrEmpty(soundName))
+            yield return SoundManager.instance.PlaySoundAndWait(soundName);
+        Debug.Log($"Sound name: {soundName} has been played");
+        // "Options/Fire/[fire] fire extinguisher_ you try to extinguish it yourself.png"
 
         yield return new WaitForSeconds(0.5f); // Optional pause
 
