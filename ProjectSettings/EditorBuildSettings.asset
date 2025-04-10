@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WaitingForMRT.unity
     guid: cb682953200138f45be9382c77d473b4
+  - enabled: 1
+    path: Assets/Scenes/Level0.unity
+    guid: fcb44238256d09746aed357e0f87f250
   m_configObjects: {}

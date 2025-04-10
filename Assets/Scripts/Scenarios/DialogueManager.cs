@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class StatPair
@@ -126,6 +127,12 @@ public class DialogueManager : MonoBehaviour
 
     public DialogueEntry GetDialogueById(string id)
     {
+        // If the active scene is Level0, ignore the extra prefix
+        if (SceneManager.GetActiveScene().name == "Level0")
+        {
+            return dialogueData?.dialogue.Find(d => d.id == id);
+        }
+
         string levelPrefix = GameStateManager.instance?.GetLevelPrefix() ?? "L1";
 
         // Priority: Check for level-specific override
