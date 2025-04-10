@@ -275,25 +275,25 @@ public class DialogueUI : MonoBehaviour
 
     void ContinueDialogue(string nextId)
     {
-        Debug.Log($"Calling ContinueDialogue, Moving to Next Dialogue Line Id:{nextId}");
+        //Debug.Log($"Calling ContinueDialogue, Moving to Next Dialogue Line Id:{nextId}");
         var nextDialogue = DialogueManager.instance.GetDialogueById(nextId);
 
         if (nextDialogue != null)
         {
             var line = nextDialogue.lines[0];
-            Debug.Log($"this is the line: ({line}) and this is the trigger ({line.trigger})");
+            //Debug.Log($"this is the line: ({line}) and this is the trigger ({line.trigger})");
             if (!string.IsNullOrEmpty(line.trigger))
             {
-                Debug.Log("Trigger param has been detected");
+                //Debug.Log("Trigger param has been detected");
                 StartCoroutine(ExecuteTriggerSequence(line.trigger, line.sound, line.nextId));
             }
 
-            Debug.Log("This is outside the trigger param");
+            //Debug.Log("This is outside the trigger param");
             DisplayDialogue(nextDialogue);
         }
         else
         {
-            Debug.Log("Dialogue Ended");
+            //Debug.Log("Dialogue Ended");
             gameObject.SetActive(false); // Hide dialogue box when finished
             isDialogueActive = false;
         }
