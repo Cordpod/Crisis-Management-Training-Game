@@ -1053,9 +1053,177 @@
       "id": "UniversalEnd",
       "speaker": "-",
       "lines": [{ "text": " Temporary End"}]
+    },
+    {
+      "id": "Level0_InfoClarityTest",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "You notice a woman who looks like she is in pain at the bus stop.<br><br>Which action seems to demonstrate information clarity the most?\n 1. Ask her questions to check how she feels\n 2. Look around to see if anyone else notices\n 3. Pretend not to notice and look away",
+          "options": [
+            { "text": "1", "nextId": "Level0_Correct_InfoClarity" },
+            { "text": "2", "nextId": "Level0_Wrong_InfoClarity" },
+            { "text": "3", "nextId": "Level0_Wrong_InfoClarity" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Level0_Wrong_InfoClarity",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Wrong!",
+          "nextId": "Level0_InfoClarityTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_Correct_InfoClarity",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Correct!",
+          "nextId": "Level0_HeuristicsTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_HeuristicsTest",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "You decide to ask some questions. Based on her responses you realise you have been in a similar situation before.<br><br>Which action seems to demonstrate heuristics & biases the most?\n 1. Assume help is unneeded since it is common\n 2. Continue asking random questions\n 3. Offer advice based on what worked before",
+          "options": [
+            { "text": "1", "nextId": "Level0_Wrong_Heuristics" },
+            { "text": "2", "nextId": "Level0_Wrong_Heuristics" },
+            { "text": "3", "nextId": "Level0_Correct_Heuristics" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Level0_Wrong_Heuristics",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Wrong!",
+          "nextId": "Level0_HeuristicsTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_Correct_Heuristics",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Correct!",
+          "nextId": "Level0_MentalModelsTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_MentalModelsTest",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Because of your past experience, you have also learned how to deal with this common type of pain that the elderly may feel.<br><br>Which action seems to demonstrate mental models the most?\n 1. Verify details that are usually needed\n 2. Consider what procedural steps need to change to fit the situation\n 3. Do exactly what you did the last time",
+          "options": [
+            { "text": "1", "nextId": "Level0_Wrong_MentalModels" },
+            { "text": "2", "nextId": "Level0_Correct_MentalModels" },
+            { "text": "3", "nextId": "Level0_Wrong_MentalModels" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Level0_Wrong_MentalModels",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Wrong!",
+          "nextId": "Level0_MentalModelsTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_Correct_MentalModels",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Correct!",
+          "nextId": "Level0_ExternalAidTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_ExternalAidTest",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "As you help the woman, you realise that the woman needs more help than you can offer.<br><br>Which action seems to demonstrate external aid the most?\n 1. Bring her to the nearest clinic\n 2. Ask for help from people nearby with medical experience\n 3. Let her know she should find a doctor and continue waiting for your bus",
+          "options": [
+            { "text": "1", "nextId": "Level0_Wrong_ExternalAid" },
+            { "text": "2", "nextId": "Level0_Correct_ExternalAid" },
+            { "text": "3", "nextId": "Level0_Wrong_ExternalAid" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Level0_Wrong_ExternalAid",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Wrong!",
+          "nextId": "Level0_ExternalAidTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_Correct_ExternalAid",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Correct!",
+          "nextId": "Level0_CognitiveLoadTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_CognitiveLoadTest",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "As you help her to the clinic, you realise you had many options regarding how to deal with this situation.<br><br>Which action seems to demonstrate cognitive load the most?\n 1. Consider all options and act on the best and most helpful option\n 2. Deal with everything alone skillfully\n 3. Choose the one that is the most convenient",
+          "options": [
+            { "text": "1", "nextId": "Level0_Correct_CognitiveLoad" },
+            { "text": "2", "nextId": "Level0_Wrong_CognitiveLoad" },
+            { "text": "3", "nextId": "Level0_Wrong_CognitiveLoad" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Level0_Wrong_CognitiveLoad",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Wrong!",
+          "nextId": "Level0_CognitiveLoadTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_Correct_CognitiveLoad",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Correct!",
+          "nextId": "UniversalEnd"
+        }
+      ]
     }
-
-
   ]
 }
 
