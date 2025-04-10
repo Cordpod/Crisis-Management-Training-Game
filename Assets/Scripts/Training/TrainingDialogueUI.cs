@@ -182,7 +182,7 @@ public class TrainingDialogueUI : MonoBehaviour
             string[] parts = triggerId.Split('_');
             string bgName = parts[parts.Length - 1]; // e.g., "MRTOutside"
             BackgroundController.instance.ChangeTo(bgName);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
             yield return ScreenFader.instance.FadeIn();
 
         } else if (triggerId == "move_sprite") {

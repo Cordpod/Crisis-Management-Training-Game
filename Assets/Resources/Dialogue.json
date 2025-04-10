@@ -973,8 +973,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "After a few stops, the train has come to a sudden stop in the middle of the tracks.",
-                      "trigger": "scene_change_MRTOutside",
+                      "text": "After a few stops, the train has come to a sudden stop in the middle of the tracks.",                      
                       "nextId": "TrainingScene12"
                     }
                   ]
@@ -984,8 +983,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "You still have your headphones on and missed the announcement.<br><br>You decide to ask someone nearby if there was anything important in the announcement.",
-                      "trigger": "scene_change_MRTInside",
+                      "text": "You still have your headphones on and missed the announcement.<br><br>You decide to ask someone nearby if there was anything important in the announcement.",                      
                       "nextId": "TrainingScene13"
                     }
                   ]
@@ -1017,7 +1015,6 @@
                   "lines": [
                     {
                       "text": "This is an example of <b><color=#FF0000>mental models</color></b> in crisis management.<br><br>Mental models refers to how standard procedures may be applied to resolve an issue, such as drills.",
-                      "trigger": "move_sprite",
                       "nextId": "TrainingScene16"
                     }
                   ]
