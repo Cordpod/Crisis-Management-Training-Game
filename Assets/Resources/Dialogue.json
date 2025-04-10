@@ -849,6 +849,45 @@
                   "lines": [{ "text": "Emergency services arrive, extinguishing the fire and treating those affected. Thanks to your actions, panic was controlled, and injuries were minimized. Your quick thinking and coordination helped keep the situation under control."}]
                 },
 
+    {
+        "id": "InformationStart",
+        "speaker": "TrainerNPC",
+        "lines": [
+        {
+            "text": "Welcome to CHIME Marathon!<br><br>Thank you for signing up as one of our marathon helpers, we could really use your help.",
+            "nextId": "Information2"
+        }
+        ]
+    },
+                {
+                  "id": "Information2",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "For your helper job, start heading towards the marathon finish line and make sure everything's running smoothly<br><br>Hint hint... Remember CHIME!",
+                      "nextId": "Information3"
+                    }
+                  ]
+                },
+                {
+                  "id": "Information3",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "The race manager will be waiting for you on the right side of the finish line for a short debrief!",
+                      "nextId": "Information4"
+                    }
+                  ]
+                },
+                {
+                  "id": "Information4",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "Last thing...<br>The marathon ends when the timer runs out, please meet the manager by then. <br><br>All the best!"
+                    }
+                  ]
+                },
 
               
     {
