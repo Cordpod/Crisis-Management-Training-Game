@@ -140,13 +140,47 @@ public class TrainingDialogueUI : MonoBehaviour
         DialogueEntry nextDialogue = TrainingDialogueManager.instance.GetDialogueById(nextId);
         if (nextDialogue != null)
         {
-            DisplayTrainingDialogue(nextDialogue);
+            DialogueLine line = nextDialogue.lines[0];
+
+            if (!string.IsNullOrEmpty(line.trigger))
+            {
+                StartCoroutine(ExecuteTrainingTriggerSequence(line.trigger, line.sound, line.nextId));
+            }
+            else
+            {
+                DisplayTrainingDialogue(nextDialogue);
+            }
         }
         else
         {
             CloseTrainingDialogue();
         }
     }
+
+    IEnumerator ExecuteTrainingTriggerSequence(string triggerId, string soundName, string resumeId)
+    {
+        yield return ScreenFader.instance.FadeOut();
+
+        //if (!string.IsNullOrEmpty(soundName))
+        //    yield return SoundManager.instance.PlaySoundAndWait(soundName);
+
+        Debug.Log("Sound completed, going to if else for trigger");
+        // Trigger cutscene
+        if (triggerId.StartsWith( "scene_change"))
+        {
+            Debug.Log("detected trigger id correctly");
+            // getting the scene to change to 
+            string[] parts = triggerId.Split('_');
+            string bgName = parts[parts.Length - 1]; // e.g., "MRTOutside"
+            BackgroundController.instance.ChangeTo(bgName);
+        }
+
+        yield return new WaitForSeconds(0.2f);
+        yield return ScreenFader.instance.FadeIn();
+
+        //ContinueTrainingDialogue(resumeId);
+    }
+
 
     public void CloseTrainingDialogue()
     {

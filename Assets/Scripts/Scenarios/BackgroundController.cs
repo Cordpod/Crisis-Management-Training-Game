@@ -8,6 +8,17 @@ public class BackgroundController : MonoBehaviour
 
     public GameObject mrtOutsideBG;
     public GameObject waitingForMrtBG;
+    public GameObject mrtInsideBG;
+
+
+    private void Start()
+    {
+        // Let's say you want MRTOutside as the default visible one
+        waitingForMrtBG.SetActive(true);
+        mrtOutsideBG.SetActive(false);
+        mrtInsideBG.SetActive(false);
+
+    }
 
     private void Awake()
     {
@@ -16,13 +27,21 @@ public class BackgroundController : MonoBehaviour
 
     public void ChangeTo(string name)
     {
+        Debug.Log($"i am inside the ChangeTo in background controller. bg name: {name}");
         mrtOutsideBG.SetActive(false);
         waitingForMrtBG.SetActive(false);
+        mrtInsideBG.SetActive(false);
+        Debug.Log("mrtOutsideBG name: " + mrtOutsideBG.name);
+        Debug.Log("waitingForMrtBG name: " + waitingForMrtBG.name);
+        Debug.Log($"shld be all set unactive alr");
+
 
         switch (name)
         {
-            case "MRTOutside": waitingForMrtBG.SetActive(true); break;
-            case "WaitingForMRT": mrtOutsideBG.SetActive(true); break;
+            case "MRTOutside": mrtOutsideBG.SetActive(true); break;
+            case "WaitingForMRT": waitingForMrtBG.SetActive(true); break;
+            case "MRTInside": mrtInsideBG.SetActive(true); break;
+
         }
     }
 }

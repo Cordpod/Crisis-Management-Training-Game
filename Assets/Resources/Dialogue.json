@@ -851,24 +851,24 @@
 
 
               
-                {
-                  "id": "TrainingScene",
-                  "speaker": "TrainerNPC",
-                  "lines": [
-                    {
-                      "text": "You are rushing to school for an exam. In the station, you feel overwhelmed by the crowd. <br><br>You choose not to do anything, and continue stressing about where you are on time for the paper.",
-                      "nextId": "TrainingScene2"
-                    }
-                  ]
-                },
+    {
+        "id": "TrainingScene",
+        "speaker": "TrainerNPC",
+        "lines": [
+        {
+            "text": "You are rushing to school for an exam. In the station, you feel overwhelmed by the crowd. <br><br>You choose not to do anything, and continue stressing about where you are on time for the paper.",
+            "trigger": "scene_change_MRTInside",
+            "nextId": "TrainingScene2"
+        }
+        ]
+    },
                 {
                   "id": "TrainingScene2",
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
                       "text": "You notice that someone left a bag behind.<br><br>You pretend that you did not notice anything and hope that someone else will help them instead.",
-                      "trigger": "test_scene_change",
-                      "sound": "siren",
+                      "trigger": "scene_change_MRTOutside",
                       "nextId": "TrainingScene3"
                     }
                   ]
@@ -879,6 +879,7 @@
                   "lines": [
                     {
                       "text": "After a few stops, the train comes to a sudden stop in the middle of the tracks.",
+                      "trigger": "scene_change_MRTInside",
                       "nextId": "TrainingScene4"
                     }
                   ]
