@@ -136,6 +136,12 @@ public class TrainingDialogueUI : MonoBehaviour
 
     public void ContinueTrainingDialogue(string nextId)
     {
+        StartCoroutine(ContinueTrainingDialogueCoroutine(nextId));
+    }
+
+
+    private IEnumerator ContinueTrainingDialogueCoroutine(string nextId)
+    {
         // Retrieve the next dialogue entry from TrainingDialogueManager.
         DialogueEntry nextDialogue = TrainingDialogueManager.instance.GetDialogueById(nextId);
         if (nextDialogue != null)
@@ -144,12 +150,14 @@ public class TrainingDialogueUI : MonoBehaviour
 
             if (!string.IsNullOrEmpty(line.trigger))
             {
-                StartCoroutine(ExecuteTrainingTriggerSequence(line.trigger, line.sound, line.nextId));
+                yield return StartCoroutine(ExecuteTrainingTriggerSequence(line.trigger, line.sound, line.nextId));
+         
+
             }
-            else
-            {
-                DisplayTrainingDialogue(nextDialogue);
-            }
+
+
+            DisplayTrainingDialogue(nextDialogue);
+            
         }
         else
         {
@@ -159,7 +167,7 @@ public class TrainingDialogueUI : MonoBehaviour
 
     IEnumerator ExecuteTrainingTriggerSequence(string triggerId, string soundName, string resumeId)
     {
-        yield return ScreenFader.instance.FadeOut();
+        //yield return ScreenFader.instance.FadeOut();
 
         //if (!string.IsNullOrEmpty(soundName))
         //    yield return SoundManager.instance.PlaySoundAndWait(soundName);
@@ -168,15 +176,21 @@ public class TrainingDialogueUI : MonoBehaviour
         // Trigger cutscene
         if (triggerId.StartsWith( "scene_change"))
         {
+            yield return ScreenFader.instance.FadeOut();
             Debug.Log("detected trigger id correctly");
             // getting the scene to change to 
             string[] parts = triggerId.Split('_');
             string bgName = parts[parts.Length - 1]; // e.g., "MRTOutside"
             BackgroundController.instance.ChangeTo(bgName);
+            yield return new WaitForSeconds(0.1f);
+            yield return ScreenFader.instance.FadeIn();
+
+        } else if (triggerId == "move_sprite") {
+            yield return CutsceneController.instance.MoveSprite();
         }
 
-        yield return new WaitForSeconds(0.2f);
-        yield return ScreenFader.instance.FadeIn();
+        //yield return new WaitForSeconds(0.1f);
+        //yield return ScreenFader.instance.FadeIn();
 
         //ContinueTrainingDialogue(resumeId);
     }

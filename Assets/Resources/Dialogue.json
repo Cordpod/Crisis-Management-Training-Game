@@ -857,7 +857,6 @@
         "lines": [
         {
             "text": "You are rushing to school for an exam. In the station, you feel overwhelmed by the crowd. <br><br>You choose not to do anything, and continue stressing about where you are on time for the paper.",
-            "trigger": "scene_change_MRTInside",
             "nextId": "TrainingScene2"
         }
         ]
@@ -868,7 +867,7 @@
                   "lines": [
                     {
                       "text": "You notice that someone left a bag behind.<br><br>You pretend that you did not notice anything and hope that someone else will help them instead.",
-                      "trigger": "scene_change_MRTOutside",
+                      "trigger": "scene_change_MRTInside",
                       "nextId": "TrainingScene3"
                     }
                   ]
@@ -879,7 +878,7 @@
                   "lines": [
                     {
                       "text": "After a few stops, the train comes to a sudden stop in the middle of the tracks.",
-                      "trigger": "scene_change_MRTInside",
+                      "trigger": "scene_change_MRTOutside",
                       "nextId": "TrainingScene4"
                     }
                   ]
@@ -890,6 +889,7 @@
                   "lines": [
                     {
                       "text": "You still have your headphones on and missed the announcement.<br><br>You decide to do nothing and wait to see how the people around you react.",
+                      "trigger": "scene_change_MRTInside",
                       "nextId": "TrainingScene5"
                     }
                   ]
@@ -900,6 +900,7 @@
                   "lines": [
                     {
                       "text": "You find out that everyone is required to evacuate the train.<br><br>You choose to wait for someone to open the door to leave.",
+                      "trigger": "scene_change_MRTOutside",
                       "nextId": "TrainingScene6"
                     }
                   ]
@@ -910,6 +911,7 @@
                   "lines": [
                     {
                       "text": "While evacuating, you notice an elderly woman asking for someone to help her.<br><br>You think that the others around you can help her instead so you continue walking down the tracks.",
+                      "trigger": "move_sprite",
                       "nextId": "TrainingScene7"
                     }
                   ]
@@ -930,6 +932,7 @@
                   "lines": [
                     {
                       "text": "You are rushing to school for an exam. In the station, you feel overwhelmed by the crowd.<br><br>You decide to put your headphones on to destress.",
+                      "trigger": "scene_change_WaitingForMRT",
                       "nextId": "TrainingScene9"
                     }
                   ]
@@ -950,6 +953,7 @@
                   "lines": [
                     {
                       "text": "You notice that someone left a bag behind.<br><br>You decide to return the bag before she alights the train.",
+                      "trigger": "scene_change_MRTInside",
                       "nextId": "TrainingScene11"
                     }
                   ]
@@ -960,6 +964,17 @@
                   "lines": [
                     {
                       "text": "This is an example of <b><color=#FF0000>heuristics and biases</color></b> in crisis management.<br><br>Heuristics and biases refers to the immediate actions you might take at the start of a crisis, based on your background knowledge or past experiences.",
+                      "nextId": "TrainingScene11.5"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene11.5",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "After a few stops, the train has come to a sudden stop in the middle of the tracks.",
+                      "trigger": "scene_change_MRTOutside",
                       "nextId": "TrainingScene12"
                     }
                   ]
@@ -970,6 +985,7 @@
                   "lines": [
                     {
                       "text": "You still have your headphones on and missed the announcement.<br><br>You decide to ask someone nearby if there was anything important in the announcement.",
+                      "trigger": "scene_change_MRTInside",
                       "nextId": "TrainingScene13"
                     }
                   ]
@@ -990,6 +1006,7 @@
                   "lines": [
                     {
                       "text": "You find out that everyone is required to evacuate the train.<br><br>You choose to look around and assist people in leaving the train safely.",
+                      "trigger": "scene_change_MRTOutside",
                       "nextId": "TrainingScene15"
                     }
                   ]
@@ -1000,6 +1017,7 @@
                   "lines": [
                     {
                       "text": "This is an example of <b><color=#FF0000>mental models</color></b> in crisis management.<br><br>Mental models refers to how standard procedures may be applied to resolve an issue, such as drills.",
+                      "trigger": "move_sprite",
                       "nextId": "TrainingScene16"
                     }
                   ]
@@ -1009,7 +1027,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "While evacuating, you notice an elderly woman asking for someone to help her.<br><br>You decide to work with others around you to assist her in safely navigating along the tracks.",
+                      "text": "While evacuating, you notice an elderly woman asking for someone to help her.<br><br>You decide to work with others around you to assist her in safely navigating along the tracks.",                      
                       "nextId": "TrainingScene17"
                     }
                   ]
@@ -1029,7 +1047,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "Summary:<br>Cognitive load, Heuristics & biases, Information clarity, Mental models and External aid are 5 factors for effectively managing crises.<br><br>Choose your next step:<br>> See more examples of the crisis management framework<br><br>> Move on to the framework test",
+                      "text": "Summary:<br>Cognitive load, Heuristics & biases, Information clarity, Mental models and External aid are 5 factors for effectively managing crises.<br><br>Click Anywhere to Main Menu",
                       "nextId": ""
                     }
                   ]
