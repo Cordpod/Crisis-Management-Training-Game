@@ -49,7 +49,9 @@ public class NPC : MonoBehaviour
             if (speechBubble != null && speechText != null)
             {
                 Debug.Log($"message skipped?: {dialogueWasSkipped}");
-                string msg = dialogueWasSkipped ? messageIfSkipped : messageIfCompleted;
+                bool wasSkipped = SessionScenarioTracker.WasSkipped(scenarioName);
+                Debug.Log($"message skipped?: {wasSkipped}");
+                string msg = wasSkipped ? messageIfSkipped : messageIfCompleted;
                 StartCoroutine(ShowBubble(msg));
             }
         }
@@ -76,6 +78,7 @@ public class NPC : MonoBehaviour
     {
         dialogueCompleted = true; // Consider it done, but flagged as skipped
         SessionScenarioTracker.MarkCompleted(scenarioName);
+        SessionScenarioTracker.MarkSkipped(scenarioName);
         dialogueWasSkipped = true;
 
         if (alertIcon != null)

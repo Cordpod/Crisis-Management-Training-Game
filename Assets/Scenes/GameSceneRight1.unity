@@ -1169,7 +1169,7 @@ MonoBehaviour:
   speechText: {fileID: 1632560489}
   dialogueWasSkipped: 0
   messageIfCompleted: You're a hero!
-  messageIfSkipped: The damage from the fire is too much..
+  messageIfSkipped: OMG the fire damage is terrible..
 --- !u!1 &584741633
 GameObject:
   m_ObjectHideFlags: 0
