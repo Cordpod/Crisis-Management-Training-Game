@@ -545,9 +545,9 @@
       "lines": [
         { "text": "“Hey! Can you help this guy? He just fell over, and is short for breath! I think he is having a heatstroke!”<br><br>Do you:<br>1. Call for help<br>2. Find water<br>3. Fan the person", 
             "options": [
-            { "text": "1", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":3}, {"key":"Mentalmodels","value":2 }, {"key":"Heuristics","value":1 }] },
-            { "text": "2", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":1}, {"key":"Mentalmodels","value":3 }, {"key":"Heuristics","value":2 }] },
-            { "text": "3", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":2}, {"key":"Mentalmodels","value":1 }, {"key":"Heuristics","value":3 }] }
+            { "image": "Options/Heatstroke/phone.png", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":3}, {"key":"Mentalmodels","value":2 }, {"key":"Heuristics","value":1 }] },
+            { "image": "Options/Fire/[fire] water_ you try to extinguish it yourself.png", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":1}, {"key":"Mentalmodels","value":3 }, {"key":"Heuristics","value":2 }] },
+            { "image": "Options/Heatstroke/[heatstroke level 3] fan_ ask someone to get the medic.png", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":2}, {"key":"Mentalmodels","value":1 }, {"key":"Heuristics","value":3 }] }
         ]}
       ]
     },
@@ -731,11 +731,11 @@
                   "id": "L2DumpsterFire3",
                   "speaker": "-",
                   "lines": [
-                    { "text": "People are coughing heavily, and you need to find a way to help them breathe more easily.<br><br>Where will you search for supplies? (Add Picture: groups of people with the equipment as part of outfit)<br>1. Hydration station: Ask volunteers for towels or cloths. <br>2. Medical tent: Look for masks or oxygen supplies. <br>3. Nearby runners and volunteers: Ask if anyone has a spare shirt or towel. ", 
+                    { "text": "People are coughing heavily, and you need to find a way to help them breathe more easily.<br><br>Who will you ask for supplies? <br>1. Hydration station: Ask volunteers for towels or cloths. <br>2. Medical tent: Look for masks or oxygen supplies. <br>3. Nearby runners and volunteers: Ask if anyone has a spare shirt or towel. ", 
                         "options": [
-                        { "text": "1", "nextId": "L2DumpsterFire31", "stats": [{"key":"Externalaid","value":3}, {"key":"Heuristics","value":1 }] },
-                        { "text": "2", "nextId": "L2DumpsterFire32", "stats": [{"key":"Externalaid","value":2}, {"key":"Heuristics","value":2 }] },
-                        { "text": "3", "nextId": "L2DumpsterFire33", "stats": [{"key":"Externalaid","value":1}, {"key":"Heuristics","value":3 }] }
+                        { "image": "Options/Fire/[fire] water boy_ find masks or cloth for people around struggling with smoke.png", "nextId": "L2DumpsterFire31", "stats": [{"key":"Externalaid","value":3}, {"key":"Heuristics","value":1 }] },
+                        { "image": "Options/Fire/[fire] first aid fella_ find masks or cloth for people around struggling with smoke.png", "nextId": "L2DumpsterFire32", "stats": [{"key":"Externalaid","value":2}, {"key":"Heuristics","value":2 }] },
+                        { "image": "Options/Fire/[fire] marathon runner_ find masks or cloth for people around struggling with smoke.png", "nextId": "L2DumpsterFire33", "stats": [{"key":"Externalaid","value":1}, {"key":"Heuristics","value":3 }] }
                     ]}
                   ]
                 },
