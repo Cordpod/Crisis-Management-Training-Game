@@ -2681,7 +2681,7 @@ MonoBehaviour:
   bubbleDuration: 2
   speechText: {fileID: 920933026}
   dialogueWasSkipped: 0
-  messageIfCompleted: Thanks for helping me, I didn't know how to help him
+  messageIfCompleted: Thanks for helping me, I didn't know how to help him!
   messageIfSkipped: Could have used your help just now...
 --- !u!1 &2038550224
 GameObject:

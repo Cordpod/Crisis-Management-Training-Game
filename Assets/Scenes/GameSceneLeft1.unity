@@ -1316,7 +1316,7 @@ MonoBehaviour:
   speechText: {fileID: 1294799300}
   dialogueWasSkipped: 0
   messageIfCompleted: My ankle feels much better, thanks!
-  messageIfSkipped: Oh no, I think it's getting worse
+  messageIfSkipped: Oh no, I think my ankle's getting worse
 --- !u!61 &793715838
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -391,7 +391,7 @@ MonoBehaviour:
   speechText: {fileID: 1019853467}
   dialogueWasSkipped: 0
   messageIfCompleted: Thanks for your help, you're the best!
-  messageIfSkipped: Ahh.. it hurts
+  messageIfSkipped: Ahh.. my calf hurts
 --- !u!1 &203424839
 GameObject:
   m_ObjectHideFlags: 0
