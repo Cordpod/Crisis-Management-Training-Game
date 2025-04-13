@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,7 +9,8 @@ public class GameStartButtonHandler : MonoBehaviour
 {
     public string gameSceneName; // Set these in the Inspector for each button
     public GameObject startupGroup;  
-    public GameObject levelSelectGroup;   
+    public GameObject levelSelectGroup;
+    public GameObject BuildingGroup;
 
     void Start()
     {
@@ -49,7 +51,10 @@ public class GameStartButtonHandler : MonoBehaviour
 
     public void ShowLevelSelection()
     {
-        if (startupGroup != null) startupGroup.SetActive(false);
+        if (startupGroup != null) { 
+            startupGroup.SetActive(false);
+            StartCoroutine(CutsceneController.instance.MoveSprite());
+        }
         if (levelSelectGroup != null) levelSelectGroup.SetActive(true);
     }
 }

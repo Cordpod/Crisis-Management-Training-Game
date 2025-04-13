@@ -136,17 +136,65 @@ public class TrainingDialogueUI : MonoBehaviour
 
     public void ContinueTrainingDialogue(string nextId)
     {
+        StartCoroutine(ContinueTrainingDialogueCoroutine(nextId));
+    }
+
+
+    private IEnumerator ContinueTrainingDialogueCoroutine(string nextId)
+    {
         // Retrieve the next dialogue entry from TrainingDialogueManager.
         DialogueEntry nextDialogue = TrainingDialogueManager.instance.GetDialogueById(nextId);
         if (nextDialogue != null)
         {
+            DialogueLine line = nextDialogue.lines[0];
+
+            if (!string.IsNullOrEmpty(line.trigger))
+            {
+                yield return StartCoroutine(ExecuteTrainingTriggerSequence(line.trigger, line.sound, line.nextId));
+         
+
+            }
+
+
             DisplayTrainingDialogue(nextDialogue);
+            
         }
         else
         {
             CloseTrainingDialogue();
         }
     }
+
+    IEnumerator ExecuteTrainingTriggerSequence(string triggerId, string soundName, string resumeId)
+    {
+        //yield return ScreenFader.instance.FadeOut();
+
+        //if (!string.IsNullOrEmpty(soundName))
+        //    yield return SoundManager.instance.PlaySoundAndWait(soundName);
+
+        Debug.Log("Sound completed, going to if else for trigger");
+        // Trigger cutscene
+        if (triggerId.StartsWith( "scene_change"))
+        {
+            yield return ScreenFader.instance.FadeOut();
+            Debug.Log("detected trigger id correctly");
+            // getting the scene to change to 
+            string[] parts = triggerId.Split('_');
+            string bgName = parts[parts.Length - 1]; // e.g., "MRTOutside"
+            BackgroundController.instance.ChangeTo(bgName);
+            yield return new WaitForSeconds(0.05f);
+            yield return ScreenFader.instance.FadeIn();
+
+        } else if (triggerId == "move_sprite") {
+            yield return CutsceneController.instance.MoveSprite();
+        }
+
+        //yield return new WaitForSeconds(0.1f);
+        //yield return ScreenFader.instance.FadeIn();
+
+        //ContinueTrainingDialogue(resumeId);
+    }
+
 
     public void CloseTrainingDialogue()
     {

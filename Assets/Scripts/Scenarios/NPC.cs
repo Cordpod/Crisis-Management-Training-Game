@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class NPC : MonoBehaviour
@@ -7,6 +8,13 @@ public class NPC : MonoBehaviour
     public string scenarioName; // Set this in the Inspector for each NPC
     public bool dialogueCompleted = false; // Tracking if dialogue has been done before
     public GameObject alertIcon; // Assign in inspector. shows up if havent completed
+    public GameObject speechBubble;
+    public float bubbleDuration = 2f;
+    public TMP_Text speechText; // Assign TMP
+    public bool dialogueWasSkipped = false;
+
+    [TextArea(2, 3)] public string messageIfCompleted;
+    [TextArea(2, 3)] public string messageIfSkipped;
 
     private void Start()
     {
@@ -36,11 +44,42 @@ public class NPC : MonoBehaviour
             //    Debug.Log("dialogue not found");  
             //}
         }
+        else
+        {
+            if (speechBubble != null && speechText != null)
+            {
+                Debug.Log($"message skipped?: {dialogueWasSkipped}");
+                bool wasSkipped = SessionScenarioTracker.WasSkipped(scenarioName);
+                Debug.Log($"message skipped?: {wasSkipped}");
+                string msg = wasSkipped ? messageIfSkipped : messageIfCompleted;
+                StartCoroutine(ShowBubble(msg));
+            }
+        }
     }
+        IEnumerator ShowBubble(string message)
+        {
+            speechText.text = message;
+            speechBubble.SetActive(true);
+            yield return new WaitForSeconds(bubbleDuration);
+            speechBubble.SetActive(false);
+        }
+
     public void MarkDialogueComplete()
     {
         dialogueCompleted = true;
         SessionScenarioTracker.MarkCompleted(scenarioName);
+        dialogueWasSkipped = false;
+
+        if (alertIcon != null)
+            alertIcon.SetActive(false);
+    }
+
+    public void MarkDialogueSkipped()
+    {
+        dialogueCompleted = true; // Consider it done, but flagged as skipped
+        SessionScenarioTracker.MarkCompleted(scenarioName);
+        SessionScenarioTracker.MarkSkipped(scenarioName);
+        dialogueWasSkipped = true;
 
         if (alertIcon != null)
             alertIcon.SetActive(false);

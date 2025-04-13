@@ -136,7 +136,10 @@
                   "id": "L1HeartAttackEnd",
                   "speaker": "-",
                   "lines": [
-                    { "text": "Ambulance arrives shortly after, the paramedics take over and the man is taken into the ambulance. The paramedic assures you that he will be fine."}
+                    { "text": "Ambulance arrives shortly after, the paramedics take over and the man is taken into the ambulance. The paramedic assures you that he will be fine.",
+                      "trigger": "move_sprite",
+                      "sound": "siren"
+                    }
                   ]
                 },
                 
@@ -458,7 +461,7 @@
                   "speaker": "-",
                   "lines": [
                     { "text": "The man said, “It's ok, I'm fine.”<br><br>Do you:<br>1. Assess his condition further and see if there's any help you can provide. <br>2. Provide immediate assistance without forcing, for example, offering an ice pack. ", 
-                        "options": [
+                      "options": [
                         { "text": "1", "nextId": "L1AnkleSprain2", "stats": [{"key":"Heuristics","value":1}, {"key":"Infoclarity","value":3 }] },
                         { "text": "2", "nextId": "L1AnkleSprain2", "stats": [{"key":"Heuristics","value":3}, {"key":"Infoclarity","value":1 }] }
                     ]}
@@ -542,9 +545,9 @@
       "lines": [
         { "text": "“Hey! Can you help this guy? He just fell over, and is short for breath! I think he is having a heatstroke!”<br><br>Do you:<br>1. Call for help<br>2. Find water<br>3. Fan the person", 
             "options": [
-            { "text": "1", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":3}, {"key":"Mentalmodels","value":2 }, {"key":"Heuristics","value":1 }] },
-            { "text": "2", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":1}, {"key":"Mentalmodels","value":3 }, {"key":"Heuristics","value":2 }] },
-            { "text": "3", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":2}, {"key":"Mentalmodels","value":1 }, {"key":"Heuristics","value":3 }] }
+            { "image": "Options/Heatstroke/phone.png", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":3}, {"key":"Mentalmodels","value":2 }, {"key":"Heuristics","value":1 }] },
+            { "image": "Options/Fire/[fire] water_ you try to extinguish it yourself.png", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":1}, {"key":"Mentalmodels","value":3 }, {"key":"Heuristics","value":2 }] },
+            { "image": "Options/Heatstroke/[heatstroke level 3] fan_ ask someone to get the medic.png", "nextId": "L1Heatstroke1", "stats": [{"key":"Externalaid","value":2}, {"key":"Mentalmodels","value":1 }, {"key":"Heuristics","value":3 }] }
         ]}
       ]
     },
@@ -728,11 +731,11 @@
                   "id": "L2DumpsterFire3",
                   "speaker": "-",
                   "lines": [
-                    { "text": "People are coughing heavily, and you need to find a way to help them breathe more easily.<br><br>Where will you search for supplies? (Add Picture: groups of people with the equipment as part of outfit)<br>1. Hydration station: Ask volunteers for towels or cloths. <br>2. Medical tent: Look for masks or oxygen supplies. <br>3. Nearby runners and volunteers: Ask if anyone has a spare shirt or towel. ", 
+                    { "text": "People are coughing heavily, and you need to find a way to help them breathe more easily.<br><br>Who will you ask for supplies? <br>1. Hydration station: Ask volunteers for towels or cloths. <br>2. Medical tent: Look for masks or oxygen supplies. <br>3. Nearby runners and volunteers: Ask if anyone has a spare shirt or towel. ",  
                         "options": [
-                        { "text": "1", "nextId": "L2DumpsterFire31", "stats": [{"key":"Externalaid","value":3}, {"key":"Heuristics","value":1 }] },
-                        { "text": "2", "nextId": "L2DumpsterFire32", "stats": [{"key":"Externalaid","value":2}, {"key":"Heuristics","value":2 }] },
-                        { "text": "3", "nextId": "L2DumpsterFire33", "stats": [{"key":"Externalaid","value":1}, {"key":"Heuristics","value":3 }] }
+                        { "image": "Options/Fire/[fire] water boy_ find masks or cloth for people around struggling with smoke.png", "nextId": "L2DumpsterFire31", "stats": [{"key":"Externalaid","value":3}, {"key":"Heuristics","value":1 }] },
+                        { "image": "Options/Fire/[fire] first aid fella_ find masks or cloth for people around struggling with smoke.png", "nextId": "L2DumpsterFire32", "stats": [{"key":"Externalaid","value":2}, {"key":"Heuristics","value":2 }] },
+                        { "image": "Options/Fire/[fire] marathon runner_ find masks or cloth for people around struggling with smoke.png", "nextId": "L2DumpsterFire33", "stats": [{"key":"Externalaid","value":1}, {"key":"Heuristics","value":3 }] }
                     ]}
                   ]
                 },
@@ -846,24 +849,64 @@
                   "lines": [{ "text": "Emergency services arrive, extinguishing the fire and treating those affected. Thanks to your actions, panic was controlled, and injuries were minimized. Your quick thinking and coordination helped keep the situation under control."}]
                 },
 
-
-              
+    {
+        "id": "InformationStart",
+        "speaker": "TrainerNPC",
+        "lines": [
+        {
+            "text": "Welcome to CHIME Marathon!<br><br>Thank you for signing up as one of our marathon helpers, we could really use your help.",
+            "nextId": "Information2"
+        }
+        ]
+    },
                 {
-                  "id": "TrainingScene",
+                  "id": "Information2",
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "You are rushing to school for an exam. In the station, you feel overwhelmed by the crowd. <br><br>You choose not to do anything, and continue stressing about where you are on time for the paper.",
-                      "nextId": "TrainingScene2"
+                      "text": "For your helper job, start heading towards the marathon finish line and make sure everything's running smoothly<br><br>Hint hint... Remember CHIME!",
+                      "nextId": "Information3"
                     }
                   ]
                 },
+                {
+                  "id": "Information3",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "The race manager will be waiting for you on the right side of the finish line for a short debrief!",
+                      "nextId": "Information4"
+                    }
+                  ]
+                },
+                {
+                  "id": "Information4",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "Last thing...<br>The marathon ends when the timer runs out, please meet the manager by then. <br><br>All the best!"
+                    }
+                  ]
+                },
+
+              
+    {
+        "id": "TrainingScene",
+        "speaker": "TrainerNPC",
+        "lines": [
+        {
+            "text": "You are rushing to school for an exam. In the station, you feel overwhelmed by the crowd. <br><br>You choose not to do anything, and continue stressing about where you are on time for the paper.",
+            "nextId": "TrainingScene2"
+        }
+        ]
+    },
                 {
                   "id": "TrainingScene2",
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
                       "text": "You notice that someone left a bag behind.<br><br>You pretend that you did not notice anything and hope that someone else will help them instead.",
+                      "trigger": "scene_change_MRTInside",
                       "nextId": "TrainingScene3"
                     }
                   ]
@@ -874,6 +917,7 @@
                   "lines": [
                     {
                       "text": "After a few stops, the train comes to a sudden stop in the middle of the tracks.",
+                      "trigger": "scene_change_MRTOutside",
                       "nextId": "TrainingScene4"
                     }
                   ]
@@ -884,6 +928,7 @@
                   "lines": [
                     {
                       "text": "You still have your headphones on and missed the announcement.<br><br>You decide to do nothing and wait to see how the people around you react.",
+                      "trigger": "scene_change_MRTInside",
                       "nextId": "TrainingScene5"
                     }
                   ]
@@ -894,6 +939,7 @@
                   "lines": [
                     {
                       "text": "You find out that everyone is required to evacuate the train.<br><br>You choose to wait for someone to open the door to leave.",
+                      "trigger": "scene_change_MRTOutside",
                       "nextId": "TrainingScene6"
                     }
                   ]
@@ -904,6 +950,7 @@
                   "lines": [
                     {
                       "text": "While evacuating, you notice an elderly woman asking for someone to help her.<br><br>You think that the others around you can help her instead so you continue walking down the tracks.",
+                      "trigger": "move_sprite",
                       "nextId": "TrainingScene7"
                     }
                   ]
@@ -924,6 +971,7 @@
                   "lines": [
                     {
                       "text": "You are rushing to school for an exam. In the station, you feel overwhelmed by the crowd.<br><br>You decide to put your headphones on to destress.",
+                      "trigger": "scene_change_WaitingForMRT",
                       "nextId": "TrainingScene9"
                     }
                   ]
@@ -944,6 +992,7 @@
                   "lines": [
                     {
                       "text": "You notice that someone left a bag behind.<br><br>You decide to return the bag before she alights the train.",
+                      "trigger": "scene_change_MRTInside",
                       "nextId": "TrainingScene11"
                     }
                   ]
@@ -954,6 +1003,16 @@
                   "lines": [
                     {
                       "text": "This is an example of <b><color=#FF0000>heuristics and biases</color></b> in crisis management.<br><br>Heuristics and biases refers to the immediate actions you might take at the start of a crisis, based on your background knowledge or past experiences.",
+                      "nextId": "TrainingScene11.5"
+                    }
+                  ]
+                },
+                {
+                  "id": "TrainingScene11.5",
+                  "speaker": "TrainerNPC",
+                  "lines": [
+                    {
+                      "text": "After a few stops, the train has come to a sudden stop in the middle of the tracks.",                      
                       "nextId": "TrainingScene12"
                     }
                   ]
@@ -963,7 +1022,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "You still have your headphones on and missed the announcement.<br><br>You decide to ask someone nearby if there was anything important in the announcement.",
+                      "text": "You still have your headphones on and missed the announcement.<br><br>You decide to ask someone nearby if there was anything important in the announcement.",                      
                       "nextId": "TrainingScene13"
                     }
                   ]
@@ -984,6 +1043,7 @@
                   "lines": [
                     {
                       "text": "You find out that everyone is required to evacuate the train.<br><br>You choose to look around and assist people in leaving the train safely.",
+                      "trigger": "scene_change_MRTOutside",
                       "nextId": "TrainingScene15"
                     }
                   ]
@@ -1003,7 +1063,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "While evacuating, you notice an elderly woman asking for someone to help her.<br><br>You decide to work with others around you to assist her in safely navigating along the tracks.",
+                      "text": "While evacuating, you notice an elderly woman asking for someone to help her.<br><br>You decide to work with others around you to assist her in safely navigating along the tracks.",                      
                       "nextId": "TrainingScene17"
                     }
                   ]
@@ -1023,7 +1083,7 @@
                   "speaker": "TrainerNPC",
                   "lines": [
                     {
-                      "text": "Summary:<br>Cognitive load, Heuristics & biases, Information clarity, Mental models and External aid are 5 factors for effectively managing crises.<br><br>Choose your next step:<br>> See more examples of the crisis management framework<br><br>> Move on to the framework test",
+                      "text": "Summary:<br>Cognitive load, Heuristics & biases, Information clarity, Mental models and External aid are 5 factors for effectively managing crises.<br><br>Click Anywhere to Main Menu",
                       "nextId": ""
                     }
                   ]
@@ -1032,9 +1092,177 @@
       "id": "UniversalEnd",
       "speaker": "-",
       "lines": [{ "text": " Temporary End"}]
+    },
+    {
+      "id": "Level0_InfoClarityTest",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "You notice a woman who looks like she is in pain at the bus stop.<br><br>Which action seems to demonstrate information clarity the most?\n 1. Ask her questions to check how she feels\n 2. Look around to see if anyone else notices\n 3. Pretend not to notice and look away",
+          "options": [
+            { "text": "1", "nextId": "Level0_Correct_InfoClarity" },
+            { "text": "2", "nextId": "Level0_Wrong_InfoClarity" },
+            { "text": "3", "nextId": "Level0_Wrong_InfoClarity" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Level0_Wrong_InfoClarity",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Wrong!",
+          "nextId": "Level0_InfoClarityTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_Correct_InfoClarity",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Correct!",
+          "nextId": "Level0_HeuristicsTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_HeuristicsTest",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "You decide to ask some questions. Based on her responses you realise you have been in a similar situation before.<br><br>Which action seems to demonstrate heuristics & biases the most?\n 1. Assume help is unneeded since it is common\n 2. Continue asking random questions\n 3. Offer advice based on what worked before",
+          "options": [
+            { "text": "1", "nextId": "Level0_Wrong_Heuristics" },
+            { "text": "2", "nextId": "Level0_Wrong_Heuristics" },
+            { "text": "3", "nextId": "Level0_Correct_Heuristics" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Level0_Wrong_Heuristics",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Wrong!",
+          "nextId": "Level0_HeuristicsTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_Correct_Heuristics",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Correct!",
+          "nextId": "Level0_MentalModelsTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_MentalModelsTest",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Because of your past experience, you have also learned how to deal with this common type of pain that the elderly may feel.<br><br>Which action seems to demonstrate mental models the most?\n 1. Verify details that are usually needed\n 2. Consider what procedural steps need to change to fit the situation\n 3. Do exactly what you did the last time",
+          "options": [
+            { "text": "1", "nextId": "Level0_Wrong_MentalModels" },
+            { "text": "2", "nextId": "Level0_Correct_MentalModels" },
+            { "text": "3", "nextId": "Level0_Wrong_MentalModels" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Level0_Wrong_MentalModels",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Wrong!",
+          "nextId": "Level0_MentalModelsTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_Correct_MentalModels",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Correct!",
+          "nextId": "Level0_ExternalAidTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_ExternalAidTest",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "As you help the woman, you realise that the woman needs more help than you can offer.<br><br>Which action seems to demonstrate external aid the most?\n 1. Bring her to the nearest clinic\n 2. Ask for help from people nearby with medical experience\n 3. Let her know she should find a doctor and continue waiting for your bus",
+          "options": [
+            { "text": "1", "nextId": "Level0_Wrong_ExternalAid" },
+            { "text": "2", "nextId": "Level0_Correct_ExternalAid" },
+            { "text": "3", "nextId": "Level0_Wrong_ExternalAid" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Level0_Wrong_ExternalAid",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Wrong!",
+          "nextId": "Level0_ExternalAidTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_Correct_ExternalAid",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Correct!",
+          "nextId": "Level0_CognitiveLoadTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_CognitiveLoadTest",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "As you help her to the clinic, you realise you had many options regarding how to deal with this situation.<br><br>Which action seems to demonstrate cognitive load the most?\n 1. Consider all options and act on the best and most helpful option\n 2. Deal with everything alone skillfully\n 3. Choose the one that is the most convenient",
+          "options": [
+            { "text": "1", "nextId": "Level0_Correct_CognitiveLoad" },
+            { "text": "2", "nextId": "Level0_Wrong_CognitiveLoad" },
+            { "text": "3", "nextId": "Level0_Wrong_CognitiveLoad" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Level0_Wrong_CognitiveLoad",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Wrong!",
+          "nextId": "Level0_CognitiveLoadTest"
+        }
+      ]
+    },
+    {
+      "id": "Level0_Correct_CognitiveLoad",
+      "speaker": "Narrator",
+      "lines": [
+        {
+          "text": "Correct!",
+          "nextId": "UniversalEnd"
+        }
+      ]
     }
-
-
   ]
 }
 
